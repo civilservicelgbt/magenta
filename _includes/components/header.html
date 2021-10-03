@@ -18,13 +18,13 @@
 					{% assign itemURL = item.url | remove: '/' %}
 					{% if pageURL == itemURL %}
 						<li class="header--navigation-item header--navigation-item--active">
-							<a class="header--link" href="{{ site.url | append: site.baseurl | append: item.url }}" title="{{ item.alt-text }}">
+							<a class="header--link" href="{{ item.url }}" title="{{ item.alt-text }}">
 								{{ item.display-text }}
 							</a>
 						</li>
 						{% else %}
 						<li class="header--navigation-item">
-							<a class="header--link" href="{{ site.url | append: site.baseurl | append: item.url }}" title="{{ item.alt-text }}">
+							<a class="header--link" href="{{ item.url }}" title="{{ item.alt-text }}">
 								{{ item.display-text }}
 							</a>
 						</li>
