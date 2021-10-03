@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<article class="article--{{ page.layout }}">
+
+	<div class="grid-row">
+
+		{% include layouts/header.html %}
+
+	</div>
+
+	<div class="page--content">
+		<div class="grid-row">
+			{{ content }}
+		</div>
+	</div>
+
+</article>

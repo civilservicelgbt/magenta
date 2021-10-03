@@ -1,0 +1,49 @@
+---
+layout: default
+meta-info: false
+---
+
+<section class="section--{{ page.layout }}">
+
+	<div class="grid-row">
+		{% include layouts/header.html %}
+	</div>
+
+	<div class="grid-row">
+		<div class="grid-column-full">
+			{% include layouts/social-links.html %}
+
+
+			<div id="page--content">
+
+			{% assign now = 'now' | date: '%s' %}
+
+			<!-- Blog posts / news updates -->
+
+			{% assign topicCollection = "news" %}
+			{% include layouts/topic-loop.html %}
+
+			<!-- Events -->
+
+			{% assign topicCollection = "events" %}
+			{% include layouts/topic-loop.html %}
+
+			<!-- Publications -->
+
+			{% assign topicCollection = "publications" %}
+			{% include layouts/topic-loop.html %}
+
+			<!-- Consultations -->
+
+			{% assign topicCollection = "consultations" %}
+			{% include layouts/topic-loop.html %}
+
+			<!-- Archived blog posts / news updates -->
+
+			{% assign topicCollection = "archives" %}
+			{% include layouts/topic-loop.html %}
+
+			</div>
+		</div>
+	</div>
+</section>

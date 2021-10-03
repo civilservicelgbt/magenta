@@ -1,0 +1,10 @@
+{% if consultationOpen == true %}
+<section class="section--consultation-start-buttons">
+
+	<a href="{{ consultationURL }}" title="Respond to the {{ page.title }}consultation" class="button button--consultation">Respond to this consultation</a>
+
+</section>
+{% else %}
+<!-- This consultation has already taken place -->
+<!-- so no completion buttons to show -->
+{% endif %}

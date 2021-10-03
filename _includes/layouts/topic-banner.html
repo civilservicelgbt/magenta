@@ -1,0 +1,15 @@
+{% if page.layout == "topic" %}
+{% if page.background %}
+	{% assign background = page.background %}
+{% else %}
+	{% assign background = "magenta" %}
+{% endif %}
+
+<header class="topic--banner--{{ page.category }} topic--background--{{ background }}">
+  <div class="width-container">
+  {% assign default_image_path = site.url | append: site.baseurl | append: '/assets/images/pages/' | append: page.category | append: '.png' %}
+  <img src="{{ page.image | default: default_image_path  }}" class="topic--banner--image">
+  </div>
+</header>
+
+{% endif %}

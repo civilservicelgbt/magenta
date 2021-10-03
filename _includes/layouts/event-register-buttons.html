@@ -1,0 +1,21 @@
+{% if eventTakenPlace == false %}
+<section class="section--event-registration">
+
+	{% if page.link and page.email %}
+	<div class="button-group">
+		<a href="{{ page.link }}" title="Register for this event" class="button button--event button-half">Register online</a>
+		<a href="mailto:{{ page.email }}" title="Email {{ page.email }}" class="button button--event button-half">Register by email</a>
+	</div>
+	{% elsif page.link %}
+	<a href="{{ page.link }}" title="Register for this event" class="button button--event">Register online</a>
+	{% elsif page.email %}
+	<a href="mailto:{{ page.email }}" title="Email {{ page.email }}" class="button button--event">Register by email</a>
+	{% elsif page.no-register %}
+	<p>{{ page.no-register }}</p>
+	{% endif %}
+
+</section>
+{% else %}
+<!-- This event has already taken place -->
+<!-- so no registration buttons to show -->
+{% endif %}

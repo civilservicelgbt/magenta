@@ -1,0 +1,70 @@
+---
+layout: default
+meta-info: false
+---
+
+{% include layouts/home-banner.html %}
+
+<section class="section--{{ page.layout }}">
+
+
+	<div class="grid-row">
+		<div class="grid-column-full">
+
+			<div id="page--content">
+
+			{% assign now = 'now' | date: '%s' %}
+
+			<!-- Blog posts / news updates -->
+
+			{% assign homeCollection = "news" %}
+			{% include layouts/home-loop.html %}
+
+			<div class="grid-row">
+
+				<div class="grid-column-two-thirds">
+
+					<div class="home--join-us">
+						<h2>Become a member</h2>
+						<p>If you're an LGBT+ civil servant or an ally, become a member.</p>
+
+						<p>We'll send you regular updates about our work and how you can get involved; including our regular networking events across the UK.</p>
+
+						<a href="{{ site.url | append: site.baseurl | append: '/join-us/' }}" class="button">Sign up as a member</a>
+					</div>
+
+				</div>
+
+				<div class="grid-column-one-third">
+					<div class="home--social">
+					<h2 class="heading-md">Find us on social media</h2>
+					{% include layouts/social-links.html %}
+					</div>
+				</div>
+
+			</div>
+
+			<!-- Events -->
+
+			{% assign homeCollection = "events" %}
+			{% include layouts/home-loop.html %}
+
+			<!-- Publications -->
+
+			{% assign homeCollection = "publications" %}
+			{% include layouts/home-loop.html %}
+
+			<!-- Consultations -->
+
+			{% assign homeCollection = "consultations" %}
+			{% include layouts/home-loop.html %}
+
+			<!-- Topics -->
+
+			{% assign homeCollection = "topics" %}
+			{% include layouts/home-loop.html %}
+
+			</div>
+		</div>
+	</div>
+</section>

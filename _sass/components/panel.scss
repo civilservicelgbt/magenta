@@ -1,0 +1,47 @@
+.panel {
+	@include font($size: 19);
+
+	box-sizing: border-box;
+
+	margin-bottom: spacing(3);
+	padding: spacing(7) - $border-width;
+
+	border: $border-width solid transparent;
+
+	text-align: left;
+
+	@include media-query($until: tablet) {
+		padding: spacing(6) - $border-width;
+	}
+
+	background: color(cyan--accessible);
+	color: color("white");
+}
+
+.panel--confirmation {
+	color: color("white");
+	background: color("green");
+
+	@include media-query($media-type: print) {
+		border-color: currentColor;
+		background: none;
+	}
+}
+
+.panel h1 {
+	margin-top: 0;
+	margin-bottom: spacing(6);
+
+	@include font($size: 48, $weight: bold);
+	color: color("white");
+}
+
+.panel p {
+	@include font($size: 24);
+	color: color("white");
+}
+
+.panel h1:last-child,
+.panel p:last-child {
+	margin-bottom: 0;
+}

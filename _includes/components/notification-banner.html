@@ -1,0 +1,17 @@
+	{% assign notification = site.data.notification-banners %}
+	{% for notify in notification %}
+
+		{% for date in notify.dates %}
+			{% assign start = date.start | date: "%s" %}
+			{% assign end = date.end | date: "%s" %}
+			{% assign now = "now" | date: "%s" %}
+		{% endfor %}
+		{% if now > start and now < end and notify.url != page.url %}
+		<div class="notification-banner" role="region" aria-labelledby="notification-banner--title">
+			<div class="width-container">
+			{{ notify.title | prepend: '<span class="notification-banner--title">' | append: '</span> ' | append: notify.text
+			| append: ' [' | append: notify.link-title | append: '](' | append: notify.url | append: ')' | markdownify }}
+			</div>
+		</div>
+		{% endif %}
+	{% endfor %}

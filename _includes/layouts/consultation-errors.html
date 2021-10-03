@@ -1,0 +1,28 @@
+{% if validConsultationURL == false or validConsultationDate == false %}
+
+<div class="grid-column-full">
+
+	<blockquote class="warning-text">
+		<h2 class="heading-md">Missing consultation information</h2>
+		<p>There is missing information in this consultation file's front matter. The following errors were found:</p>
+		<ol>
+			{% if validConsultationDate == false %}
+			<li><strong>No consultation closing date found.</strong> Add date and time in the post front matter using this format:<br>
+			<ul class="list--no-styles">
+				<li><code>end-date: 2018-01-30 18:30:00</code></li>
+			</ul>
+			</li>
+			{% endif %}
+			{% if validConsultationURL == false %}
+			<li><strong>No consultation URL found.</strong> Add a URL linking to the consultation in the following format:
+				<ul class="list--no-styles">
+					<li><code>consultation-link: https://www.example.com</code></li>
+				</ul>
+			</li>
+			{% endif %}
+		</ol>
+	</blockquote>
+
+</div>
+
+{% endif %}

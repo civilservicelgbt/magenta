@@ -1,0 +1,28 @@
+.skip-link {
+	@include visually-hidden-focusable;
+	@include typography-common;
+	@include link-decoration;
+	@include link-style-text;
+	@include typography-responsive($size: 19);
+
+	display: block;
+	padding: spacing(2) spacing(3);
+	@extend %bold;
+
+	// Respect 'display cutout' safe area (avoids notches and rounded corners)
+	@supports (padding: unquote("max(calc(0px))")) {
+		$padding-safe-area-right: calc(#{spacing(3)} + env(safe-area-inset-right));
+		$padding-safe-area-left: calc(#{spacing(3)} + env(safe-area-inset-left));
+
+		// Use max() to pick largest padding, default or with safe area
+		// Escaped due to Sass max() vs. CSS native max()
+		padding-right: unquote("max(#{spacing(3)}, #{$padding-safe-area-right})");
+		padding-left: unquote("max(#{spacing(3)}, #{$padding-safe-area-left})");
+	}
+
+	&:focus {
+		outline: $focus-width solid $link-background--focus;
+		outline-offset: 0;
+		background-color: $link-background--focus;
+	}
+}

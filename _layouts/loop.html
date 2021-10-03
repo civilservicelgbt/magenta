@@ -1,0 +1,211 @@
+---
+layout: default
+caption: false
+meta-info: false
+---
+
+{% assign collection = page.loop %}
+
+<div class="grid-row">
+	{% include layouts/header.html %}
+</div>
+
+<div class="grid-row">
+	<div class="grid-column-two-thirds">
+
+	{% assign now = 'now' | date: '%s' %}
+	{% assign recent = now | minus: 7890000 | date: '%s' %}
+
+	{%
+		if collection == "news"
+		or collection == "notices"
+		or collection == "archives"
+		or collection == "manuals"
+		or collection == "publications"
+		or collection == "rules"
+	%}
+	{% assign loop = site[collection] | sort: 'date' | reverse %}
+
+		<ul class="list--no-styles loop--article-list">
+
+		{% for post in loop %}
+			{% assign postDate = post.date | date: '%s' %}
+			{% if postDate <= now %}
+			<li class="loop--article-list--item">
+				<article>
+					<h2 class="loop--article-list--item--title"><a href="{{ site.url | append: site.baseurl | append: post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h2>
+					<p class="loop--article-list--item--excerpt">{{ post.excerpt }}</p>
+					<p class="loop--article-list--item--meta">Published <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date  | date:'%-d %B %Y' }}</time> {% if post.author %}by {{ post.author }}{% endif %}</p>
+				</article>
+			</li>
+			{% endif %}
+		{% endfor %}
+
+		</ul>
+
+	{% elsif collection == "events" %}
+	{% assign loop = site[collection] | sort: 'event-date' %}
+
+		<h2>Upcoming events</h2>
+
+		<ul class="list--no-styles loop--article-list">
+		{% assign upcoming-event-count = 0 %}
+		{% for post in loop %}
+			{% assign eventDate = post.event-date | date: '%s' %}
+			{% if now < eventDate %}
+			<li class="loop--article-list--item">
+				<article>
+					<h2 class="loop--article-list--item--title"><a href="{{ site.url | append: site.baseurl | append: post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h2>
+					{% if post.author %}{% if post.author != "Civil Service LGBT+ Network" %}
+					<p class="loop--article-list--item--meta">Hosted by the {{ post.author | remove: "The" }}</p>
+					{% endif %}{% endif %}
+					<p class="loop--article-list--item--meta">On <time datetime="{{ post.event-date | date: '%Y-%m-%d %H:%M' }}">{{ post.event-date  | date:'%-d %B %Y at %H:%M' }}</time></p>
+				</article>
+			</li>
+			{% assign upcoming-event-count = upcoming-event-count | plus: 1 %}
+			{% endif %}
+		{% endfor %}
+
+		{% if upcoming-event-count <= 0 %}
+			<li class="loop--article-list--item">
+				<p class="lead"><strong>We don't currently have any events planned.</strong></p>
+				<p>If you're running an event for LGBT+ civil servants and you'd like us to share it, <a href="{{ site.url | append: site.base-url | append: '/about/contact-us' }}">contact us</a>.</p>
+			</li>
+		{% endif %}
+
+		</ul>
+
+		<h2>Recent events</h2>
+
+		<ul class="list--no-styles loop--article-list">
+		{% assign past-event-count = 0 %}
+		{% for post in loop %}
+
+			{% assign eventDate = post.event-date | date: '%s' %}
+			{% if now > eventDate and eventDate > recent %}
+			{% if past-event-count < 5 %}
+			<li class="loop--article-list--item">
+				<article>
+					<h2 class="loop--article-list--item--title"><a href="{{ site.url | append: site.baseurl | append: post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h2>
+					{% if post.author %}{% if post.author != "Civil Service LGBT+ Network" %}
+					<p class="loop--article-list--item--meta">Hosted by the {{ post.author | remove: "The" }}</p>
+					{% endif %}{% endif %}
+					<p class="loop--article-list--item--meta">Held on <time datetime="{{ post.event-date | date: '%Y-%m-%d' }}">{{ post.event-date  | date:'%-d %B %Y' }}</time></p>
+				</article>
+			</li>
+			{% assign past-event-count = past-event-count | plus: 1 %}
+			{% endif %}
+			{% endif %}
+		{% endfor %}
+
+		{% if past-event-count <= 0 %}
+			<li class="loop--article-list--item">
+				<p class="lead"><strong>We haven't held any events recently.</strong></p>
+				<p>If you're running an event for LGBT+ civil servants and you'd like us to share it, <a href="{{ site.url | append: site.base-url | append: '/about/contact-us' }}">contact us</a>.</p>
+			</li>
+		{% endif %}
+
+		</ul>
+
+	{% elsif collection == "consultations" %}
+	{% assign loop = site[collection] | sort: 'end-date' | reverse %}
+
+		<h2 class="loop-subheading">Open consultations</h2>
+
+		<ul class="list--no-styles loop--article-list">
+		{% assign open-count = 0 %}
+		{% for post in loop %}
+			{% assign postDate = post.date | date: '%s' %}
+			{% assign endDate = post.end-date | date: '%s' %}
+			{% if now <= endDate and now >= postDate %}
+			<li class="loop--article-list--item">
+				<article>
+					<h2 class="loop--article-list--item--title"><a href="{{ site.url | append: site.baseurl | append: post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h2>
+					{% if post.author %}{% if post.author != "Civil Service LGBT+ Network" %}
+					<p class="loop--article-list--item--meta">Consultation by the {{ post.author | remove: "The" }}</p>
+					{% endif %}{% endif %}
+					<p class="loop--article-list--item--meta">Consultation closing on <time datetime="{{ post.end-date | date: '%Y-%m-%d' }}">{{ post.end-date  | date:'%-d %B %Y' }}</time></p>
+				</article>
+			</li>
+			{% assign open-count = open-count | plus: 1 %}
+			{% endif %}
+		{% endfor %}
+
+		{% if open-count <= 0 %}
+			<li class="loop--article-list--item">
+				<p class="lead"><strong>There are currently no open consultations.</strong></p>
+				<p>If you have a consultation that affects LGBT+ civil servants, and you'd like us to share it, <a href="{{ site.url | append: site.base-url | append: '/about/contact-us' }}">contact us</a>.</p>
+			</li>
+		{% endif %}
+
+		</ul>
+
+		<h2 class="loop-subheading">Recent consultations</h2>
+
+		<ul class="list--no-styles loop--article-list">
+		{% assign closed-count = 0 %}
+		{% for post in loop %}
+			{% assign postDate = post.date | date: '%s' %}
+			{% assign endDate = post.end-date | date: '%s' %}
+			{% if now >= endDate and endDate > recent %}
+			<li class="loop--article-list--item">
+				<article>
+					<h2 class="loop--article-list--item--title"><a href="{{ site.url | append: site.baseurl | append: post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h2>
+					{% if post.author %}{% if post.author != "Civil Service LGBT+ Network" %}
+					<p class="loop--article-list--item--meta">Consultation by the {{ post.author | remove: "The" }}</p>
+					{% endif %}{% endif %}
+					<p class="loop--article-list--item--meta">Consultation closed on <time datetime="{{ post.end-date | date: '%Y-%m-%d' }}">{{ post.end-date  | date:'%-d %B %Y' }}</time></p>
+				</article>
+			</li>
+			{% assign closed-count = closed-count | plus: 1 %}
+			{% endif %}
+		{% endfor %}
+
+		{% if closed-count <= 0 %}
+			<li class="loop--article-list--item">
+				<p class="lead"><strong>There are no recent consultations.</strong></p>
+				<p>If you have a consultation that affects LGBT+ civil servants, and you'd like us to share it, <a href="{{ site.url | append: site.base-url | append: '/about/contact-us' }}">contact us</a>.</p>
+			</li>
+		{% endif %}
+
+		</ul>
+
+	{% elsif collection == "topics" %}
+	{% assign loop = site[collection] | sort: 'title' %}
+
+		<ul class="list--no-styles loop--article-list">
+
+		{% for post in loop %}
+			{% assign postDate = post.date | date: '%s' %}
+			{% if postDate <= now %}
+			<li class="loop--article-list--item">
+				<article>
+					<h2 class="loop--article-list--item--title"><a href="{{ site.url | append: site.baseurl | append: post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h2>
+					<p class="loop--article-list--item--excerpt">{{ post.excerpt }}</p>
+				</article>
+			</li>
+			{% endif %}
+		{% endfor %}
+
+		</ul>
+
+	{% else %}
+
+		<blockquote class="warning-text">
+			<h1>Undefined loop</h1>
+			<p>This loop has not been defined in the site template.</p>
+			<p>Please update the templates.</p>
+		</blockquote>
+
+	{% endif %}
+
+
+
+	</div>
+	<div class="grid-column-one-third">
+
+		<!-- secondary content here -->
+
+	</div>
+</div>
+

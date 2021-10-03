@@ -1,0 +1,31 @@
+{% unless page.breadcrumbs == false or layout.breadcrumbs == false %}
+{% if
+		page.layout != "home"
+	and page.collection != "pages"
+	and page.collection != "membership"
+	and page.collection != "topics"
+%}
+<div class="breadcrumbs breadcrumbs--collapse-on-mobile">
+	<ol class="breadcrumbs--list">
+		<li class="breadcrumbs--list-item">
+			<a class="breadcrumbs--link" href="{{ site.url | append: site.baseurl }}">Home</a>
+		</li>
+		<li class="breadcrumbs--list-item">
+			<a class="breadcrumbs--link" href="{{ site.url | append: site.baseurl | append: '/' | append: page.collection }}">{{ page.collection | replace: '-', ' ' | capitalize }}</a>
+		</li>
+		{% if layout.breadcrumbs or page.breadcrumbs %}
+		{% if layout.breadcrumbs %}
+			{% assign breadcrumbs = layout.breadcrumbs %}
+		{% else %}
+			{% assign breadcrumbs = page.breadcrumbs %}
+		{% endif %}
+		{% for item in breadcrumbs %}
+		<li class="breadcrumbs--list-item">
+			<a class="breadcrumbs--link" href="{{ site.url | append: site.baseurl | append: item.url }}">{{ item.title }}</a>
+		</li>
+		{% endfor %}
+		{% endif %}
+	</ol>
+</div>
+{% endif %}
+{% endunless %}

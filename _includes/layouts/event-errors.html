@@ -1,0 +1,30 @@
+{% if validEventRegistrationInfo == false or validEventDate == false %}
+
+<div class="grid-column-full">
+
+	<blockquote class="warning-text">
+		<h2 class="heading-md">Missing event information</h2>
+		<p>There is missing information in this event file's front matter. The following errors were found:</p>
+		<ol>
+			{% if validEventDate == false %}
+			<li><strong>No event start date found.</strong> Add date and time in the post front matter using this format:<br>
+			<ul class="list--no-styles">
+				<li><code>date: 2018-01-30 18:30:00</code></li>
+			</ul>
+			</li>
+			{% endif %}
+			{% if validEventRegistrationInfo == false %}
+			<li><strong>No registration information found.</strong> Add a URL to a registration page, an email address, or a 'no registration required' message in the following format:
+				<ul class="list--no-styles">
+					<li><code>link: https://www.example.com</code></li>
+					<li><code>email: info@example.com</code></li>
+					<li><code>no-register: "No need to register. Just turn up."</code></li>
+				</ul>
+			</li>
+			{% endif %}
+		</ol>
+	</blockquote>
+
+</div>
+
+{% endif %}

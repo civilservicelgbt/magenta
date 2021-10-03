@@ -1,0 +1,51 @@
+.back-link {
+	@include typography-responsive($size: 16);
+	@include link-common;
+	@include link-style-text;
+
+	display: inline-block;
+	position: relative;
+
+	margin-top: spacing(3);
+	margin-bottom: spacing(3);
+
+	// Allow space for the arrow
+	padding-left: 14px;
+}
+
+// Prepend left pointing chevron
+.back-link:before {
+	content: "";
+	display: block;
+
+	// Vertically align with the parent element
+	position: absolute;
+
+	  top: 0;
+	  bottom: 0;
+	  left: 3px;
+
+	width: $chevron-size;
+	height: $chevron-size;
+
+	margin: auto 0;
+
+	transform: rotate(225deg);
+
+	border: solid;
+	border-width: $chevron-border-width $chevron-border-width 0 0;
+	border-color: $chevron-border-color;
+}
+
+.back-link:focus:before {
+	border-color: $focus-text-color;
+}
+
+.back-link:after {
+	content: "";
+	position: absolute;
+	top: -14px;
+	right: 0;
+	bottom: -14px;
+	left: 0;
+}

@@ -1,0 +1,119 @@
+details > summary {
+
+	@include font($size: 24, $weight: bold);
+
+	margin-top: 0; // Override browser default
+	margin-bottom: 0; // Override browser default
+
+	position: relative;
+	cursor: pointer;
+
+	color: $link-color;
+
+	/* Hide the marker completely. */
+	list-style-image: none;
+	&::marker,
+	&::-webkit-details-marker {
+		display: none;
+		list-style-image: none;
+		content: '';
+		width: 0;
+		height: 0;
+	}
+
+	&:before {
+		display: block;
+		position: relative;
+		top: 0;
+		right: auto;
+		left: 0;
+		content: '+';
+		@include font($size: 24, $weight: bold);
+		width: $gutter * 2;
+		float: right;
+
+		color: color("black");
+		text-align: right;
+		font-weight: bold;
+		line-height: 1 !important;
+	}
+
+	&:hover {
+		color: $link-color--hover;
+		text-decoration: underline !important;
+		cursor: pointer;
+	}
+	&:focus {
+		color: $link-color--focus;
+		background: $link-background--focus;
+		outline: 3px solid $link-background--focus;
+	}
+	&:active {
+		background: transparent;
+		outline: 3px solid $link-background--focus;
+	}
+
+}
+
+details {
+
+	@include responsive-padding(2, "top");
+	@include responsive-padding(2, "bottom");
+
+	@include font($size: 19);
+	color: $text-color;
+
+	display: block;
+
+	border-top: 1px solid $border-color;
+	border-bottom: 1px solid $border-color;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+}
+
+details[open] > summary {
+	@include responsive-margin(3, "bottom");
+
+	&::-webkit-details-marker,
+	&::marker {
+		display: none;
+		list-style-image: none;
+		content: '';
+	}
+
+	&:before {
+		content: '–';
+	}
+}
+
+details + details {
+	border-top: none;
+}
+
+details > details {
+	margin-left: $gutter;
+}
+
+details[open] > details:last-child {
+	@include responsive-margin(5, "bottom")
+}
+
+details[open] > details > summary {
+	@include font($size: 19, $weight: bold);
+
+}
+
+details + h1,
+details + h2,
+details + h3,
+details + h4 {
+	@include responsive-margin(9, "top");
+}
+
+p + details,
+ul + details {
+	@include responsive-margin(6, "top");
+}

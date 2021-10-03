@@ -1,0 +1,67 @@
+blockquote.warning-text {
+	position: relative;
+	@include font($size: 19);
+	color: $text-color;
+	padding: spacing(2) spacing(2) spacing(2) 0;
+	// Margin top intended to collapse
+	// This adds an additional 10px to the paragraph above
+	@include responsive-margin(6, "top");
+	@include responsive-margin(6, "bottom");
+
+	clear: both;
+
+	border: none;
+	background: color("magenta--light");
+	> :first-child {
+		margin-top: spacing(2);
+	}
+
+	> :only-child,
+	> :last-child {
+		margin-bottom: spacing(2);
+	}
+	> * {
+
+
+
+		@include media-query($from: tablet) {
+			padding-left: spacing(10) + spacing(2);
+		}
+		@include media-query($until: tablet) {
+			padding-left: spacing(9) + spacing(2);
+		}
+	}
+
+	&:before {
+		content: "";
+		position: relative;
+		top: spacing(2);
+		left: spacing(3);
+		float: left;
+		display: block;
+		padding: spacing(2);
+
+		border-radius: 100%;
+		background: color("magenta");
+		background-position: center;
+		background-repeat: no-repeat;
+		color: color("white");
+
+
+		@include media-query($from: tablet) {
+			background-size: 30px 30px;
+			width: 30px;
+			height: 30px;
+		}
+		@include media-query($until: tablet) {
+			background-size: 20px 20px;
+			width: 20px;
+			height: 20px;
+		}
+
+		background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8' standalone='no'%3F%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg xmlns:xl='http://www.w3.org/1999/xlink' xmlns:dc='http://purl.org/dc/elements/1.1/' xmlns='http://www.w3.org/2000/svg' version='1.1' viewBox='12 0 6 30' width='6' height='30'%3E%3Cdefs/%3E%3Cmetadata%3E Produced by OmniGraffle 7.18.5%5Cn2021-09-29 21:16:20 +0000%3C/metadata%3E%3Cg id='Canvas' stroke='none' fill='none' fill-opacity='1' stroke-opacity='1' stroke-dasharray='none'%3E%3Ctitle%3E!%3C/title%3E%3Cg id='Canvas_Layer_1'%3E%3Ctitle%3ELayer 1%3C/title%3E%3Cg id='Graphic_4'%3E%3Cpath d='M 12 0 L 12 21 L 18 21 L 18 0 Z M 12 24 L 12 30 L 18 30 L 18 24 Z' fill='%23ffed00'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+
+
+	}
+	@include clearfix();
+}

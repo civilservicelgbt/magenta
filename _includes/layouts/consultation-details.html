@@ -1,0 +1,25 @@
+<div class="grid-column-two-thirds">
+
+	<section class="section--consultation-details">
+
+		<dl class="consultation--consultation-details">
+
+			<dt class="consultation--consultation-details--label">Consultation by</dt>
+			<dd class="consultation--consultation-details--value">{{ author }}</dd>
+
+			{% if consultationOpen == true %}
+			<dt class="consultation--consultation-details--label">Consultation closing date</dt>
+			<dd class="consultation--consultation-details--value">
+				<time datetime="{{ consultationEndDate | date: '%Y-%m-%d %H:%M' }}">{{ consultationEndDate | date: "%d %B %Y at %H:%M" }}</time>
+			</dd>
+
+			{% else if eventTakenPlace == true %}
+			<p><strong>This consultation has now closed.</strong></p>
+			{% endif %}
+		</dl>
+
+	</section>
+
+	{% include layouts/consultation-start-buttons.html %}
+
+</div>

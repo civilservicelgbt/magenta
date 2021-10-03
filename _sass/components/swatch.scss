@@ -1,0 +1,46 @@
+
+.design-system-colour-list {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.design-system-colour-list tr {
+  display: table-row;
+  margin-bottom: govuk-spacing(2);
+  border-bottom: 10px solid transparent;
+  @include media-query($from: "tablet") {
+	display: table-row;
+	margin: auto;
+	border-bottom: 0;
+  }
+}
+
+.design-system-colour-list td {
+  display: block;
+  position: relative;
+  padding-left: 50px;
+  @include media-query($from: "tablet") {
+	display: table-cell;
+	padding-left: 0;
+	vertical-align: middle;
+  }
+}
+
+.color-swatch {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid color("black"); // only light colours need a border
+  border-radius: 50%;
+  @include media-query($from: "tablet") {
+	display: inline-block;
+	position: static;
+	margin-top: 6px;
+	margin-right: 10px;
+	margin-bottom: 7px; // odd number so the text lines up vertically
+	vertical-align: middle;
+  }
+}

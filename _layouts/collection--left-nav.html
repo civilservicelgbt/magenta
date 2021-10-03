@@ -1,0 +1,65 @@
+---
+layout: default
+---
+{% if page.loop %}
+    {% assign page-loop = page.loop %}
+{% else %}
+    {% assign page-loop = page.collection %}
+{% endif %}
+{% assign loop = site[page-loop] %}
+
+{% assign cat-count = 0 %}
+{% for item in loop %}
+    {% unless item.categories == null %}
+      {% assign cat-count = cat-count | plus: 1 %}
+    {% endunless %}
+{% endfor %}
+
+<div class="grid-row">
+
+    {% include layouts/header.html %}
+
+</div>
+<div class="grid-row">
+
+    <div class="grid-column-one-third">
+
+        <ul class="list--no-styles collection--left-nav--navigation">
+
+        {% if cat-count > 0 %}
+          {% assign groups = loop | group_by: "categories" | sort: "name" %}
+
+          {% for group in groups %}
+          {{ group.name | remove: '["' | remove: '"]' | capitalize | prepend: '<li class="list--category">' | append: '</li><ul class="list--no-styles">' }}
+          {% for item in group.items %}
+
+              <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+
+          {% endfor %}
+          </ul>
+          {% endfor %}
+          </ul>
+
+        {% else %}
+
+          {% for item in loop %}
+
+          <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+
+          {% endfor %}
+
+        {% endif %}
+
+
+
+    </div>
+
+    <div class="grid-column-two-thirds">
+
+        <article div class="collection--left-nav--article">
+            {{ content }}
+        </article>
+
+    </div>
+
+</div>

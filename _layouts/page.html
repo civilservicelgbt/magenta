@@ -1,0 +1,30 @@
+---
+layout: default
+meta-info: false
+caption: false
+---
+
+<article class="article--{{ page.layout }}">
+
+	<div class="grid-row">
+		{% include layouts/header.html %}
+	</div>
+
+	<div class="grid-row">
+		<div class="grid-column-two-thirds">
+
+			<div class="page--content">
+
+			{{ content }}
+
+			</div>
+
+		</div>
+		<div class="grid-column-one-third">
+
+			<!-- secondary content here -->
+
+		</div>
+	</div>
+
+</article>

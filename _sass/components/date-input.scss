@@ -1,0 +1,32 @@
+.date-input {
+	@include clearfix;
+	// font-size: 0 removes whitespace caused by inline-block
+	font-size: 0;
+}
+
+.date-input--item {
+	display: inline-block;
+	margin-right: spacing(4);
+	margin-bottom: 0;
+}
+
+.date-input--label {
+	display: block;
+	@extend %label-sm;
+}
+
+.date-input--input {
+	margin-bottom: 0;
+}
+
+.date-input--year {
+	@extend %input--width-4;
+}
+
+.date-input--month {
+	@extend %input--width-2;
+}
+
+.date-input--day {
+	@extend %input--width-2;
+}

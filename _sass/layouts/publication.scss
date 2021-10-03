@@ -1,0 +1,39 @@
+#markdown-toc {
+	@extend %list--no-styles;
+}
+
+.article--publication .page--content {
+	border-top: none;
+	padding-top: 0;
+}
+
+#markdown-toc {
+	@extend .grid-column-one-third;
+	padding-bottom: spacing(5);
+}
+
+#markdown-toc li {
+	margin-bottom: spacing(3);
+}
+
+#markdown-toc li:first-child {
+	border-top: 3px solid color("magenta");
+	padding-top: spacing(5);
+}
+
+#markdown-toc ul {
+	display: none;
+}
+
+#markdown-content {
+	@extend .grid-column-two-thirds;
+}
+
+#markdown-content > *:first-child {
+	border-top: 3px solid color("light-gray");
+	padding-top: spacing(5);
+}
+
+#markdown-content + .footnotes {
+	@extend .grid-column-full;
+}

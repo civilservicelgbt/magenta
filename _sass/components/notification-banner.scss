@@ -1,0 +1,30 @@
+.notification-banner {
+	display: block;
+	position: relative;
+
+	padding: spacing(2) 0;
+
+	@include font($size: 19);
+
+	p:last-child {
+		margin-bottom: 0;
+	}
+
+	background: color("cyan");
+
+	* {
+		color: color("white");
+
+		&:link,
+		&:visited, {
+			color: color("white");
+		}
+		&:focus {
+			@include focused-text;
+		}
+	}
+}
+
+.notification-banner--title {
+	@extend %bold;
+}

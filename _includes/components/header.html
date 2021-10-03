@@ -1,0 +1,39 @@
+<header class="header" role="banner">
+	<div class="header--container width-container">
+		<div class="header--logo">
+		  <a href="{{ site.url | append: site.baseurl }}" class="header--logotype--link">
+			<span class="header--logotype--text">Civil Service</span>
+			<span class="header--logotype--text">LGBT+ Network</span>
+		  </a>
+		</div>
+		<div class="header--content">
+			{% if site.header-menu--links--hidden != true %}
+			<button type="button" id="menu-button" class="header--menu-button js-header-toggle" aria-controls="navigation" aria-label="Show or hide navigation menu" onclick="toggleMenu()">Menu</button>
+
+			<nav>
+				<ul id="navigation" class="header--navigation" aria-label="Navigation menu">
+				{% for item in site.header-menu--links %}
+				{% if item.hidden != true %}
+					{% assign pageURL = page.url | remove: '/' %}
+					{% assign itemURL = item.url | remove: '/' %}
+					{% if pageURL == itemURL %}
+						<li class="header--navigation-item header--navigation-item--active">
+							<a class="header--link" href="{{ site.url | append: site.baseurl | append: item.url }}" title="{{ item.alt-text }}">
+								{{ item.display-text }}
+							</a>
+						</li>
+						{% else %}
+						<li class="header--navigation-item">
+							<a class="header--link" href="{{ site.url | append: site.baseurl | append: item.url }}" title="{{ item.alt-text }}">
+								{{ item.display-text }}
+							</a>
+						</li>
+					{% endif %}
+				{% endif %}
+				{% endfor %}
+				</ul>
+			</nav>
+			{% endif %}
+		</div>
+	</div>
+</header>

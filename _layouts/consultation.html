@@ -1,0 +1,71 @@
+---
+layout: default
+excerpt: false
+meta-info: false
+---
+
+{% assign now = 'now' | date: '%s' %}
+{% assign consultationEndDate = page.end-date | date: '%s' %}
+
+{% if now < consultationEndDate %}
+	{% assign consultationOpen = true %}
+{% else %}
+	{% assign consultationOpen = false %}
+{% endif %}
+
+{% if page.consultation-link %}
+	{% assign validConsultationURL = true %}
+{% else %}
+	{% assign validConsultationURL = false %}
+{% endif %}
+
+{% if page.end-date %}
+	{% assign validConsultationDate = true %}
+{% else %}
+	{% assign validConsultationDate = false %}
+{% endif %}
+
+{% if page.author %}
+	{% unless page.author == "Civil Service LGBT+ Network" %}
+		{% assign author = page.author | replace: "The ", "the " %}
+	{% else %}
+		{% assign author = "Civil Service LGBT+ Network" %}
+	{% endunless %}
+{% endif %}
+
+{% assign consultationURL = page.consultation-link %}
+
+<article class="article--{{ page.layout }}">
+
+	<div class="grid-row">
+		{% include layouts/header.html %}
+	</div>
+
+	<div class="grid-row">
+		{% include layouts/consultation-errors.html %}
+		{% include layouts/consultation-details.html %}
+	</div>
+
+	<div class="grid-row">
+		<div class="grid-column-two-thirds">
+
+			<div class="page--content">
+
+			{{ content }}
+
+			</div>
+
+			<aside class="event--aside">
+
+				<blockquote class="warning-text">
+					<h1 class="heading-sm">Form not working?</h1>
+					<p>Some Civil Service organisations block certain websites, so you might not be able to complete this survey from a work device.</p>
+					<p>If you experience problems, we recommend trying again from a personal device.</p>
+				</blockquote>
+
+			</aside>
+
+		</div>
+	</div>
+
+</article>

@@ -1,0 +1,8 @@
+dt,
+dd {
+	@extend %body-md;
+}
+
+dt {
+	@extend %bold;
+}

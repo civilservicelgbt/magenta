@@ -1,0 +1,43 @@
+<footer class="footer" role="contentinfo">
+	<div class="width-container">
+		<div class="grid-row">
+			<div class="grid-column-two-thirds">
+				<h2 class="footer--heading">Related links</h2>
+				<ul class="footer--list footer--list--columns-2">
+					{% for item in site.footer-menu--links %}
+					{% if item.hidden != true %}
+					<li class="footer--list-item">
+						<a class="footer--link" href="{{ item.url }}" title="{{ item.alt-text }}">
+							{{ item.display-text }}
+						</a>
+					</li>
+					{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="grid-column-one-third">
+				<h2 class="footer--heading">Social media</h2>
+				<ul class="footer--list">
+					{% for item in site.social-media-accounts %}
+					{% if item.hidden != true %}
+					<li class="footer--list-item">
+						<a class="footer--link" href="{{ item.url }}" title="{{ item.alt-text }} (Opens in new window)"  rel="noreferrer noopener" target="_blank">
+							{{ item.display-text }}
+						</a>
+					</li>
+					{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<hr class="footer--section-break">
+		<div class="footer--meta">
+			<div class="footer--meta-item">
+				{{ site.footer--production-notice | markdownify }}
+			</div>
+			<div class="footer--meta-item">
+				{{ site.footer--copyright-notice | markdownify }}
+			</div>
+		</div>
+	</div>
+</footer>

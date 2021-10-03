@@ -1,0 +1,42 @@
+<div class="grid-column-two-thirds">
+
+	<section class="section--event-details">
+
+		<dl class="event--event-details">
+
+			<div class="event--event-details--date">
+			<dt class="event--event-details--label">Date and time</dt>
+			<dd class="event--event-details--value">
+				<time datetime="{{ eventStartDate | date: '%Y-%m-%d %H:%M' }}">{{ eventStartDate | date: "%d %B %Y at %H:%M" }}</time>
+				{% if endDate %}
+				until <time datetime="{{ eventStartDate | date: '%Y-%m-%d %H:%M' }}">{{ eventStartDate | date: "%d %B %Y at %H:%M" }}</time>
+				{% endif %}
+			</dd>
+
+			{% if eventTakenPlace == false %}
+			{% if page.registration-close-date %}
+			<dt class="event--event-details--label">Registration closing date</dt>
+			<dd class="event--event-details--value">
+				{% if eventRegistrationOpen == true %}
+				<time datetime="{{ registrationCloseDate | date: '%Y-%m-%d %H:%M' }}">{{ registrationCloseDate | date: "%d %B %Y at %H:%M" }}</time>
+				{% else %}
+				Registrations for this event have closed
+				{% endif %}
+			</dd>
+			{% endif %}
+
+			<dt class="event--event-details--label">Location</dt>
+			<dd class="event--event-details--value">{{ location }}</dd>
+
+			<dt class="event--event-details--label">Hosted by</dt>
+			<dd class="event--event-details--value">{{ host }}</dd>
+			{% else if eventTakenPlace == true %}
+			<p><strong>This event has already taken place.</strong></p>
+			{% endif %}
+		</dl>
+
+	</section>
+
+	{% include layouts/event-register-buttons.html %}
+
+</div>

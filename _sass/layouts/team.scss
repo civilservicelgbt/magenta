@@ -1,0 +1,69 @@
+.volunteer--link {
+	@include link-style-no-underline;
+	@include link-style-text;
+	display: inline-block;
+}
+
+.volunteer--image {
+	display: block;
+	aspect-ratio: 1 / 1 !important;
+	object-fit: cover;
+	object-position: 50% 50%;
+	margin-top: 0;
+
+	border-radius: 100%;
+
+
+	width: 100%;
+	height: 100%;
+	max-width: 150px;
+	max-height: 150px;
+
+	margin-top: spacing(3);
+	border: 3px solid color("gray");
+}
+
+.pixelate {
+	image-rendering: pixelated;
+}
+
+.volunteer--role {
+	@extend %caption-md;
+}
+
+.volunteer--name {
+	@extend %heading-md;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 100%;
+}
+
+// On 'volunteer' format pages
+.volunteer--image--large {
+	display: block;
+	margin-top: 0;
+
+	width: 100%;
+
+	padding-top: spacing(5);
+	border-top: 3px solid color("light-gray");
+}
+
+.volunteer--archive {
+	margin-top: 0;
+}
+
+.volunteer--details {
+	margin-bottom: spacing(5);
+}
+
+.volunteer--details--label {
+	margin-bottom: spacing(1);
+}
+
+.volunteer--details--value {
+	&:last-child {
+		margin-bottom: 0;
+	}
+}

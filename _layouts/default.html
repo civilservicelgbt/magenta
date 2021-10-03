@@ -1,0 +1,25 @@
+---
+layout: skeleton
+---
+
+{% include components/header.html %}
+{% include components/notification-banner.html %}
+{% include layouts/topic-banner.html %}
+
+<div class="width-container">
+
+	{% include components/breadcrumbs.html %}
+	{% include components/back.html %}
+
+	<main class="main-wrapper main-wrapper--auto-spacing" id="main-content" role="main">
+
+		{{ content }}
+
+	</main>
+
+	{% include layouts/feedback.html %}
+
+</div>
+
+{% include components/footer.html %}
+

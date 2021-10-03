@@ -1,0 +1,58 @@
+<header class="page--header page--header--{{ page.layout }}">
+
+	<div class="grid-column-full">
+
+	{% unless page.caption == false or layout.caption == false %}
+
+		{% if page.collection == "design-system" %}
+			{% if page.categories %}
+			{% assign caption = page.categories | first %}
+			<span class="caption-xl">{{ caption | capitalize }}</span>
+			{% endif %}
+		{% elsif page.collection %}
+			<span class="page--caption">{{ page.collection | capitalize | replace: "-", " " }}</span>
+		{% endif %}
+
+	{% endunless %}
+
+	{% if page.layout == loop %}
+		{% assign title = collection | capitalize | replace: '-', ' ' %}
+	{% else %}
+		{% assign title = page.title %}
+	{% endif %}
+		<h1 class="page--heading">{{ title }}</h1>
+	</div>
+
+	{% unless page.excerpt == false or layout.excerpt == false %}
+	<div class="grid-column-two-thirds">
+
+		{{ page.excerpt | prepend: '<p class="page--excerpt">' | append: '</p>' }}
+
+	</div>
+	{% endunless %}
+
+	{% unless page.meta-info == false or layout.meta-info == false %}
+
+	<div class="grid-column-full">
+
+		<dl class="page--meta-info">
+
+			<dt class="page--meta-info--term">Published</dt>
+			<dd class="page--meta-info--definition">{{ page.date | date: "%d %B %Y" }}</dd>
+
+			<dt class="page--meta-info--term">Author</dt>
+			{% if page.author %}
+				{% assign author = page.author %}
+			{% else %}
+				{% assign author = "Civil Service LGBT+ Network" %}
+			{% endif %}
+			<dd class="page--meta-info--definition">{{ author }}</dd>
+
+		</dl>
+
+
+	</div>
+
+	{% endunless %}
+
+</header>

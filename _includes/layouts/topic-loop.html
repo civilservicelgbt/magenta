@@ -1,0 +1,110 @@
+{% if topicCollection == "events" %}
+
+	{% assign topicLoop = site[topicCollection] | where: 'category', page.category | sort: 'event-date' %}
+	{% assign topicTitle = "Upcoming " | append: topicCollection %}
+
+	{% assign countOpenEvents = 0 %}
+	{% for post in topicLoop %}
+		{% assign eventStartDate = post.event-date | date: '%s' %}
+		{% if now < eventStartDate %}
+			{% assign countOpenEvents = countOpenEvents | plus: 1 %}
+		{% endif %}
+	{% endfor %}
+	{% if countOpenEvents == 0 %}
+		{% assign skipLoop = true %}
+	{% else %}
+		{% assign skipLoop = false %}
+	{% endif %}
+
+{% elsif topicCollection == "consultations" %}
+
+	{% assign topicLoop = site[topicCollection] | where: 'category', page.category | sort: 'end-date' | reverse %}
+	{% assign topicTitle = "Consultations and surveys" %}
+
+{% elsif topicCollection == "archives" %}
+
+	{% assign topicLoop = site[topicCollection] | where: 'category', page.category | sort: 'date' | reverse %}
+	{% assign topicTitle = "Previous updates" %}
+
+{% else %}
+
+	{% assign topicLoop = site[topicCollection] | where: 'category', page.category | sort: 'date' | reverse %}
+	{% assign topicTitle = "Recent " | append: topicCollection %}
+
+{% endif %}
+
+
+
+{% unless topicLoop == empty or skipLoop == true %}
+<section id="topic--section topic--section--{{ topicCollection }}">
+
+	<div class="grid-row">
+
+	<div class="grid-column-one-third">
+		<h2 class="topic--section-title">
+			<a href="{{ site.url | append: site.baseurl | append: '/' | append: topicCollection }}" class="link--no-underline link--text-color">
+				{{ topicTitle }}
+			</a>
+		</h2>
+	</div>
+
+	<div class="grid-column-two-thirds">
+		<ul class="list--no-styles topic--loop--article-list">
+			{% for post in topicLoop %}
+				{% assign skipPost = false %}
+				{% assign date = post.date | date: '%s' %}
+
+				{% if topicCollection == "events" %}
+
+					{% assign eventStartDate = post.event-date | date: '%s' %}
+					{% if eventStartDate < now %}
+						{% assign skipPost = true %}
+					{% else %}
+						{% assign skipPost = false %}
+					{% endif %}
+
+				{% elsif topicCollection == "consultations" %}
+
+					{% assign consultationEndDate = post.end-date | date: '%s' %}
+					{% if now > consultationEndDate %}
+						{% assign consultationOpen = false %}
+					{% else %}
+						{% assign consultationOpen = true %}
+					{% endif %}
+
+					{% assign skipPost = false %}
+
+				{% else %}
+
+					{% assign skipPost = false %}
+
+				{% endif %}
+
+				{% if now <= date %}
+					{% assign skipPost = true %}
+				{% endif %}
+
+
+				{% unless skipPost == true %}
+				<li class="loop--article-list--item">
+					<article>
+						<h2 class="loop--article-list--item--title"><a href="{{ site.url | append: site.baseurl | append: post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h2>
+						<p class="loop--article-list--item--excerpt">{{ post.excerpt }}</p>
+
+						{% if topicCollection == "events" %}
+						<p class="loop--article-list--item--meta">Taking place <time datetime="{{ post.event-date | date: '%Y-%m-%d' }}">{{ post.event-date | date:'%-d %B %Y at %H:%M' }}</time></p>
+						{% elsif topicCollection == "consultations" %}
+							<p class="loop--article-list--item--meta">{% if consultationOpen == true %}Consultation open until{% else %}Consultation closed on{% endif %} <time datetime="{{ post.end-date | date: '%Y-%m-%d %H:%M' }}">{{ post.end-date | date:'%-d %B %Y at %H:%M' }}</time></p>
+						{% else %}
+						<p class="loop--article-list--item--meta">Published <time datetime="{{ date | date: '%Y-%m-%d' }}">{{ date  | date:'%-d %B %Y' }}</time> {% if post.author %}by {{ post.author }}{% endif %}</p>
+						{% endif %}
+					</article>
+				</li>
+				{% endunless %}
+			{% endfor %}
+		</ul>
+	</div>
+
+	</div>
+</section>
+{% endunless %}

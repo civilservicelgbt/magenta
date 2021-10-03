@@ -1,0 +1,32 @@
+// Contextual adjustments
+// Add top padding to headings that appear directly after paragraphs.
+
+%body-lg  + h2,
+%body-md + h2 {
+	padding-top: spacing(2);
+
+	@include media-query($from: tablet) {
+		padding-top: spacing(4);
+	}
+}
+
+%body-md + h2,
+%body-lg + h2,
+%list + h2 {
+	@include responsive-padding(4, "top");
+}
+
+%body-md + h3,
+%body-lg + h3,
+%list + h3,
+%body-md + h4,
+%body-lg + h4,
+%list + h4
+ {
+	padding-top: spacing(1);
+
+	@include media-query($from: tablet) {
+		padding-top: spacing(2);
+	}
+}
+

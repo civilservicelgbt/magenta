@@ -1,0 +1,41 @@
+.article--event .page--content {
+	border-top: none !important;
+}
+
+.section--event-details {
+	padding: spacing(5);
+	background: lighten(color("magenta"), 50%);
+
+	p:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.event--event-details--label {
+	margin-bottom: spacing(1);
+}
+
+.event--event-details--value {
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.section--event-registration {
+	padding: spacing(5);
+	background: color("white");
+	border: 3px solid color("magenta--light");
+
+	p:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.event--aside {
+	padding-top: spacing(5);
+	border-top: 3px solid color("light-gray");
+
+	blockquote:first-of-type {
+		margin-top: 0;
+	}
+}

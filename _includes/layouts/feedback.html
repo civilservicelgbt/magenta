@@ -1,0 +1,8 @@
+{% unless page.layout == "home" or page.feedback == false %}
+<aside class="feedback">
+	<div class="button-group">
+		<a href="mailto:info@civilservice.lgbt?subject=Website%20feedback&body=PROVIDE%20FEEDBACK%0D%0APage%20URL%3A%20{{ page.url | escape }}%0D%0A%0D%0AI'd%20like%20to%20provide%20the%20following%20feedback%3A%0D%0A%3C%3C%20Insert%20your%20explanation%20%3E%3E" class="button button--feedback">Provide feedback about this page</a>
+		<a href="mailto:info@civilservice.lgbt?subject=Error%20with%20webpage&body=ERROR%20REPORT%0D%0APage%20URL%3A%20{{ page.url | escape }}%0D%0A%0D%0APlease%20explain%20what%20you%20were%20trying%20to%20do%3A%0D%0A%3C%3C%20Insert%20your%20explanation%20%3E%3E%0D%0A%0D%0APlease%20explain%20what%20error%20you%20encountered%3A%0D%0A%3C%3C%20Insert%20your%20explanation%20%3E%3E" class="button button--feedback">Report an error with this page</a>
+	</div>
+</aside>
+{% endunless %}

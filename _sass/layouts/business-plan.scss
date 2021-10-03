@@ -1,0 +1,155 @@
+// Business plan format
+
+details.objective {
+
+	ul {
+	  padding: 0;
+	}
+
+	li {
+	  display: block;
+	  position: relative;
+
+	  line-height: 1;
+	  list-style: none;
+	  padding: $gutter-half 0 !important;
+	  @include media-query($from: tablet) {
+		padding: $gutter-half ($gutter-half * 0.5);
+	  }
+	  border-top: 1px solid color("light-gray");
+
+	  p {
+		display: block;
+		padding-left: $radios-size + $radios-label-padding-left-right;
+		min-height: $input-size;
+		vertical-align: middle;
+		&:first-of-type {
+		  padding-top: 7.5px;
+		}
+		margin-bottom: 7.5px;
+		&.date {
+		  min-height: unset;
+		  padding-top: 0;
+		  padding-bottom: 0;
+		  color: color("dark-gray");
+		}
+	  }
+
+	  span.milestone {
+		position: relative;
+		display: block;
+		min-height: $radios-size;
+	  }
+	  span.status {
+		display: inline-block;
+		margin-bottom: 0;
+		padding: 0px $radios-label-padding-left-right;
+
+		font-weight:    400;
+
+		&::before {
+			content: "";
+			box-sizing: border-box;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: $checkboxes-size;
+			height: $checkboxes-size;
+			border: $border-width-form-element solid currentColor;
+			background: transparent;
+		}
+
+		&::after {
+			content: "";
+			box-sizing: border-box;
+
+			position: absolute;
+			top: 11px;
+			left: 9px;
+			width: 23px;
+			height: 12px;
+
+			transform: rotate(-45deg);
+			border: solid;
+			border-width: 0 0 5px 5px;
+			border-color: $checkboxes-button--color;
+			// Fix bug in IE11 caused by transform rotate (-45deg).
+			border-top-color: transparent;
+
+			opacity: 0;
+
+			background: transparent;
+		}
+		&.complete::after {
+		  opacity: 1;
+		}
+		&.complete > .sr-only,
+		&.in-progress > .sr-only {
+			@include visually-hidden;
+		}
+	  }
+
+	}
+
+	p {
+	  max-width: 60ch;
+	}
+
+  }
+
+.objective-summary {
+
+	progress {
+
+	  &[value] {
+		/* Reset the default appearance */
+		-webkit-appearance: none;
+		   -moz-appearance: none;
+				appearance: none;
+
+		/* Get rid of default border in Firefox. */
+		border: none;
+	  }
+
+	  display: block;
+	  position: relative;
+
+	  width: 100%;
+	  max-width: 600px;
+
+	  &::-webkit-progress-bar {
+		/* style rules */
+		background-color: color("light-gray");
+		border-radius: 0px;
+	  }
+
+	  &.in-progress {
+
+		color: color("cyan");
+
+		&::-webkit-progress-value {
+		  background-color: color("cyan");
+		}
+		&::-moz-progress-bar {
+		  background-color: color("cyan");
+		}
+
+	  }
+
+	  &.complete {
+
+		color: color("green");
+
+		&::-webkit-progress-value {
+		  background-color: color("green");
+		}
+		&::-moz-progress-bar {
+		  background-color: color("green");
+		}
+
+	  }
+
+
+	}
+
+}

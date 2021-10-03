@@ -1,0 +1,8 @@
+{% if layout.back or page.back %}
+{% if layout.back %}
+	{% assign back = layout.back %}
+{% else %}
+	{% assign back = page.back %}
+{% endif %}
+<a class="back-link" href="{{ site.url | append: site.baseurl | append: page.back }}">Back</a>
+{% endif %}

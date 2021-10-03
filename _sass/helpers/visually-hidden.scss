@@ -1,0 +1,70 @@
+/// Hide an element visually, but have it available for screen readers
+
+@mixin visually-hidden($important: true) {
+  position: absolute if($important, !important, null);
+
+  width: 1px if($important, !important, null);
+  height: 1px if($important, !important, null);
+  // If margin is set to a negative value it can cause text to be announced in
+  // the wrong order in VoiceOver for OSX
+  margin: 0 if($important, !important, null);
+  padding: 0 if($important, !important, null);
+
+  overflow: hidden if($important, !important, null);
+  clip: rect(0 0 0 0) if($important, !important, null);
+  clip-path: inset(50%) if($important, !important, null);
+
+  border: 0 if($important, !important, null);
+
+  // For long content, line feeds are not interpreted as spaces and small width
+  // causes content to wrap 1 word per line:
+  // https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+  white-space: nowrap if($important, !important, null);
+}
+
+/// Hide an element visually, but have it available for screen readers whilst
+/// allowing the element to be focused when navigated to via the keyboard (e.g.
+/// for the skip link)
+
+@mixin visually-hidden-focusable($important: true) {
+  position: absolute if($important, !important, null);
+
+  width: 1px if($important, !important, null);
+  height: 1px if($important, !important, null);
+  // If margin is set to a negative value it can cause text to be announced in
+  // the wrong order in VoiceOver for OSX
+  margin: 0 if($important, !important, null);
+
+  overflow: hidden if($important, !important, null);
+  clip: rect(0 0 0 0) if($important, !important, null);
+  clip-path: inset(50%) if($important, !important, null);
+
+  // For long content, line feeds are not interpreted as spaces and small width
+  // causes content to wrap 1 word per line:
+  // https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+  white-space: nowrap if($important, !important, null);
+
+  &:active,
+  &:focus {
+    position: static if($important, !important, null);
+
+    width: auto if($important, !important, null);
+    height: auto if($important, !important, null);
+    margin: inherit if($important, !important, null);
+
+    overflow: visible if($important, !important, null);
+    clip: auto if($important, !important, null);
+    clip-path: none if($important, !important, null);
+
+    white-space: inherit if($important, !important, null);
+  }
+}
+
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.visually-hidden-focusable {
+  @include visually-hidden-focusable;
+}
