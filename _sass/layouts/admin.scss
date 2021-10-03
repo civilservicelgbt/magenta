@@ -1,0 +1,15 @@
+.admin--link-block {
+	padding: spacing(5) spacing(3) spacing(1) spacing(3);
+	@include media-query($from: tablet) {
+		padding: spacing(5) spacing(5) 0 spacing(5);
+		aspect-ratio: 1.75/1;
+	}
+	background: color("magenta--light");
+	margin-bottom: spacing(5);
+	border-top: 5px solid color("magenta");
+}
+
+.admin--link-block--guidance {
+	background: lighten(color("cyan"), 50%);
+	border-top: 5px solid color("cyan");
+}
