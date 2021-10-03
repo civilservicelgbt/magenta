@@ -33,7 +33,7 @@ layout: default
           {{ group.name | remove: '["' | remove: '"]' | capitalize | prepend: '<li class="list--category">' | append: '</li><ul class="list--no-styles">' }}
           {% for item in group.items %}
 
-              <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+              <li><a href="{{ site.url | append: site.baseurl | append: item.url }}">{{ item.title }}</a></li>
 
           {% endfor %}
           </ul>
@@ -44,7 +44,7 @@ layout: default
 
           {% for item in loop %}
 
-          <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+          <li><a href="{{ site.url | append: site.baseurl | item.url }}">{{ item.title }}</a></li>
 
           {% endfor %}
 
