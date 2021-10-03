@@ -44,7 +44,7 @@ layout: default
 
           {% for item in loop %}
 
-          <li><a href="{{ site.url | append: site.baseurl | item.url }}">{{ item.title }}</a></li>
+          <li><a href="{{ site.url | append: site.baseurl | append: item.url }}">{{ item.title }}</a></li>
 
           {% endfor %}
 
