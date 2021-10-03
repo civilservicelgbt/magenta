@@ -25,23 +25,13 @@ There are 2 menus in this theme. Each is controlled with YAML set in the site's 
 
 ---
 
-## Installation (for GitHub pages)
-
-add this line to your Jekyll site's `_config.yml`:
-
-```yaml
-remote_theme: cslgbt-theme
-```
-
----
-
 ## Installation
 
 Add add this line to your Jekyll site's `_config.yml`:
 
 ```yaml
 plugins:
-	- jekyll-remote-theme
+- jekyll-remote-theme
 
 remote_theme: civilservicelgbt/magenta
 ```
