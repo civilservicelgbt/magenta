@@ -30,3 +30,11 @@
 .date-input--day {
 	@extend %input--width-2;
 }
+
+.date-input--hour {
+	@extend %input--width-2;
+}
+
+.date-input--minute {
+	@extend %input--width-2;
+}
