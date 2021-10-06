@@ -1,5 +1,5 @@
 <fieldset id="fieldset--post-topic" aria-describedby="fieldset--post-topic--title">
-	<legend id="fieldset--post-topic--title" class="legend-lg">Article topic</legend>
+	<legend id="fieldset--post-topic--title" class="legend-lg">Topic</legend>
 
 
 	<div class="grid-row form-row">
@@ -8,7 +8,11 @@
 				Topic
 			</label>
 			<div id="fieldset--post-topic--hint" class="hint">
+				{% if type == "topic" %}
+				Topic pages aggregate all posts with the same topic. Use the same 'topic' here as you did on your posts.
+				{% else %}
 				If this post relates to one of the <a href="/topics">topic pages</a> on the website, enter the last part of the URL.
+				{% endif %}
 			</div>
 		</div>
 		<div class="grid-column-two-thirds">

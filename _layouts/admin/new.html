@@ -3,7 +3,9 @@ layout: default
 meta-info: false
 ---
 
-<section class="section--{{ page.layout }}">
+{% assign type = page.url | remove: '/new/' | remove: '/' %}
+
+<section id="post-generator" class="section--{{ page.layout }}" data-posttype="{{ type }}">
 
 	<div class="grid-row">
 		{% include layouts/header.html %}
@@ -45,12 +47,12 @@ meta-info: false
 
 			<div class="page--content">
 
-			{% assign type = page.url | remove: '/new/' | remove: '/' %}
-
 				{% include fields/post-title-and-summary.html %}
 			{% unless type == "team" or type == "topic" %}
 				{% include fields/post-author.html %}
 				{% include fields/post-publication-date.html %}
+			{% endunless %}
+			{% unless type == "team" %}
 				{% include fields/post-topics.html %}
 			{% endunless %}
 			{% if type == "team" %}
@@ -156,3 +158,5 @@ meta-info: false
 	</div>
 
 </section>
+
+<script type="text/javascript" src="{{ site.url | append: site.baseurl | append: site.js-path | append: '/admin.js' }}"></script>
