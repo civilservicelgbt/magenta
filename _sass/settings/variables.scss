@@ -433,10 +433,10 @@ $border-width-narrow: 4px !default;
 $border-width-form-element: 2px !default;
 
 /// Form control border width when in error state
-$border-width-form-element-error: 2px !default;
+$border-width-form-element-error: 3px !default;
 
 /// Form group border width when in error state
-$border-width-form-group-error: $border-width !default;
+$border-width-form-group-error: 0 !default;
 
 /// Border width of focus outline
 $focus-width: 3px !default;

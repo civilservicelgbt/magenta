@@ -1,0 +1,31 @@
+<fieldset id="fieldset--post-images-and-videos" aria-describedby="fieldset--post-images-and-videos--title">
+	<legend id="fieldset--post-images-and-videos--title" class="legend-lg">Images and videos</legend>
+
+
+	<div class="grid-row form-row">
+		<div class="grid-column-one-third">
+			<label class="inline-label label-md" for="post-image">
+				Image URL
+			</label>
+			<p class="hint" id="post-image--hint">Sets the hero image for the post. Must be an image uploaded via the <a href="https://www.civilservice.lgbt/images">Image Store</a>.</p>
+		</div>
+		<div class="grid-column-two-thirds">
+			<input class="input" id="post-image" name="post-image" type="text" placeholder="https://www.civilservice.lgbt/images/name-of-image.png">
+		</div>
+	</div>
+
+	{% unless type == "team" or type == "topic" %}
+	<div class="grid-row form-row">
+		<div class="grid-column-one-third">
+			<label class="inline-label label-md" for="post-video">
+				YouTube video URL
+			</label>
+			<p class="hint" id="post-video--hint">Shows a video at the top of the post.</p>
+		</div>
+		<div class="grid-column-two-thirds">
+			<input class="input" id="post-video" name="post-video" type="text" placeholder="https://www.youtube.com/embed/12345678910">
+		</div>
+	</div>
+	{% endunless %}
+
+</fieldset>

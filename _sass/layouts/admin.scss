@@ -13,3 +13,13 @@
 	background: lighten(color("cyan"), 50%);
 	border-top: 5px solid color("cyan");
 }
+
+.admin--outputs {
+	@include clearfix;
+	padding-bottom: spacing(10);
+}
+
+.admin--outputs h2 {
+	border-top: 5px solid color("magenta");
+	padding-top: spacing(5);
+}

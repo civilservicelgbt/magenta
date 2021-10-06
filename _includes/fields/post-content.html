@@ -1,0 +1,19 @@
+{% if type == "event" %}
+	{% assign bodyLabel = "Event description" %}
+{% elsif type == "team" %}
+	{% assign bodyLabel = "Team member biography" %}
+{% else %}
+	{% assign bodyLabel = "Body text" %}
+{% endif %}
+
+<fieldset id="fieldset--post-content" aria-describedby="fieldset--post-content--title">
+	<legend id="fieldset--post-content--title" class="legend-lg">Main content</legend>
+
+
+			<label class="inline-label label-md" for="post-content">
+				{{ bodyLabel }}
+			</label>
+			<p class="hint" id="post-content--hint">This is the main content of your post.</p>
+			<textarea id="post-excerpt"  name="post-content" aria-describedby="post-content--hint" rows="20"></textarea>
+
+</fieldset>

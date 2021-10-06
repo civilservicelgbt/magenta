@@ -1,0 +1,158 @@
+---
+layout: default
+meta-info: false
+---
+
+<section class="section--{{ page.layout }}">
+
+	<div class="grid-row">
+		{% include layouts/header.html %}
+	</div>
+
+	<div class="grid-row">
+		<div class="grid-column-two-thirds">
+
+				<details>
+
+					<summary>About this tool</summary>
+
+						<p>Complete this form to generate the text you need to upload content to the website.</p>
+
+						<p>Enter the information into the form below, then select the output you require.</p>
+
+						<p><strong>If you have know how to use GitHub you can add files directly to our GitHub repository</strong>, the tool can step you through the process of creating a new post directly.</p>
+
+						<p><strong>If you do not have permissions to add files directly to our GitHub repository</strong>, the tool can also:</p>
+
+						<ol>
+							<li>generate an email to send to our central team to post the information</li>
+							<li>generate a file that you can send to our central team via email to post</li>
+							<li>copy the information the central team will need to your clipboard; you can then paste this information into an email to send to our central team to post</li>
+						</ol>
+
+				</details>
+
+				<blockquote class="warning-text">
+					<p><strong>This form might not work on your departmental IT system.</strong></p>
+					<p>There is nothing we can do to fix this. If you experience problems, try using a personal device instead.</p>
+				</blockquote>
+
+		</div>
+	</div>
+
+	<div class="grid-row">
+		<div class="grid-column-full">
+
+			<div class="page--content">
+
+			{% assign type = page.url | remove: '/new/' | remove: '/' %}
+
+				{% include fields/post-title-and-summary.html %}
+			{% unless type == "team" or type == "topic" %}
+				{% include fields/post-author.html %}
+				{% include fields/post-publication-date.html %}
+				{% include fields/post-topics.html %}
+			{% endunless %}
+			{% if type == "team" %}
+				{% include fields/team-member-details.html %}
+			{% endif %}
+			{% if type == "event" %}
+				{% include fields/post-event-start-date.html %}
+				{% include fields/post-event-registration-end-date.html %}
+				{% include fields/post-event-registration-info.html %}
+				{% include fields/post-event-registration-location.html %}
+			{% endif %}
+			{% if type == "consultation" %}
+				{% include fields/post-consultation-end-date.html %}
+				{% include fields/post-consultation-details.html %}
+			{% endif %}
+				{% include fields/post-images-and-video.html %}
+			{% unless type == "team" %}
+				{% include fields/post-permalinks.html %}
+			{% endunless %}
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="grid-row">
+		<div class="grid-column-full">
+
+			<div class="page--content">
+
+				{% include fields/post-content.html %}
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="grid-row">
+		<div class="grid-column-full">
+
+			<div class="admin--outputs">
+
+				<div class="grid-row">
+
+					<div class="grid-column-one-third">
+						<h2>Choose an output method</h2>
+					</div>
+					<div class="grid-column-two-thirds">
+						{% include fields/output-generate-an-email.html %}
+						{% include fields/output-download-as-file.html %}
+						{% include fields/output-copy-to-clipboard.html %}
+						{% include fields/output-github-step-by-step.html %}
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="grid-row">
+
+		<div class="grid-column-one-half">
+
+			<div class="admin--link-block admin--link-block--tool">
+
+				<span class="caption-lg">Tool</span>
+				<h2>Upload an image</h2>
+				<p>Use this tool to upload an image or photo to the image store.</p>
+				<a href="https://www.civilservice.lgbt/images" class="button" target="_blank">Upload an image</a>
+
+			</div>
+
+		</div>
+
+		<div class="grid-column-one-half">
+
+			<div class="admin--link-block admin--link-block--tool">
+
+				<span class="caption-lg">Tool</span>
+				<h2>Upload a document</h2>
+				<p>Use this tool to upload a document to the document store.</p>
+				<a href="https://www.civilservice.lgbt/documents" class="button" target="_blank">Upload a document</a>
+
+			</div>
+
+		</div>
+
+		<div class="grid-column-one-half">
+
+			<div class="admin--link-block admin--link-block--guidance">
+
+				<span class="caption-lg">Guidance</span>
+				<h2>Learn to format a post</h2>
+				<p>Read the guidance about how to format a post using Markdown.</p>
+				<a href="" class="button" target="_blank">Read the guidance</a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>

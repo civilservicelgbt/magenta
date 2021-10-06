@@ -37,8 +37,11 @@
 	-moz-appearance: textfield;
 }
 
+input:invalid,
 .input--error {
 	border: $border-width-form-element-error solid $input-error-color;
+	outline: 3px solid color("red");
+	outline-offset: 1px;
 
 	&:focus {
 		border-color: $input-border-color;

@@ -1,0 +1,39 @@
+{% if type == "event" %}
+	{% assign titleLabel = "name" %}
+	{% assign excerptLabel = "summary" %}
+{% elsif type == "team" %}
+	{% assign titleLabel = "member name" %}
+{% else %}
+	{% assign titleLabel = "title" %}
+	{% assign excerptLabel = "excerpt" %}
+{% endif %}
+
+<fieldset id="fieldset--post-title-and-summary" aria-describedby="fieldset--post-title-and-summary--title">
+	<legend id="fieldset--post-title-and-summary--title" class="legend-lg">{{ type | capitalize }} {{ titleLabel }}  {% if excerptLabel %}{{ excerptLabel | prepend: 'and ' }}{% endif %}</legend>
+
+	<div class="grid-row form-row">
+		<div class="grid-column-one-third">
+			<label class="inline-label label-md" for="post-title">
+				{{ type | capitalize }} {{ titleLabel }}
+			</label>
+		</div>
+		<div class="grid-column-two-thirds">
+			<input class="input" id="post-title" name="post-title" type="text">
+		</div>
+	</div>
+
+	{% unless type == "team" %}
+	<div class="grid-row form-row">
+		<div class="grid-column-one-third">
+			<label class="inline-label label-md" for="post-excerpt">
+				{{ type | capitalize }} {{ excerptLabel }}
+			</label>
+			<p class="hint" id="post-excerpt--hint">Summarise the {{ type }} in single, short sentence.</p>
+		</div>
+		<div class="grid-column-two-thirds">
+			<textarea id="post-excerpt"  name="post-excerpt" aria-describedby="post-excerpt--hint" rows="3"></textarea>
+		</div>
+	</div>
+	{% endunless %}
+
+</fieldset>

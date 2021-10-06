@@ -1,0 +1,34 @@
+<fieldset id="fieldset--publish-date" aria-describedby="fieldset--publish-date--hint">
+	<legend id="fieldset--publish-date--title" class="legend-lg">Publish date</legend>
+
+
+	<div class="grid-row form-row">
+		<div class="grid-column-one-third">
+			<p class="label-md">Date</p>
+			<div id="fieldset--publish-date--hint" class="hint">
+				For example – 31 12 2021
+			</div>
+		</div>
+		<div class="grid-column-two-thirds">
+			<div id="post-publish-date" class="date-input">
+
+				<div class="date-input--item">
+					<label class="label-md" for="post-day">Day</label>
+					<input class="input date-input date-input--day" id="post-day" name="post-day" placeholder="DD" minlength="2" maxlength="2" type="text" pattern="[0-9]*" inputmode="numeric">
+				</div>
+
+				<div class="date-input--item">
+					<label class="label-md" for="post-month">Month</label>
+					<input class="input date-input date-input--month" id="post-month" name="post-month" placeholder="MM" minlength="2" maxlength="2" type="text" pattern="[0-9]*" inputmode="numeric">
+				</div>
+
+				<div class="date-input--item">
+					<label class="label-md" for="post-year">Year</label>
+					<input class="input date-input date-input--year" id="post-year" name="post-year" placeholder="YYYY" minlength="4" maxlength="4" type="text" pattern="[0-9]*" inputmode="numeric">
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</fieldset>

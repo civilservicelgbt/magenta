@@ -1,0 +1,22 @@
+{% if type == "event" %}
+	{% assign authorLabel = "host" %}
+{% else %}
+	{% assign authorLabel = "author" %}
+{% endif %}
+
+<fieldset id="fieldset--post-author" aria-describedby="fieldset--post-author--title">
+	<legend id="fieldset--post-author--title" class="legend-lg">{{ type | capitalize }} {{ authorLabel }}</legend>
+
+
+	<div class="grid-row form-row">
+		<div class="grid-column-one-third">
+			<label class="inline-label label-md" for="post-author">
+				{{ authorLabel | capitalize }}
+			</label>
+		</div>
+		<div class="grid-column-two-thirds">
+			<input class="input" id="post-author" name="post-author" type="text">
+		</div>
+	</div>
+
+</fieldset>
