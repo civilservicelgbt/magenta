@@ -48,10 +48,12 @@ meta-info: false
 			<div class="page--content">
 
 				{% include fields/post-title-and-summary.html %}
-			{% unless type == "team" %}
+			{% unless type == "team" or type == "manual" %}
 				{% include fields/post-author.html %}
-				{% include fields/post-publication-date.html %}
 				{% include fields/post-topics.html %}
+			{% endunless %}
+			{% unless type == "team" %}
+				{% include fields/post-publication-date.html %}
 			{% endunless %}
 			{% if type == "team" %}
 				{% include fields/team-member-details.html %}

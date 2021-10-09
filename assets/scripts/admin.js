@@ -408,7 +408,7 @@
 
 function postContentToEmail() {
 	var output = generateJekyllPostContent(); // Post content
-	var subject = "[Event for website] " + postTitle.value;
+	var subject = "[" + postType + " for website] " + postTitle.value;
 
 	// Generate the email
 	document.location.href = "mailto:info@civilservice.lgbt?subject="
@@ -420,7 +420,7 @@ function postContentToEmail() {
 
 	function postContentToFile() {
 		var output = generateJekyllPostContent(); // Post content
-		var filename = "filename";
+		var filename = postFilename.value;
 		// Create the file and download it
 		var element = document.createElement('a');
 		element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(output));
@@ -429,6 +429,7 @@ function postContentToEmail() {
 		document.body.appendChild(element);
 		element.click();
 		document.body.removeChild(element);
+		alert("Your file will now download to your computer. \n\nThe file will be called " + filename +" \n\n You can open the file using any plain text editor (like TextEdit or Notepad) if you need to edit it.")
 	}
 
 // COPY TO CLIPBOARD
@@ -530,7 +531,7 @@ function postContentToEmail() {
 
 		var separator = "/";
 
-		if (postType == "consultation" || postType == "publication" || postType == "topic" || postType == "team") {
+		if (postType == "consultation" || postType == "publication" || postType == "topic" || postType == "team" || postType == "manual") {
 
 			var date = null;
 
@@ -560,7 +561,7 @@ function postContentToEmail() {
 
 		var separator = "-";
 
-		if (postType == "topic" || postType == "team" || postType == "event") {
+		if (postType == "topic" || postType == "team" || postType == "event" || postType == "manual") {
 
 			var date = null;
 
