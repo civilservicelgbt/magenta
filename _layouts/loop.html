@@ -20,7 +20,6 @@ meta-info: false
 		if collection == "news"
 		or collection == "notices"
 		or collection == "archives"
-		or collection == "manuals"
 		or collection == "publications"
 		or collection == "rules"
 	%}
@@ -36,6 +35,25 @@ meta-info: false
 					<h2 class="loop--article-list--item--title"><a href="{{ site.url | append: site.baseurl | append: post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h2>
 					<p class="loop--article-list--item--excerpt">{{ post.excerpt }}</p>
 					<p class="loop--article-list--item--meta">Published <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date  | date:'%-d %B %Y' }}</time> {% if post.author %}by {{ post.author }}{% endif %}</p>
+				</article>
+			</li>
+			{% endif %}
+		{% endfor %}
+
+		</ul>
+
+	{% elsif collection == "manuals" %}
+	{% assign loop = site[collection] | sort: 'date' | reverse %}
+
+		<ul class="list--no-styles loop--article-list">
+
+		{% for post in loop %}
+			{% assign postDate = post.date | date: '%s' %}
+			{% if postDate <= now %}
+			<li class="loop--article-list--item">
+				<article>
+					<h2 class="loop--article-list--item--title"><a href="{{ site.url | append: site.baseurl | append: post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h2>
+					<p class="loop--article-list--item--excerpt">{{ post.excerpt }}</p>
 				</article>
 			</li>
 			{% endif %}
