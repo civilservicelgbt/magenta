@@ -27,7 +27,7 @@ layout: default
         <ul class="list--no-styles collection--left-nav--navigation">
 
         {% if cat-count > 0 %}
-          {% assign groups = loop | group_by: "categories" | sort: "name" %}
+          {% assign groups = loop | group_by: "category" | sort: "name" %}
 
           {% for group in groups %}
           {{ group.name | remove: '["' | remove: '"]' | capitalize | prepend: '<li class="list--category">' | append: '</li><ul class="list--no-styles">' }}
