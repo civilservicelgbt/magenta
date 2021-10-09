@@ -296,9 +296,9 @@ collections:
         admin:
           add-to-collection: false
           show-in-formats: false
-  admin:
+  tools:
     output: true
-    permalink: /membership/:title/
+    permalink: /tools/:title/
     defaults:
       values:
         layout: page
