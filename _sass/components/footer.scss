@@ -59,17 +59,11 @@ footer a,
 
 .footer--list {
 	margin: 0;
+	margin-bottom: spacing(5);
 	padding: 0;
 	list-style: none;
 	column-gap: $gutter; // Support: Columns
 	vertical-align: top;
-}
-
-
-@include media-query ($from: desktop) {
-	.footer--list--columns-2 {
-		column-count: 2; // Support: Columns
-	}
 }
 
 .footer--list-item {

@@ -1,9 +1,12 @@
 <footer class="footer" role="contentinfo">
 	<div class="width-container">
 		<div class="grid-row">
-			<div class="grid-column-two-thirds">
+			<div class="grid-column-one-third">
+				<h2 class="footer--wordmark">Civil Service LGBT+ Network</h2>
+			</div>
+			<div class="grid-column-one-third">
 				<h2 class="footer--heading">Related links</h2>
-				<ul class="footer--list footer--list--columns-2">
+				<ul class="footer--list">
 					{% for item in site.footer-menu--links %}
 					{% if item.hidden != true %}
 					<li class="footer--list-item">
