@@ -69,9 +69,8 @@ meta-info: false
 				{% include fields/post-consultation-details.html %}
 			{% endif %}
 				{% include fields/post-images-and-video.html %}
-			{% unless type == "team" %}
 				{% include fields/post-permalinks.html %}
-			{% endunless %}
+				{% include fields/post-filename.html %}
 
 			</div>
 

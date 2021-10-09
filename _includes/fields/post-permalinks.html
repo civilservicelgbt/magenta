@@ -9,7 +9,7 @@
 			<p class="hint" id="post-permalink--hint">Amend this field to change the post permalink.</p>
 		</div>
 		<div class="grid-column-two-thirds">
-			<input class="input" id="post-permalink" name="post-permalink" type="text" placeholder="/2021/12/31/name-of-your-post/">
+			<input class="input" id="post-permalink" name="post-permalink" type="text" placeholder="/2021/12/31/name-of-your-post/" onfocusout="cleanFieldInput('post-permalink', 'not-slash')">
 		</div>
 	</div>
 
@@ -21,7 +21,7 @@
 			<p class="hint" id="post-redirect-from--hint">Use this to redirect from another page to this page.</p>
 		</div>
 		<div class="grid-column-two-thirds">
-			<input class="input" id="post-redirect-from" name="post-redirect-from" type="text" placeholder="/2021/12/31/name-of-your-post/">
+			<input class="input" id="post-redirect-from" name="post-redirect-from" type="text" placeholder="/2021/12/31/name-of-your-post/" onfocusout="cleanFieldInput('post-redirect-from', 'not-slash')">
 		</div>
 	</div>
 
@@ -33,7 +33,7 @@
 			<p class="hint" id="post-redirect-to--hint">Use this to redirect to another page from this page.</p>
 		</div>
 		<div class="grid-column-two-thirds">
-			<input class="input" id="post-redirect-to" name="post-redirect-to" type="text" placeholder="/2021/12/31/name-of-your-post/">
+			<input class="input" id="post-redirect-to" name="post-redirect-to" type="text" placeholder="/2021/12/31/name-of-your-post/" onfocusout="cleanFieldInput('post-redirect-to', 'not-slash')">
 		</div>
 	</div>
 

@@ -3,6 +3,11 @@
 	const generator = document.getElementById("post-generator");
 	const postType = generator.dataset.posttype;
 
+	const now = new Date();
+	const nowDay = String(now.getDate()).padStart(2, '0');
+	const nowMonth = String(now.getMonth() + 1).padStart(2, '0'); //January is 0!
+	const nowYear = now.getFullYear();
+
 // GET THE FIELDS
 
 	// Post title and summary
@@ -141,130 +146,303 @@
 		// Redirect To
 		var postRedirectTo = document.getElementById("post-redirect-to");
 
+	// Filename
+
+		// Filename
+		var postFilename = document.getElementById("post-filename");
+
 	// Body content
 
 		var postContent = document.getElementById("post-content");
 
 // GENERATE THE CONTENT
-function generateJekyllPostContent() {
 
-	// Create a variable to hold the post output
-	var jekyllPost = "";
+	function generateJekyllPostContent() {
 
-	// Add in the relevant fields...
+		// Create a variable to hold the post output
+		var jekyllPost = "";
 
-		jekyllPost += "---\n"; // Need the front matter to be surrounded by 3 dashes on a new line
+		// Add in the relevant fields...
 
-		jekyllPost += "title: " + postTitle.value + "\n";
-		jekyllPost += "excerpt: " + postExcerpt.value + "\n";
+			jekyllPost += "---\n"; // Need the front matter to be surrounded by 3 dashes on a new line
+
+			jekyllPost += "# Adding or removing a '#' in front of a line will toggle that information off and on from being processed. \n\n"
+
+			jekyllPost += "title: " + postTitle.value + "\n";
+
+		if (postType != "team") {
+			jekyllPost += "excerpt: " + postExcerpt.value + "\n";
+		}
+
+		if (postType == "news") {
+
+			if (postPublishYear.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "date: " + postPublishYear.value + "-" + postPublishMonth.value + "-"  + postPublishDay.value + "\n";
+
+			if (postAuthor.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "author: " + postAuthor.value + "\n";
+
+			if (postTopic.value == "") {
+				jekyllPost += "# category: \n# - " + postTopic.value + "\n";
+			} else {
+				jekyllPost += "category: \n- " + postTopic.value + "\n";
+			}
 
 
-	if (postType == "news") {
-		jekyllPost += "date: " + postPublishYear.value + "-" + postPublishMonth.value + "-"  + postPublishDay.value + "\n";
-		jekyllPost += "author: " + postAuthor.value + "\n";
-		jekyllPost += "category: \n- " + postTopic.value + "\n";
+			if (postImage.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "image: " + postImage.value + "\n";
 
-		jekyllPost += "image: " + postImage.value + "\n";
-		jekyllPost += "video: " + postVideo.value + "\n";
+			if (postVideo.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "video: " + postVideo.value + "\n";
+		}
 
-		jekyllPost += "permalink: \n- " + postPermalink.value + "\n";
-		jekyllPost += "redirect_from: \n- " + postRedirectFrom.value + "\n";
-		jekyllPost += "redirect_to: \n- " + postRedirectTo.value + "\n";
+		if (postType == "event") {
+			if (postPublishYear.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "date: " + postPublishYear.value + "-" + postPublishMonth.value + "-"  + postPublishDay.value + "\n";
+
+			if (postAuthor.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "author: " + postAuthor.value + "\n";
+
+			if (postTopic.value == "") {
+				jekyllPost += "# category: \n# - " + postTopic.value + "\n";
+			} else {
+				jekyllPost += "category: \n- " + postTopic.value + "\n";
+			}
+
+			if (postEventFormURL.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "link: " + postEventFormURL.value + "\n";
+			if (postEventEmail.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "email: " + postEventEmail.value + "\n";
+			if (postEventNoRegMessage.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "no-register: " + postEventNoRegMessage.value + "\n";
+			if (postEventLocation.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "location: " + postEventLocation.value + "\n";
+
+			if (postEventStartYear.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "event-date: " + postEventStartYear.value + "-" + postEventStartMonth.value + "-"  + postEventStartDay.value + " " + postEventStartHour.value + ":" + postEventStartMinute.value + "\n";
+
+			if (postEventStartYear.value == "") {
+				jekyllPost += "# "
+			}
+			jekyllPost += "registration-close-date: " + postEventRegistrationCloseYear.value + "-" + postEventRegistrationCloseMonth.value + "-"  + postEventRegistrationCloseDay.value + " " + postEventRegistrationCloseHour.value + ":" + postEventRegistrationCloseMinute.value + "\n";
+
+
+			if (postImage.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "image: " + postImage.value + "\n";
+
+			if (postVideo.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "video: " + postVideo.value + "\n";
+		}
+
+		if (postType == "publication") {
+			if (postPublishYear.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "date: " + postPublishYear.value + "-" + postPublishMonth.value + "-"  + postPublishDay.value + "\n";
+
+			if (postAuthor.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "author: " + postAuthor.value + "\n";
+
+			if (postTopic.value == "") {
+				jekyllPost += "# category: \n# - " + postTopic.value + "\n";
+			} else {
+				jekyllPost += "category: \n- " + postTopic.value + "\n";
+			}
+
+			if (postImage.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "image: " + postImage.value + "\n";
+
+			if (postVideo.value == "") {
+				jekyllPost += "# ";
+			}
+
+			if (postPermalink.value == "") {
+				jekyllPost += "# permalink: \n# - " + postPermalink.value + "\n";
+			} else {
+				jekyllPost += "permalink: \n- " + postPermalink.value + "\n";
+			}
+
+		}
+
+		if (postType == "consultation") {
+			if (postPublishYear.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "date: " + postPublishYear.value + "-" + postPublishMonth.value + "-"  + postPublishDay.value + "\n";
+			if (postAuthor.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "author: " + postAuthor.value + "\n";
+			if (postTopic.value == "") {
+				jekyllPost += "# category: \n# - " + postTopic.value + "\n";
+			} else {
+				jekyllPost += "category: \n- " + postTopic.value + "\n";
+			}
+			if (postConsultationWebsite.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "consultation-link: " + postConsultationWebsite.value + "\n";
+			if (postConsultationEndYear.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "end-date: " + postConsultationEndYear.value + "-" + postConsultationEndMonth.value + "-"  + postConsultationEndDay.value + " " + postConsultationEndHour.value + ":" + postConsultationEndMinute.value + "\n";
+
+			if (postImage.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "image: " + postImage.value + "\n";
+
+			if (postVideo.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "video: " + postVideo.value + "\n";
+		}
+
+		if (postType == "topic") {
+			if (postTopic.value == "") {
+				jekyllPost += "# category: \n# - " + postTopic.value + "\n";
+			} else {
+				jekyllPost += "category: \n- " + postTopic.value + "\n";
+			}
+
+			if (postImage.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "image: " + postImage.value + "\n";
+
+		}
+
+		if (postType == "team") {
+			if (postTeamMemberRole.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "role: " + postTeamMemberRole.value + "\n";
+
+			if (postTeamMemberProject.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "project: " + postTeamMemberProject.value + "\n";
+
+			if (postTeamMemberRegion.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "region: " + postTeamMemberRegion.value + "\n";
+
+			if (postTeamMemberEmail.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "email: " + postTeamMemberEmail.value + "\n";
+
+			if (postImage.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "image: " + postImage.value + "\n";
+
+		}
+
+
+			if (postPermalink.value == "") {
+				jekyllPost += "# permalink: \n# - " + postPermalink.value + "\n";
+			} else {
+				jekyllPost += "permalink: \n- " + postPermalink.value + "\n";
+			}
+
+			if (postRedirectFrom.value == "") {
+				jekyllPost += "# redirect_from: \n# - " + postRedirectFrom.value + "\n";
+			} else {
+				jekyllPost += "redirect_from: \n- " + postRedirectFrom.value + "\n";
+			}
+			if (postRedirectTo.value == "") {
+				jekyllPost += "# redirect_to: \n# - " + postRedirectTo.value + "\n";
+			} else {
+				jekyllPost += "redirect_to: \n- " + postRedirectTo.value + "\n";
+			}
+
+			jekyllPost += "---\n\n"; // Need the front matter to be surrounded by 3 dashes on a new line
+
+			jekyllPost += postContent.value;
+
+		// Output the content
+
+		return jekyllPost;
+
 	}
-
-	if (postType == "event") {
-		jekyllPost += "date: " + postPublishYear.value + "-" + postPublishMonth.value + "-"  + postPublishDay.value + "\n";
-		jekyllPost += "author: " + postAuthor.value + "# The 'author' is the host of the event \n";
-		jekyllPost += "category: \n- " + postTopic.value + "\n";
-		jekyllPost += "link: " + postEventFormURL.value + "\n";
-		jekyllPost += "email: " + postEventEmail.value + "\n";
-		jekyllPost += "no-register: " + postEventNoRegMessage.value + "\n";
-		jekyllPost += "location: " + postEventLocation.value + "\n";
-
-		jekyllPost += "event-date: " + postEventStartYear.value + "-" + postEventStartMonth.value + "-"  + postEventStartDay.value + " " + postEventStartHour.value + ":" + postEventStartMinute.value + "\n";
-
-		jekyllPost += "registration-close-date: " + postEventRegistrationCloseYear.value + "-" + postEventRegistrationCloseMonth.value + "-"  + postEventRegistrationCloseDay.value + " " + postEventRegistrationCloseHour.value + ":" + postEventRegistrationCloseMinute.value + "\n";
-
-		jekyllPost += "image: " + postImage.value + "\n";
-		jekyllPost += "video: " + postVideo.value + "\n";
-
-		jekyllPost += "permalink: \n- " + postPermalink.value + "\n";
-		jekyllPost += "redirect_from: \n- " + postRedirectFrom.value + "\n";
-		jekyllPost += "redirect_to: \n- " + postRedirectTo.value + "\n";
-	}
-
-	if (postType == "publication") {
-		jekyllPost += "date: " + postPublishYear.value + "-" + postPublishMonth.value + "-"  + postPublishDay.value + "\n";
-		jekyllPost += "author: " + postAuthor.value + "\n";
-		jekyllPost += "category: \n- " + postTopic.value + "\n";
-
-		jekyllPost += "image: " + postImage.value + "\n";
-		jekyllPost += "video: " + postVideo.value + "\n";
-
-		jekyllPost += "permalink: \n- " + postPermalink.value + "\n";
-		jekyllPost += "redirect_from: \n- " + postRedirectFrom.value + "\n";
-		jekyllPost += "redirect_to: \n- " + postRedirectTo.value + "\n";
-	}
-
-	if (postType == "consultation") {
-		jekyllPost += "date: " + postPublishYear.value + "-" + postPublishMonth.value + "-"  + postPublishDay.value + "\n";
-		jekyllPost += "author: " + postAuthor.value + "\n";
-		jekyllPost += "category: \n- " + postTopic.value + "\n";
-		jekyllPost += "consultation-link: " + postConsultationWebsite.value + "\n";
-		jekyllPost += "end-date: " + postConsultationEndYear.value + "-" + postConsultationEndMonth.value + "-"  + postConsultationEndDay.value + " " + postConsultationEndHour.value + ":" + postConsultationEndMinute.value + "\n";
-
-		jekyllPost += "image: " + postImage.value + "\n";
-		jekyllPost += "video: " + postVideo.value + "\n";
-
-		jekyllPost += "permalink: \n- " + postPermalink.value + "\n";
-		jekyllPost += "redirect_from: \n- " + postRedirectFrom.value + "\n";
-		jekyllPost += "redirect_to: \n- " + postRedirectTo.value + "\n";
-	}
-
-	if (postType == "topic") {
-		jekyllPost += "category: \n- " + postTopic.value + "\n";
-
-		jekyllPost += "image: " + postImage.value + "\n";
-
-		jekyllPost += "permalink: \n- " + postPermalink.value + "\n";
-		jekyllPost += "redirect_from: \n- " + postRedirectFrom.value + "\n";
-		jekyllPost += "redirect_to: \n- " + postRedirectTo.value + "\n";
-	}
-
-	if (postType == "team") {
-		jekyllPost += "role: " + postTeamMemberRole.value + "\n";
-		jekyllPost += "project: " + postTeamMemberProject.value + "\n";
-		jekyllPost += "region: " + postTeamMemberRegion.value + "\n";
-		jekyllPost += "email: " + postTeamMemberEmail.value + "\n";
-	}
-
-		jekyllPost += "---\n\n"; // Need the front matter to be surrounded by 3 dashes on a new line
-
-		jekyllPost += postContent.value;
-
-	// Output the content
-
-	return jekyllPost;
-
-}
 
 // GENERATE AN EMAIL
 
-	// Get the content
+function eventGenerateEmail() {
+	var output = generateJekyllPostContent(); // Post content
+	var subject = "[Event for website] " + "eventFileName()";
 
-	// Create an email
+	// Generate the email
+	document.location.href = "mailto:info@civilservice.lgbt?subject="
+	+ encodeURIComponent(subject)
+	+ "&body=" + encodeURIComponent(output);
+}
 
 // DOWNLOAD A FILE
 
-	// Get the content
-
-	// Create a file
+	function postContentToFile() {
+		var output = generateJekyllPostContent(); // Post content
+		var filename = "filename";
+		// Create the file and download it
+		var element = document.createElement('a');
+		element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(output));
+		element.setAttribute('download', filename);
+		element.style.display = 'none';
+		document.body.appendChild(element);
+		element.click();
+		document.body.removeChild(element);
+	}
 
 // COPY TO CLIPBOARD
 
-	// Get the content
+	function postContentToClipboard(){
+		var output = generateJekyllPostContent();
+		navigator.clipboard.writeText(output);
+		alert("Text copied to clipboard. \n\n" + output)
+	}
 
-	// Copy to clipboard
+	function fieldContentToClipboard(el){
+		/* Get the text field */
+		var textToCopy = document.getElementById(el).value;
+		if (textToCopy == "") {
+			alert("ERROR\n\nCannot copy.\n\nThe text field you are trying to copy is empty.\n\nTry using the “Generate” button first.");
+		} else {
+		/* Copy the text inside the text field */
+			navigator.clipboard.writeText(textToCopy);
+		}
+	}
 
 // ADD TO GITHUB
 
@@ -282,9 +460,157 @@ function generateJekyllPostContent() {
 
 	// Switch back to GitHub
 
-// TESTS
+// HELPERS
 
-	function test() {
-		var output = generateJekyllPostContent();
-		alert(output);
+	function cleanFieldInput(id, replace = "all") {
+		var field = document.getElementById(id)
+		var fieldvalue = field.value;
+
+		if (replace == "spaces") {
+			var clean = fieldvalue.replace(/\s/gi, '-');
+		} else if (replace == "spaces-dots") {
+			var clean = fieldvalue.replace(/[\.\s]/gi, '-');
+		} else if (replace == "not-slash") {
+			var clean = fieldvalue.replace(/[^a-z0-9\/]/gi, '-');
+		} else {
+			var clean = fieldvalue.replace(/([^a-z0-9]+)/gi, '-');
+		}
+
+		var clean = clean.toLowerCase();
+		console.log("#" + id + " input cleaned to “" + clean + "”" )
+		field.value = clean;
+	}
+
+	function copyFieldInput(id) {
+		var field = document.getElementById(id)
+		var fieldvalue = field.value;
+		navigator.clipboard.writeText(fieldvalue);
+	}
+
+	function copyURL(url){
+		var copiedText = url;
+		navigator.clipboard.writeText(copiedText);
+	}
+
+	function cleanText(input) {
+		// Takes inputs and removes spaces and special characters
+		// so that text can be used as URL or filenames
+
+		var cleaned = input.replace(/([^a-z0-9]+)/gi, '-');
+		var cleaned = cleaned.toLowerCase();
+
+		var title = cleaned;
+
+		return title;
+	}
+
+	function setDefaultDate() {
+		if (postType != "team" && (postPublishYear.value == "" || postPublishMonth.value == "" || postPublishDay.value == "")) {
+			postPublishYear.value = nowYear;
+			postPublishMonth.value = nowMonth;
+			postPublishDay.value = nowDay;
+		}
+
+		if (postType == "event" && (postEventStartYear.value == "" || postEventStartMonth.value == "" || postEventStartDay.value == "")) {
+				postEventStartYear.value = nowYear;
+				postEventStartMonth.value = nowMonth;
+				postEventStartDay.value = nowDay;
+				postEventStartHour.value = "00";
+				postEventStartMinute.value = "00";
+		}
+
+	}
+
+	function setPermalinkDate() {
+
+		var separator = "/";
+
+		if (postType == "consultation" || postType == "publication" || postType == "topic" || postType == "team") {
+
+			var date = null;
+
+		} else if (postType == "event") {
+
+			var year = postEventStartYear.value;
+			var month = postEventStartMonth.value;
+			var day = postEventStartDay.value;
+
+			var date = year + separator + month + separator + day;
+
+		} else {
+
+			var year = postPublishYear.value;
+			var month = postPublishMonth.value;
+			var day = postPublishDay.value;
+
+			var date = year + separator + month + separator + day;
+
+		}
+
+		return date;
+
+	}
+
+	function setFilenameDate() {
+
+		var separator = "-";
+
+		if (postType == "topic" || postType == "team" || postType == "event") {
+
+			var date = null;
+
+		}  else {
+
+			var year = postPublishYear.value;
+			var month = postPublishMonth.value;
+			var day = postPublishDay.value;
+
+			var date = year + separator + month + separator + day;
+
+		}
+
+		return date;
+
+	}
+
+	function updatePermalink() {
+		var collection = postType;
+		var date = setPermalinkDate();
+		var title = postTitle.value;
+		var cleanedTitle = cleanText(postTitle.value);
+
+		if (date == null) {
+			newPermalink = "/" + postType + "/" + cleanedTitle;
+		} else {
+			newPermalink = "/" + postType + "/" + date + "/" + cleanedTitle;
+		}
+
+		postPermalink.value = newPermalink;
+
+		console.info("Post permalink updated. Permalink is: " + newPermalink);
+	}
+
+	function updateFilename() {
+		var collection = postType;
+		var date = setFilenameDate();
+		var title = postTitle.value;
+		var cleanedTitle = cleanText(postTitle.value);
+
+		if (date == null) {
+			newFilename = cleanedTitle;
+		} else {
+			newFilename = date + "-" + cleanedTitle;
+		}
+
+		newFilename = newFilename + ".md";
+
+		postFilename.value = newFilename;
+
+		console.info("Post file name updated. File name is: " + newFilename);
+	}
+
+	function updateFields() {
+		setDefaultDate();
+		updatePermalink();
+		updateFilename();
 	}
