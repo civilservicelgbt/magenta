@@ -36,8 +36,8 @@
 }
 
 .folder-navigation {
-	background: color("magenta--light");
-	padding: spacing(3);
+	background: color("white");
+	border: 3px solid color("magenta--light")
 }
 
 .folder-name {
@@ -51,6 +51,6 @@
 	border-bottom: 5px solid color("magenta");
 
 	.button {
-		margin: spacing(2);
+		margin-bottom: spacing(2);
 	}
 }
