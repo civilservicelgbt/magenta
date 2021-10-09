@@ -5,7 +5,7 @@
 
 	{% assign countOpenEvents = 0 %}
 	{% for post in topicLoop %}
-		{% assign eventStartDate = post.event-date | date: '%s' %}
+		{% assign eventStartDate = post.start-date | date: '%s' %}
 		{% if now < eventStartDate %}
 			{% assign countOpenEvents = countOpenEvents | plus: 1 %}
 		{% endif %}
@@ -56,7 +56,7 @@
 
 				{% if topicCollection == "events" %}
 
-					{% assign eventStartDate = post.event-date | date: '%s' %}
+					{% assign eventStartDate = post.start-date | date: '%s' %}
 					{% if eventStartDate < now %}
 						{% assign skipPost = true %}
 					{% else %}
@@ -92,7 +92,7 @@
 						<p class="loop--article-list--item--excerpt">{{ post.excerpt }}</p>
 
 						{% if topicCollection == "events" %}
-						<p class="loop--article-list--item--meta">Taking place <time datetime="{{ post.event-date | date: '%Y-%m-%d' }}">{{ post.event-date | date:'%-d %B %Y at %H:%M' }}</time></p>
+						<p class="loop--article-list--item--meta">Taking place <time datetime="{{ post.start-date | date: '%Y-%m-%d' }}">{{ post.start-date | date:'%-d %B %Y at %H:%M' }}</time></p>
 						{% elsif topicCollection == "consultations" %}
 							<p class="loop--article-list--item--meta">{% if consultationOpen == true %}Consultation open until{% else %}Consultation closed on{% endif %} <time datetime="{{ post.end-date | date: '%Y-%m-%d %H:%M' }}">{{ post.end-date | date:'%-d %B %Y at %H:%M' }}</time></p>
 						{% else %}
