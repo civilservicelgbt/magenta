@@ -1,7 +1,7 @@
 ---
 layout: default
-caption: false
 meta-info: false
+excerpt: false
 ---
 
 <div class="grid-row">
@@ -9,61 +9,48 @@ meta-info: false
 </div>
 
 <div class="grid-row">
-	<div class="grid-column-full">
+	<div class="grid-column-two-thirds">
 
 		<div class="page--content">
-
-		{{ content }}
-
+			<h2 class="heading-md">About this volunteer</h2>
+			<dl class="volunteer--details">
+				<dt class="volunteer--details--label">Role </dt>
+				<dd class="volunteer--details--value">{{ page.role | capitalize }}</dd>
+				{% if page.project %}
+				<dt class="volunteer--details--label">Projects </dt>
+				<dd class="volunteer--details--value">{{ page.project | capitalize }}</dd>
+				{% endif %}
+				{% if page.region %}
+				<dt class="volunteer--details--label">Region </dt>
+				<dd class="volunteer--details--value">{{ page.region | capitalize }}</dd>
+				{% endif %}
+			</dl>
 		</div>
 
+		{% if page.archive %}
 		<div class="page--content">
-
-			<h2>Leadership team</h2>
-
-			<p class="lead">The Civil Service LGBT+ Network is led by a small team of volunteers.</p>
-
-			<div class="grid-row">
-			{% assign volunteerType = "chair" %}
-			{% include layouts/volunteer.html %}
-
-			{% assign volunteerType = "vice chair" %}
-			{% include layouts/volunteer.html %}
-			</div>
-
+			<blockquote class="volunteer--archive">
+				<h2 class="heading-md">This volunteer no longer works with us.</h2>
+				<p>{{ page.name }} is a former {{ page.role }} of the Civil Service LGBT+ Network.</p>
+			</blockquote>
 		</div>
+		{% endif %}
 
 		<div class="page--content">
 
-			<h2>Local organisers</h2>
-
-			<p class="lead">Our local organisers help us deliver work in places near you. This includes our events, campaigns and social activities.</p>
-
-			<div class="grid-row">
-				{% assign volunteerType = "local organiser" %}
-				{% include layouts/volunteer.html %}
-			</div>
-
-		</div>
-
-		<div class="page--content">
-
-			<h2>Project teams</h2>
-
-			<p class="lead">Our project leads help us to deliver the activities in our business plan.</p>
-
-			<div class="grid-row">
-				{% assign volunteerType = "project team" %}
-				{% include layouts/volunteer.html %}
-			</div>
-
+			{{ content }}
 
 		</div>
 
 	</div>
 	<div class="grid-column-one-third">
 
-		<!-- secondary content here -->
+		{% if page.image %}
+		<img src="{{ page.image }}" class="volunteer--image--large" loading="lazy">
+		{% endif %}
+		{% if page.email %}
+		<a href="mailto:{{ page.email }}" class="button button--volunteer">Email {{ page.name }}</a>
+		{% endif %}
 
 	</div>
 </div>
