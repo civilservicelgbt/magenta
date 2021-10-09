@@ -199,3 +199,24 @@ button[disabled] {
 .button--volunteer {
 	width: 100%;
 }
+
+.button-group--clearfix {
+	@include clearfix();
+}
+.button-group--bordered {
+	border-bottom: 5px solid color("light-gray");
+	padding: spacing(5) 0;
+	.button {
+		@include media-query($from: tablet) {
+			margin-bottom: 0;
+		}
+		@include media-query($until: tablet) {
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+.button--align-right {
+	float: right
+}

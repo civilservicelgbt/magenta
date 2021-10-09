@@ -22,15 +22,16 @@ meta-info: false
 
 						<p>Enter the information into the form below, then select the output you require.</p>
 
-						<p><strong>If you have know how to use GitHub you can add files directly to our GitHub repository</strong>, the tool can step you through the process of creating a new post directly.</p>
+						<p><strong>The fastest way to add posts to the website is to use GitHub.</strong> If you have a GitHub account, you can add files directly to our GitHub repository via a pull request. The tool can step you through the process of creating a new post directly.</p>
 
-						<p><strong>If you do not have permissions to add files directly to our GitHub repository</strong>, the tool can also:</p>
+						<p><strong>If you have difficulties using GitHub, you can also send the information via email.</strong> The tool can:</p>
 
 						<ol>
-							<li>generate an email to send to our central team to post the information</li>
-							<li>generate a file that you can send to our central team via email to post</li>
-							<li>copy the information the central team will need to your clipboard; you can then paste this information into an email to send to our central team to post</li>
-						</ol>
+						  <li>generate an email to send to our central team to post the information</li>
+						  <li>generate a file that you can send to our central team via email to post</li>
+						  <li>copy the information the central team will need to your clipboard; you can then paste this information into an email to send to our central team to post</li>
+</ol>
+
 
 				</details>
 
@@ -48,11 +49,9 @@ meta-info: false
 			<div class="page--content">
 
 				{% include fields/post-title-and-summary.html %}
-			{% unless type == "team" or type == "topic" %}
+			{% unless type == "team" %}
 				{% include fields/post-author.html %}
 				{% include fields/post-publication-date.html %}
-			{% endunless %}
-			{% unless type == "team" %}
 				{% include fields/post-topics.html %}
 			{% endunless %}
 			{% if type == "team" %}
@@ -60,7 +59,6 @@ meta-info: false
 			{% endif %}
 			{% if type == "event" %}
 				{% include fields/post-event-start-date.html %}
-				{% include fields/post-event-registration-end-date.html %}
 				{% include fields/post-event-registration-info.html %}
 				{% include fields/post-event-registration-location.html %}
 			{% endif %}
@@ -97,13 +95,24 @@ meta-info: false
 				<div class="grid-row">
 
 					<div class="grid-column-one-third">
-						<h2>Choose an output method</h2>
+						<h2 class="admin-outputs">Upload the post</p>
+					</div>
+					<div class="grid-column-two-thirds">
+						<section class="fieldset--post-github">
+						{% include fields/output-github-step-by-step.html %}
+						</section>
+					</div>
+
+				</div>
+				<div class="grid-row">
+					<div class="grid-column-one-third">
+						<h2 class="admin-outputs">Alternative methods</p>
+						<p>Use these options only if you can't upload via GitHub.</p>
 					</div>
 					<div class="grid-column-two-thirds">
 						{% include fields/output-generate-an-email.html %}
 						{% include fields/output-download-as-file.html %}
 						{% include fields/output-copy-to-clipboard.html %}
-						{% include fields/output-github-step-by-step.html %}
 					</div>
 
 				</div>
@@ -152,6 +161,15 @@ meta-info: false
 
 			</div>
 
+		</div>
+
+		<div class="grid-column-one-half">
+			<div class="admin--link-block admin--link-block--guidance">
+				<span class="caption-lg">Guidance</span>
+				<h2>Learn how to use GitHub</h2>
+				<p>Read the guidance about how to add a post to the website using GitHub.</p>
+				<a href="" class="button">Read the guidance</a>
+			</div>
 		</div>
 
 	</div>

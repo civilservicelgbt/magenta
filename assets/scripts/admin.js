@@ -14,7 +14,6 @@
 
 		// Title
 		var postTitle = document.getElementById("post-title");
-
 		// Excerpt
 		var postExcerpt = document.getElementById("post-excerpt");
 
@@ -27,10 +26,8 @@
 
 		// Day
 		var postPublishDay = document.getElementById("post-day");
-
 		// Month
 		var postPublishMonth = document.getElementById("post-month");
-
 		// Year
 		var postPublishYear = document.getElementById("post-year");
 
@@ -43,13 +40,10 @@
 
 		// Role
 		var postTeamMemberRole = document.getElementById("post-team-member-role");
-
 		// Project
 		var postTeamMemberProject = document.getElementById("post-team-member-project");
-
 		// Region
 		var postTeamMemberRegion = document.getElementById("post-team-member-region");
-
 		// Email
 		var postTeamMemberEmail = document.getElementById("post-team-member-email");
 
@@ -57,18 +51,27 @@
 
 		// Day
 		var postEventStartDay = document.getElementById("post-event-start-day");
-
 		// Month
 		var postEventStartMonth = document.getElementById("post-event-start-month");
-
 		// Year
 		var postEventStartYear = document.getElementById("post-event-start-year");
-
 		// Hour
 		var postEventStartHour = document.getElementById("post-event-start-hour");
-
 		// Minute
-		var postEventStartMinute = document.getElementById("post-event-start-month");
+		var postEventStartMinute = document.getElementById("post-event-start-minute");
+
+	// Event end date
+
+		// Day
+		var postEventEndDay = document.getElementById("post-event-end-day");
+		// Month
+		var postEventEndMonth = document.getElementById("post-event-end-month");
+		// Year
+		var postEventEndYear = document.getElementById("post-event-end-year");
+		// Hour
+		var postEventEndHour = document.getElementById("post-event-end-hour");
+		// Minute
+		var postEventEndMinute = document.getElementById("post-event-end-minute");
 
 	// Event registration closing date
 
@@ -85,7 +88,7 @@
 		var postEventRegistrationCloseHour = document.getElementById("post-event-registration-end-hour");
 
 		// Minute
-		var postEventRegistrationCloseMinute = document.getElementById("post-event-registration-end-month");
+		var postEventRegistrationCloseMinute = document.getElementById("post-event-registration-end-minute");
 
 	// Event registration info
 
@@ -117,8 +120,8 @@
 		// Hour
 		var postConsultationEndHour = document.getElementById("post-consultation-end-hour");
 
-		// MinutConsultationEnd
-		var postConsultationEndMinute = document.getElementById("post-consultation-end-month");
+		// Minute
+		var postConsultationEndMinute = document.getElementById("post-consultation-end-minute");
 
 	// Consultation details
 
@@ -138,8 +141,6 @@
 		// Permalink
 		var postPermalink = document.getElementById("post-permalink");
 
-			// When title is updated, auto update the permalink
-
 		// Redirect From
 		var postRedirectFrom = document.getElementById("post-redirect-from");
 
@@ -155,6 +156,10 @@
 
 		var postContent = document.getElementById("post-content");
 
+	// GitHub URL
+
+		var postGitHubURL = document.getElementById("post-github-url");
+
 // GENERATE THE CONTENT
 
 	function generateJekyllPostContent() {
@@ -168,10 +173,10 @@
 
 			jekyllPost += "# Adding or removing a '#' in front of a line will toggle that information off and on from being processed. \n\n"
 
-			jekyllPost += "title: " + postTitle.value + "\n";
+			jekyllPost += "title: \"" + postTitle.value + "\"\n";
 
 		if (postType != "team") {
-			jekyllPost += "excerpt: " + postExcerpt.value + "\n";
+			jekyllPost += "excerpt: \"" + postExcerpt.value + "\"\n";
 		}
 
 		if (postType == "news") {
@@ -184,7 +189,7 @@
 			if (postAuthor.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "author: " + postAuthor.value + "\n";
+			jekyllPost += "author: \"" + postAuthor.value + "\"\n";
 
 			if (postTopic.value == "") {
 				jekyllPost += "# category: \n# - " + postTopic.value + "\n";
@@ -196,12 +201,12 @@
 			if (postImage.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "image: " + postImage.value + "\n";
+			jekyllPost += "image: \"" + postImage.value + "\"\n";
 
 			if (postVideo.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "video: " + postVideo.value + "\n";
+			jekyllPost += "video: \"" + postVideo.value + "\"\n";
 		}
 
 		if (postType == "event") {
@@ -213,7 +218,7 @@
 			if (postAuthor.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "author: " + postAuthor.value + "\n";
+			jekyllPost += "author: \"" + postAuthor.value + "\"\n";
 
 			if (postTopic.value == "") {
 				jekyllPost += "# category: \n# - " + postTopic.value + "\n";
@@ -224,26 +229,31 @@
 			if (postEventFormURL.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "link: " + postEventFormURL.value + "\n";
+			jekyllPost += "link: \"" + postEventFormURL.value + "\"\n";
 			if (postEventEmail.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "email: " + postEventEmail.value + "\n";
+			jekyllPost += "email: \"" + postEventEmail.value + "\"\n";
 			if (postEventNoRegMessage.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "no-register: " + postEventNoRegMessage.value + "\n";
+			jekyllPost += "no-register: \"" + postEventNoRegMessage.value + "\"\n";
 			if (postEventLocation.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "location: " + postEventLocation.value + "\n";
+			jekyllPost += "location: \"" + postEventLocation.value + "\"\n";
 
 			if (postEventStartYear.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "event-date: " + postEventStartYear.value + "-" + postEventStartMonth.value + "-"  + postEventStartDay.value + " " + postEventStartHour.value + ":" + postEventStartMinute.value + "\n";
+			jekyllPost += "start-date: " + postEventStartYear.value + "-" + postEventStartMonth.value + "-"  + postEventStartDay.value + " " + postEventStartHour.value + ":" + postEventStartMinute.value + "\n";
 
-			if (postEventStartYear.value == "") {
+			if (postEventEndYear.value == "") {
+				jekyllPost += "# ";
+			}
+			jekyllPost += "end-date: " + postEventEndYear.value + "-" + postEventEndMonth.value + "-"  + postEventEndDay.value + " " + postEventEndHour.value + ":" + postEventEndMinute.value + "\n";
+
+			if (postEventRegistrationCloseYear.value == "") {
 				jekyllPost += "# "
 			}
 			jekyllPost += "registration-close-date: " + postEventRegistrationCloseYear.value + "-" + postEventRegistrationCloseMonth.value + "-"  + postEventRegistrationCloseDay.value + " " + postEventRegistrationCloseHour.value + ":" + postEventRegistrationCloseMinute.value + "\n";
@@ -252,12 +262,12 @@
 			if (postImage.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "image: " + postImage.value + "\n";
+			jekyllPost += "image: \"" + postImage.value + "\"\n";
 
 			if (postVideo.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "video: " + postVideo.value + "\n";
+			jekyllPost += "video: \"" + postVideo.value + "\"\n";
 		}
 
 		if (postType == "publication") {
@@ -269,7 +279,7 @@
 			if (postAuthor.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "author: " + postAuthor.value + "\n";
+			jekyllPost += "author: \"" + postAuthor.value + "\"\n";
 
 			if (postTopic.value == "") {
 				jekyllPost += "# category: \n# - " + postTopic.value + "\n";
@@ -280,11 +290,7 @@
 			if (postImage.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "image: " + postImage.value + "\n";
-
-			if (postVideo.value == "") {
-				jekyllPost += "# ";
-			}
+			jekyllPost += "image: \"" + postImage.value + "\"\n";
 
 			if (postPermalink.value == "") {
 				jekyllPost += "# permalink: \n# - " + postPermalink.value + "\n";
@@ -302,7 +308,7 @@
 			if (postAuthor.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "author: " + postAuthor.value + "\n";
+			jekyllPost += "author: \"" + postAuthor.value + "\"\n";
 			if (postTopic.value == "") {
 				jekyllPost += "# category: \n# - " + postTopic.value + "\n";
 			} else {
@@ -311,7 +317,7 @@
 			if (postConsultationWebsite.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "consultation-link: " + postConsultationWebsite.value + "\n";
+			jekyllPost += "consultation-link: \"" + postConsultationWebsite.value + "\"\n";
 			if (postConsultationEndYear.value == "") {
 				jekyllPost += "# ";
 			}
@@ -320,12 +326,12 @@
 			if (postImage.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "image: " + postImage.value + "\n";
+			jekyllPost += "image: \"" + postImage.value + "\"\n";
 
 			if (postVideo.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "video: " + postVideo.value + "\n";
+			jekyllPost += "video: \"" + postVideo.value + "\"\n";
 		}
 
 		if (postType == "topic") {
@@ -338,7 +344,7 @@
 			if (postImage.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "image: " + postImage.value + "\n";
+			jekyllPost += "image: \"" + postImage.value + "\"\n";
 
 		}
 
@@ -346,27 +352,27 @@
 			if (postTeamMemberRole.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "role: " + postTeamMemberRole.value + "\n";
+			jekyllPost += "role: \"" + postTeamMemberRole.value + "\"\n";
 
 			if (postTeamMemberProject.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "project: " + postTeamMemberProject.value + "\n";
+			jekyllPost += "project: \"" + postTeamMemberProject.value + "\"\n";
 
 			if (postTeamMemberRegion.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "region: " + postTeamMemberRegion.value + "\n";
+			jekyllPost += "region: \"" + postTeamMemberRegion.value + "\"\n";
 
 			if (postTeamMemberEmail.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "email: " + postTeamMemberEmail.value + "\n";
+			jekyllPost += "email: \"" + postTeamMemberEmail.value + "\"\n";
 
 			if (postImage.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "image: " + postImage.value + "\n";
+			jekyllPost += "image: \"" + postImage.value + "\"\n";
 
 		}
 
@@ -400,9 +406,9 @@
 
 // GENERATE AN EMAIL
 
-function eventGenerateEmail() {
+function postContentToEmail() {
 	var output = generateJekyllPostContent(); // Post content
-	var subject = "[Event for website] " + "eventFileName()";
+	var subject = "[Event for website] " + postTitle.value;
 
 	// Generate the email
 	document.location.href = "mailto:info@civilservice.lgbt?subject="
@@ -430,35 +436,45 @@ function eventGenerateEmail() {
 	function postContentToClipboard(){
 		var output = generateJekyllPostContent();
 		navigator.clipboard.writeText(output);
-		alert("Text copied to clipboard. \n\n" + output)
+		alert("Text copied to clipboard.")
 	}
 
 	function fieldContentToClipboard(el){
 		/* Get the text field */
-		var textToCopy = document.getElementById(el).value;
-		if (textToCopy == "") {
-			alert("ERROR\n\nCannot copy.\n\nThe text field you are trying to copy is empty.\n\nTry using the “Generate” button first.");
+		var output = document.getElementById(el).value;
+		if (output == "") {
+			alert("ERROR\n\nCannot copy.\n\nThe text field you are trying to copy is empty.");
 		} else {
 		/* Copy the text inside the text field */
-			navigator.clipboard.writeText(textToCopy);
+			navigator.clipboard.writeText(output);
 		}
 	}
 
 // ADD TO GITHUB
 
 	// Open the GitHub window
-
-	// Get the file name
-
-	// Copy the filename
-
-	// Switch back to GitHub
-
-	// Get the content
-
-	// Copy the post content
+	function openGitHub() {
+	  var postURL = postGitHubURL.value;
+	  var GitHubWindow = window.GitHub = window.open(postURL, "Add a post to GitHub");
+	}
 
 	// Switch back to GitHub
+	function focusGitHub() {
+		var postURL = postGitHubURL.value;
+		if (!window.GitHub || window.GitHub.closed) {
+			window.GitHub = window.open(postURL, "Add a post to GitHub");
+		}
+		window.GitHub.focus();
+	}
+
+	// Step by step toggles
+	function switchGitHubStep(hide, show) {
+		var hideThis = document.getElementById(hide);
+		var showThis = document.getElementById(show);
+
+		hideThis.hidden = true;
+		showThis.hidden = false;
+	}
 
 // HELPERS
 
@@ -479,17 +495,6 @@ function eventGenerateEmail() {
 		var clean = clean.toLowerCase();
 		console.log("#" + id + " input cleaned to “" + clean + "”" )
 		field.value = clean;
-	}
-
-	function copyFieldInput(id) {
-		var field = document.getElementById(id)
-		var fieldvalue = field.value;
-		navigator.clipboard.writeText(fieldvalue);
-	}
-
-	function copyURL(url){
-		var copiedText = url;
-		navigator.clipboard.writeText(copiedText);
 	}
 
 	function cleanText(input) {
@@ -573,6 +578,27 @@ function eventGenerateEmail() {
 
 	}
 
+	function setGitHubDate() {
+
+		if (postType == "event") {
+
+			var separator = "/";
+			var year = postEventStartYear.value;
+			var month = postEventStartMonth.value;
+			var day = postEventStartDay.value;
+
+			var date = year + separator + month + separator + day;
+
+		} else {
+
+			var date = null;
+
+		}
+
+		return date;
+
+	}
+
 	function updatePermalink() {
 		var collection = postType;
 		var date = setPermalinkDate();
@@ -580,9 +606,9 @@ function eventGenerateEmail() {
 		var cleanedTitle = cleanText(postTitle.value);
 
 		if (date == null) {
-			newPermalink = "/" + postType + "/" + cleanedTitle;
+			newPermalink = "/" + collection + "/" + cleanedTitle;
 		} else {
-			newPermalink = "/" + postType + "/" + date + "/" + cleanedTitle;
+			newPermalink = "/" + collection + "/" + date + "/" + cleanedTitle;
 		}
 
 		postPermalink.value = newPermalink;
@@ -591,7 +617,6 @@ function eventGenerateEmail() {
 	}
 
 	function updateFilename() {
-		var collection = postType;
 		var date = setFilenameDate();
 		var title = postTitle.value;
 		var cleanedTitle = cleanText(postTitle.value);
@@ -609,8 +634,32 @@ function eventGenerateEmail() {
 		console.info("Post file name updated. File name is: " + newFilename);
 	}
 
+	function updateGitHubDirectory() {
+		var base = "https://github.com/civilservicelgbt/civilservicelgbt.github.io/new/main"
+
+		if (postType == "news" || postType == "team") {
+			var collection = "_" + postType;
+		} else {
+			var collection = "_" + postType + "s";
+		}
+		var date = setGitHubDate();
+		var title = postTitle.value;
+		var cleanedTitle = cleanText(postTitle.value);
+
+		if (date == null) {
+			newGitHubURL = base + "/" + collection;
+		} else {
+			newGitHubURL = base + "/" + collection + "/" + date;
+		}
+
+		postGitHubURL.value = newGitHubURL;
+
+		console.info("GitHub repository URL updated. URL is: " + newGitHubURL);
+	}
+
 	function updateFields() {
 		setDefaultDate();
 		updatePermalink();
 		updateFilename();
+		updateGitHubDirectory();
 	}

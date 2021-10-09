@@ -23,3 +23,14 @@
 	border-top: 5px solid color("magenta");
 	padding-top: spacing(5);
 }
+
+
+.fieldset-row {
+	padding-bottom: spacing(5);
+	margin-bottom: spacing(5);
+}
+
+.fieldset--post-github {
+	padding: spacing(5) 0;
+	border-top: 5px solid color("light-gray");
+}

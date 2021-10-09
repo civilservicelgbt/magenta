@@ -1,44 +1,104 @@
-<details>
-	<summary>Add to GitHub directly</summary>
+<fieldset id="fieldset--post-github-url" aria-describedby="fieldset--post-github-url--title" class="fieldset-row" hidden>
+	<legend id="fieldset--post-github-url--title" class="legend-lg">GitHub repository</legend>
 
-	<h3>1. Open GitHub in a new window</h3>
+	<label class="label-md" for="post-github-url">Change URL</label>
+	<p class="hint" id="post-github-url--hint">Amend this field to change where the post is uploaded. You usually don't need to change this.</p>
+	<!-- URL must be in this format: https://github.com/civilservicelgbt/REPO/new/BRANCH/ROOT-DIRECTORY -->
+	<input class="input" id="post-github-url" name="post-github-url" type="text" placeholder="" value="https://github.com/civilservicelgbt/civilservicelgbt.github.io/new/main">
+</fieldset>
+
+
+<div class="fieldset-row" id="post--github--open-window">
+	<span class="caption-md">Step 1 of 6</span>
+	<p class="label-md">Open GitHub in a new window</p>
+
+	<p class="hint">Use the button below to open GitHub in a new window, at the correct directory.</p>
+	<p class="hint">If you are asked to "form this repository", read our <a href="">guidance on using GitHub</a>.</p>
+
+	<button class="button" id="post-open-github" name="post-open-github" onclick="openGitHub();">Open GitHub in a new window</button>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary button--align-right" id="post-open-github" name="post-open-github" onclick="switchGitHubStep('post--github--open-window', 'post--github--copy-filename');">Next step ❯</button>
+	</div>
+
+
+</div>
+
+<div class="fieldset-row" id="post--github--copy-filename" hidden>
+	<span class="caption-md">Step 2 of 6</span>
+	<p class="label-md">Copy the filename to the clipboard</p>
 
 	<p>Click the button below to copy the file name to your clipboard.</p>
 
-	<button class="button">Open GitHub in a new window</button>
+	<div class="button-group">
+		<button class="button" onclick="fieldContentToClipboard('post-filename');">Copy filename to clipboard</button>
+	</div>
 
-	<hr>
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" id="post-open-github" name="post-open-github" onclick="switchGitHubStep('post--github--copy-filename', 'post--github--open-window');">❮ Previous step</button>
+		<button class="button button--secondary button--align-right" id="post-open-github" name="post-open-github" onclick="switchGitHubStep('post--github--copy-filename', 'post--github--copy-filename--focus-github');">Next step ❯</button>
+	</div>
 
-	<h3>2. Copy the filename to the clipboard</h3>
+</div>
 
-	<p>Click the button below to copy the file name to your clipboard.</p>
+<div class="fieldset-row" id="post--github--copy-filename--focus-github" hidden>
+	<span class="caption-md">Step 3 of 6</span>
+	<p class="label-md">Paste the file name into GitHub</p>
 
 	<p>Paste the file name into the "Name your file..." field in the GitHub window.</p>
 
 	<div class="button-group">
-		<button class="button">Copy filename to clipboard</button>
-		<button class="button button--secondary">Go back to the GitHub window</button>
+		<button class="button" onclick="focusGitHub()">Go back to the GitHub window</button>
 	</div>
 
-	<hr>
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" id="post-open-github" name="post-open-github" onclick="switchGitHubStep('post--github--copy-filename--focus-github', 'post--github--copy-filename');">❮ Previous step</button>
+		<button class="button button--secondary button--align-right" id="post-open-github" name="post-open-github" onclick="switchGitHubStep('post--github--copy-filename--focus-github', 'post--github--copy-content');">Next step ❯</button>
+	</div>
+</div>
 
-	<h3>3. Copy the post content to the clipboard</h3>
+<div class="fieldset-row" id="post--github--copy-content" hidden>
+	<span class="caption-md">Step 4 of 6</span>
+	<p class="label-md">Copy the post content to the clipboard</p>
 
 	<p>Click the button below to copy the post content to your clipboard.</p>
+
+	<div class="button-group">
+		<button class="button" onclick="postContentToClipboard()">Copy post content to clipboard</button>
+	</div>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" id="post-open-github" name="post-open-github" onclick="switchGitHubStep('post--github--copy-content', 'post--github--copy-filename--focus-github');">❮ Previous step</button>
+		<button class="button button--secondary button--align-right" id="post-open-github" name="post-open-github" onclick="switchGitHubStep('post--github--copy-content', 'post--github--copy-content--focus-github');">Next step ❯</button>
+	</div>
+</div>
+
+<div class="fieldset-row" id="post--github--copy-content--focus-github" hidden>
+	<span class="caption-md">Step 5 of 6</span>
+	<p class="label-md">Paste the post content into GitHub</p>
 
 	<p>Paste the post content into the large text field in the GitHub window.</p>
 
 	<div class="button-group">
-		<button class="button">Copy post content to clipboard</button>
-		<button class="button button--secondary">Go back to the GitHub window</button>
+		<button class="button" onclick="focusGitHub()">Go back to the GitHub window</button>
 	</div>
 
-	<hr>
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" id="post-open-github" name="post-open-github" onclick="switchGitHubStep('post--github--copy-content--focus-github', 'post--github--copy-content');">❮ Previous step</button>
+		<button class="button button--secondary button--align-right" id="post-open-github" name="post-open-github" onclick="switchGitHubStep('post--github--copy-content--focus-github', 'post--github--commit-file');">Next step ❯</button>
+	</div>
+</div>
 
-	<h3>4. Commit the file</h3>
+<div class="fieldset-row" id="post--github--commit-file" hidden>
+	<span class="caption-md">Step 6 of 6</span>
+	<p class="label-md">Commit the file</p>
 
 	<p>On the GitHub window, select "Commit new file", at the bottom of the page.</p>
 
-	<button class="button">Go back to the GitHub window</button>
+	<button class="button" onclick="focusGitHub()">Go back to the GitHub window</button>
 
-</details>
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" id="post-open-github" name="post-open-github" onclick="switchGitHubStep('post--github--commit-file', 'post--github--copy-content--focus-github');">❮ Previous step</button>
+	</div>
+
+</div>

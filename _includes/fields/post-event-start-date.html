@@ -1,10 +1,10 @@
 <fieldset id="fieldset--event-start-date" aria-describedby="fieldset--event-start-date--hint">
-	<legend id="fieldset--event-start-date--title" class="legend-lg">Event start date</legend>
+	<legend id="fieldset--event-start-date--title" class="legend-lg">Event start and end dates</legend>
 
 
 	<div class="grid-row form-row">
 		<div class="grid-column-one-third">
-			<p class="label-md">Date and time</p>
+			<p class="label-md">Start date and time</p>
 			<div id="fieldset--event-start-date--hint" class="hint">
 				For example – 31 12 2021  18 00
 			</div>
@@ -34,7 +34,46 @@
 
 				<div class="date-input--item">
 					<label class="label-md" for="post-event-start-minute">Minute</label>
-					<input class="input date-input date-input--minute" id="post-event-start-month" name="post-event-start-minute" placeholder="mm" minlength="2" maxlength="2" type="text" pattern="[0-9]*" inputmode="numeric">
+					<input class="input date-input date-input--minute" id="post-event-start-minute" name="post-event-start-minute" placeholder="mm" minlength="2" maxlength="2" type="text" pattern="[0-9]*" inputmode="numeric">
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="grid-row form-row">
+		<div class="grid-column-one-third">
+			<p class="label-md">End date and time</p>
+			<div id="fieldset--event-end-date--hint" class="hint">
+				For example – 31 12 2021  18 00
+			</div>
+		</div>
+		<div class="grid-column-two-thirds">
+			<div id="post-event-end-date" class="date-input">
+
+				<div class="date-input--item">
+					<label class="label-md" for="post-event-end-day">Day</label>
+					<input class="input date-input date-input--day" id="post-event-end-day" name="post-event-end-day" placeholder="DD" minlength="2" maxlength="2" type="text" pattern="[0-9]*" inputmode="numeric" onfocusout="updateFields()">
+				</div>
+
+				<div class="date-input--item">
+					<label class="label-md" for="post-event-end-month">Month</label>
+					<input class="input date-input date-input--month" id="post-event-end-month" name="post-event-end-month" placeholder="MM" minlength="2" maxlength="2" type="text" pattern="[0-9]*" inputmode="numeric" onfocusout="updateFields()">
+				</div>
+
+				<div class="date-input--item">
+					<label class="label-md" for="post-event-end-year">Year</label>
+					<input class="input date-input date-input--year" id="post-event-end-year" name="post-event-end-year" placeholder="YYYY" minlength="4" maxlength="4" type="text" pattern="[0-9]*" inputmode="numeric" onfocusout="updateFields()">
+				</div>
+
+				<div class="date-input--item">
+					<label class="label-md" for="post-event-end-hour">Hour</label>
+					<input class="input date-input date-input--hour" id="post-event-end-hour" name="post-event-end-hour" placeholder="hh" minlength="2" maxlength="2" type="text" pattern="[0-9]*" inputmode="numeric">
+				</div>
+
+				<div class="date-input--item">
+					<label class="label-md" for="post-event-end-minute">Minute</label>
+					<input class="input date-input date-input--minute" id="post-event-end-minute" name="post-event-end-minute" placeholder="mm" minlength="2" maxlength="2" type="text" pattern="[0-9]*" inputmode="numeric">
 				</div>
 
 			</div>
