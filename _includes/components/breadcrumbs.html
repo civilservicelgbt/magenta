@@ -10,9 +10,11 @@
 		<li class="breadcrumbs--list-item">
 			<a class="breadcrumbs--link" href="{{ site.url | append: site.baseurl }}">Home</a>
 		</li>
+		{% unless site.breadcrumb-override == true %}
 		<li class="breadcrumbs--list-item">
 			<a class="breadcrumbs--link" href="{{ site.url | append: site.baseurl | append: '/' | append: page.collection }}">{{ page.collection | replace: '-', ' ' | capitalize }}</a>
 		</li>
+		{% endunless %}
 		{% if layout.breadcrumbs or page.breadcrumbs %}
 		{% if layout.breadcrumbs %}
 			{% assign breadcrumbs = layout.breadcrumbs %}
