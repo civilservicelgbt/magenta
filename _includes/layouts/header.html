@@ -5,7 +5,7 @@
 	{% unless page.caption == false or layout.caption == false %}
 
 		{% if page.collection == "design-system" %}
-			{% if page.categories %}
+			{% if page.category %}
 			{% assign caption = page.category | first %}
 			<span class="caption-xl">{{ caption | capitalize }}</span>
 			{% endif %}
