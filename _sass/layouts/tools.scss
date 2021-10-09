@@ -58,7 +58,8 @@
 }
 
 .revealed-input {
-	padding: 0 0 0 spacing(2);
-	margin-left: spacing(8);
-	border-left: 5px solid color("magenta")
+	padding: spacing(3);
+	margin-left: spacing(9);
+	margin-bottom: spacing(5);
+	background: color("magenta--light");
 }
