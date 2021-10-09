@@ -37,6 +37,7 @@
 
 .folder-navigation {
 	background: color("magenta--light");
+	padding: spacing(3);
 }
 
 .folder-name {
@@ -46,6 +47,10 @@
 	position: -webkit-sticky;
 	top: 0;
 
-	background: color("magenta");
-	padding: spacing(3);
+	background: color("magenta--light");
+	border-bottom: 5px solid color("magenta");
+
+	.button {
+		margin: 0;
+	}
 }
