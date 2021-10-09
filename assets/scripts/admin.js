@@ -173,6 +173,8 @@
 
 			jekyllPost += "# Adding or removing a '#' in front of a line will toggle that information off and on from being processed. \n\n"
 
+			jekyllPost += "layout: " + postType + "\n";
+
 			jekyllPost += "title: \"" + postTitle.value + "\"\n";
 
 		if (postType != "team") {
