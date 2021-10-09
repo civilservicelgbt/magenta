@@ -10,7 +10,7 @@
 		<li class="breadcrumbs--list-item">
 			<a class="breadcrumbs--link" href="{{ site.url | append: site.baseurl }}">Home</a>
 		</li>
-		{% unless site.breadcrumb-override == true %}
+		{% unless site.breadcrumbs-override == true %}
 		<li class="breadcrumbs--list-item">
 			<a class="breadcrumbs--link" href="{{ site.url | append: site.baseurl | append: '/' | append: page.collection }}">{{ page.collection | replace: '-', ' ' | capitalize }}</a>
 		</li>
