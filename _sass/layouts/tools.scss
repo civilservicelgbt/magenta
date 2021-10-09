@@ -38,10 +38,10 @@
 .folder-navigation {
 	background: color("white");
 	border: 3px solid color("magenta--light");
+}
 
-	.radios {
-		padding: spacing(3);
-	}
+.folder-navigation .radios {
+	padding: spacing(3);
 }
 
 .folder-name {
@@ -52,10 +52,9 @@
 	top: 0;
 
 	background: color("magenta--light");
-	border-bottom: 5px solid color("magenta");
 	padding: spacing(3);
+}
 
-	.button {
-		margin-bottom: spacing(2);
-	}
+.folder-name .button {
+	margin-bottom: 0;
 }
