@@ -34,3 +34,18 @@
 	padding: spacing(5) 0;
 	border-top: 5px solid color("light-gray");
 }
+
+.folder-navigation {
+	background: color("magenta--light");
+}
+
+.folder-name {
+	@extend %heading-md;
+
+	position: sticky;
+	position: -webkit-sticky;
+	top: 0;
+
+	background: color("magenta");
+	padding: spacing(3);
+}
