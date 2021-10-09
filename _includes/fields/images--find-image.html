@@ -1,0 +1,195 @@
+<div class="fieldset-row" id="image--all-folders">
+
+	<span class="caption-md">Step 1 of 3</span>
+	<fieldset id="image--all-folders--fieldset" aria-describedby="image--all-folders--hint" class="fieldset">
+
+		<legend id="image--all-folders--title">
+			Select a folder
+		</legend>
+		<p id="image--all-folders--hint" class="hint">Choose an directory to view the files that have been uploaded.</p>
+
+		<div class="folder-navigation">
+
+			<div class="folder-name">
+				<p class="heading-md">🗂 All folders</p>
+
+				<div class="button-group button-group--clearfix">
+					<button class="button button--align-right" onclick="openFolder('image--all-folders', 'folder');">Open folder ❯</button>
+				</div>
+			</div>
+
+			<div class="radios">
+
+			{% assign images = site.static_files | where: "image", true %}
+			{% for image in images %}
+
+				{% assign file = image.basename | prepend: '/' | append: image.extname %}
+				{% assign currentfolder = image.path | remove: '/store/' | remove: file %}
+				{% assign nofolder = image.path | remove: '/store/' | remove: image.basename | remove: image.extname %}
+				{% assign foldername = image.path | remove: '/store' | remove: image.basename | remove: image.extname %}
+				{% assign filename = image.basename | remove: image.extname | remove: "+" | replace: "-", " " | replace: "lgbti", "LGBTI" | replace: "lgbt", "LGBT" %}
+
+				{% if currentfolder != folder %}{% unless nofolder =="" %}
+				<div class="radios--item">
+					<input class="radios--input"
+						id="radio--folder--{{ foldername | slugify }}"
+						name="folder"
+						type="radio"
+						value="folder--{{ foldername | slugify }}">
+					<label class="radios--label" for="radio--folder--{{ foldername | slugify }}">
+						{% if nofolder == "" %}
+							No folder
+						{% else %}
+							{{ foldername | slugify | replace: "-", " " | capitalize | prepend: "🗂 " }}
+						{% endif %}
+					</label>
+				</div>
+				{% assign folder = currentfolder %}
+				{% endunless %}{% endif %}
+			{% endfor %}
+
+			</div>
+
+		</div>
+
+	</fieldset>
+
+</div>
+
+{% assign images = site.static_files | where: "image", true %}
+{% for image in images %}
+
+	{% assign file = image.basename | prepend: '/' | append: image.extname %}
+	{% assign currentfolder = image.path | remove: '/store/' | remove: file %}
+	{% assign nofolder = image.path | remove: '/store/' | remove: image.basename | remove: image.extname %}
+	{% assign foldername = image.path | remove: '/store' | remove: image.basename | remove: image.extname %}
+	{% assign filename = image.basename | remove: image.extname | remove: "+" | replace: "-", " " | replace: "lgbti", "LGBTI" | replace: "lgbt", "LGBT" %}
+
+	{% if currentfolder != folder %}{% unless nofolder =="" %}
+
+	{% unless forloop.first %}
+
+			</div>
+
+		</div>
+
+	</div>
+	{% endunless %}
+
+
+	<div class="fieldset-row" id="folder--{{ foldername | slugify }}" hidden>
+	<span class="caption-md">Step 2 of 3</span>
+
+
+		<legend id="image--all-folders--title">
+			Select an image
+		</legend>
+		<p id="image--all-folders--hint" class="hint">Select the image from the list below, and then select "Open image" to view the image details.</p>
+
+		<div class="folder-navigation">
+
+			<div class="folder-name">
+				<p class="heading-md">{{ foldername | slugify | replace: "-", " " | capitalize | prepend: "🗂 " }}</p>
+
+				<div class="button-group button-group--clearfix">
+					<button class="button" onclick="backFolder('folder--{{ foldername | slugify }}', 'image--all-folders');">❮ Back</button>
+					<button class="button button--align-right" onclick="openImageDetails('folder--{{ foldername | slugify }}', 'image--details', 'radios--{{ foldername | slugify }}');">Open image ❯</button>
+				</div>
+			</div>
+
+
+			<div class="radios">
+
+		{% assign folder = currentfolder %}
+		{% endunless %}{% endif %}
+
+
+			<div class="radios--item">
+				<input class="radios--input"
+					id="image--{{ image.path | slugify }}"
+					name="radios--{{ foldername | slugify }}"
+					type="radio"
+					value="{{ image.path | slugify }}"
+
+					data-foldername="{{ foldername }}"
+					data-filename="{{ image.basename }}"
+					data-filetype="{{ image.extname }}"
+					data-filemodified="{{ image.modified_time | date:'%-d %B %Y, %H:%M' }}"
+					data-path={{ image.path }}>
+				<label class="radios--label" for="image--{{ image.path | slugify }}">
+					{{ filename }}
+				</label>
+			</div>
+
+	{% if forloop.last %}
+
+			</div>
+
+		</div>
+
+	</div>
+	{% endif %}
+
+{% endfor %}
+
+<div class="fieldset-row" id="image--details" hidden>
+
+	<span class="caption-md">Step 3 of 3</span>
+	<fieldset id="image--all-folders--fieldset" aria-describedby="image--all-folders--hint" class="fieldset">
+
+		<legend id="image--all-folders--title">
+			Image details
+		</legend>
+		<p id="image--all-folders--hint" class="hint">Choose an directory to view the files that have been uploaded.</p>
+
+		<div class="folder-navigation">
+
+			<div class="folder-name">
+				<p class="heading-md">Image details</p>
+
+				<div class="button-group button-group--clearfix">
+					<button class="button" onclick="backFolder('image--details', 'image--all-folders');">❮ Start again</button>
+				</div>
+			</div>
+
+			<div class="radios">
+
+				<img id="details--image-preview" src="">
+
+				<div class="button-group button-group--clearfix">
+					<button class="button" onclick="openImageInWindow()">Open this file</a>
+					<button class="button" onclick="copyImageURL();" title="Copy “{{ filename }}” URL to clipboard" target="_blank">Copy file URL</button>
+				</div>
+
+				<p>
+					<strong>File name:</strong><br>
+					<span id="details--filename">placeholder</span>
+				</p>
+
+				<p>
+					<strong>File type:</strong><br>
+					<span id="details--filetype">placeholder</span>
+				</p>
+
+				<p>
+					<strong>File modified:</strong><br>
+					<span id="details--filemodified">placeholder</span>
+				</p>
+
+				<p>
+					<strong>Parent folder:</strong><br>
+					<span id="details--foldername">placeholder</span>
+				</p>
+
+				<p>
+					<strong>Image path:</strong><br>
+					<span id="details--path">placeholder</span>
+				</p>
+
+			</div>
+
+		</div>
+
+	</fieldset>
+
+</div>
