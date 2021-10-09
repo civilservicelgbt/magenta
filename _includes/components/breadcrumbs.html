@@ -23,7 +23,12 @@
 		{% endif %}
 		{% for item in breadcrumbs %}
 		<li class="breadcrumbs--list-item">
-			<a class="breadcrumbs--link" href="{{ site.url | append: site.baseurl | append: item.url }}">{{ item.title }}</a>
+			{% if item.url contains "https://" or item.url contains "http://" %}
+				{% assign url = item.url %}
+			{% else %}
+				{% assign url = site.url | append: site.baseurl | append: item.url %}
+			{% endif %}
+			<a class="breadcrumbs--link" href="{{ url }}">{{ item.title }}</a>
 		</li>
 		{% endfor %}
 		{% endif %}
