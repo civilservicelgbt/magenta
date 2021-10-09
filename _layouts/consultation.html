@@ -13,7 +13,7 @@ meta-info: false
 	{% assign consultationOpen = false %}
 {% endif %}
 
-{% if page.consultation-link %}
+{% if page.link %}
 	{% assign validConsultationURL = true %}
 {% else %}
 	{% assign validConsultationURL = false %}
@@ -33,7 +33,7 @@ meta-info: false
 	{% endunless %}
 {% endif %}
 
-{% assign consultationURL = page.consultation-link %}
+{% assign consultationURL = page.link %}
 
 <article class="article--{{ page.layout }}">
 
