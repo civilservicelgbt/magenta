@@ -34,3 +34,19 @@
 	padding: spacing(5) 0;
 	border-top: 5px solid color("light-gray");
 }
+
+
+.button-group--bordered {
+	border-top: 5px solid color("light-gray");
+	padding: spacing(5) 0;
+	.button {
+		@include media-query($from: tablet) {
+			margin-bottom: 0;
+		}
+		@include media-query($until: tablet) {
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
