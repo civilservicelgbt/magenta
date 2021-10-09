@@ -20,16 +20,19 @@
 
 	{% assign topicLoop = site[topicCollection] | where: 'category', page.category | sort: 'end-date' | reverse %}
 	{% assign topicTitle = "Consultations and surveys" %}
+	{% assign skipLoop = false %}
 
 {% elsif topicCollection == "archives" %}
 
 	{% assign topicLoop = site[topicCollection] | where: 'category', page.category | sort: 'date' | reverse %}
 	{% assign topicTitle = "Previous updates" %}
+	{% assign skipLoop = false %}
 
 {% else %}
 
 	{% assign topicLoop = site[topicCollection] | where: 'category', page.category | sort: 'date' | reverse %}
 	{% assign topicTitle = "Recent " | append: topicCollection %}
+	{% assign skipLoop = false %}
 
 {% endif %}
 
