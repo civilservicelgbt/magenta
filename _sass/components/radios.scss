@@ -1,7 +1,8 @@
 .radios {
 	padding-bottom: spacing(5);
 }
-	.radios--item {
+
+.radios--item {
 	@include font($size: 19);
 
 	display: block;
