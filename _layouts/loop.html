@@ -93,38 +93,6 @@ meta-info: false
 
 		</ul>
 
-		<h2>Recent events</h2>
-
-		<ul class="list--no-styles loop--article-list">
-		{% assign past-event-count = 0 %}
-		{% for post in loop %}
-
-			{% assign eventDate = post.start-date | date: '%s' %}
-			{% if now > eventDate and eventDate > recent %}
-			{% if past-event-count < 5 %}
-			<li class="loop--article-list--item">
-				<article>
-					<h2 class="loop--article-list--item--title"><a href="{{ site.url | append: site.baseurl | append: post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h2>
-					{% if post.author %}{% if post.author != "Civil Service LGBT+ Network" %}
-					<p class="loop--article-list--item--meta">Hosted by the {{ post.author | remove: "The" }}</p>
-					{% endif %}{% endif %}
-					<p class="loop--article-list--item--meta">Held on <time datetime="{{ post.start-date | date: '%Y-%m-%d' }}">{{ post.start-date  | date:'%-d %B %Y' }}</time></p>
-				</article>
-			</li>
-			{% assign past-event-count = past-event-count | plus: 1 %}
-			{% endif %}
-			{% endif %}
-		{% endfor %}
-
-		{% if past-event-count <= 0 %}
-			<li class="loop--article-list--item">
-				<p class="lead"><strong>We haven't held any events recently.</strong></p>
-				<p>If you're running an event for LGBT+ civil servants and you'd like us to share it, <a href="{{ site.url | append: site.base-url | append: '/about/contact-us' }}">contact us</a>.</p>
-			</li>
-		{% endif %}
-
-		</ul>
-
 	{% elsif collection == "consultations" %}
 	{% assign loop = site[collection] | sort: 'end-date' | reverse %}
 
