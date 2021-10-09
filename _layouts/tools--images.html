@@ -1,133 +1,40 @@
 ---
 layout: default
 meta-info: false
+caption: true
 ---
 
-{% assign type = page.url | remove: '/tools/new/' | remove: '/' %}
-
-<section id="post-generator" class="section--{{ page.layout }}" data-posttype="{{ type }}">
+<article class="article--{{ page.layout }}">
 
 	<div class="grid-row">
 		{% include layouts/header.html %}
 	</div>
 
 	<div class="grid-row">
-		<div class="grid-column-two-thirds">
-
-				<details>
-
-					<summary>About this tool</summary>
-
-
-						</ol>
-
-				</details>
-
-				<blockquote class="warning-text">
-					<p><strong>This form might not work on your departmental IT system.</strong></p>
-					<p>There is nothing we can do to fix this. If you experience problems, try using a personal device instead.</p>
-				</blockquote>
-
-		</div>
-	</div>
-
-	<div class="grid-row">
 		<div class="grid-column-full">
-
 			<div class="page--content">
 
-
-
-			</div>
-
-		</div>
-	</div>
-
-	<div class="grid-row">
-		<div class="grid-column-full">
-
-			<div class="page--content">
-
-
-
-			</div>
-
-		</div>
-	</div>
-
-	<div class="grid-row">
-		<div class="grid-column-full">
-
-			<div class="admin--outputs">
-
 				<div class="grid-row">
-
-					<div class="grid-column-one-third">
-						<h2 class="admin-outputs">Upload the post</p>
+					<div class="grid-column-one-half">
+						<div class="admin--link-block admin--link-block--tool">
+						<span class="caption-lg">Tool</span>
+							<h2>Upload an image</h2>
+							<p>Use this tool to upload an image or photo to the image store.</p>
+							<a href="/images/new" class="button">Upload an image</a>
+						</div>
 					</div>
-					<div class="grid-column-two-thirds">
-						<section class="fieldset--post-github">
-						{% include fields/output-github-step-by-step.html %}
-						</section>
+					<div class="grid-column-one-half">
+						<div class="admin--link-block admin--link-block--tool">
+							<span class="caption-lg">Tool</span>
+							<h2>Find an image</h2>
+							<p>Use this tool to find an image that has already been uploaded to the image store.</p>
+							<a href="/images/edit" class="button">Find an image</a>
+						</div>
 					</div>
-
-				</div>
-				<div class="grid-row">
-					<div class="grid-column-one-third">
-						<h2 class="admin-outputs">Alternative methods</p>
-						<p>Use these options only if you can't upload via GitHub.</p>
-					</div>
-					<div class="grid-column-two-thirds">
-						{% include fields/output-generate-an-email.html %}
-						{% include fields/output-download-as-file.html %}
-						{% include fields/output-copy-to-clipboard.html %}
-					</div>
-
 				</div>
 
 			</div>
-
 		</div>
 	</div>
 
-	<div class="grid-row">
-		<div class="grid-column-one-half">
-			<div class="admin--link-block admin--link-block--tool">
-			<span class="caption-lg">Tool</span>
-				<h2>Upload an image</h2>
-				<p>Use this tool to upload an image or photo to the image store.</p>
-				<a href="/images" class="button">Upload an image</a>
-			</div>
-		</div>
-		<div class="grid-column-one-half">
-			<div class="admin--link-block admin--link-block--tool">
-				<span class="caption-lg">Tool</span>
-				<h2>Upload a document</h2>
-				<p>Use this tool to upload a document to the document store.</p>
-				<a href="/documents" class="button">Upload a document</a>
-			</div>
-		</div>
-	</div>
-
-	<div class="grid-row">
-		<div class="grid-column-one-half">
-			<div class="admin--link-block admin--link-block--guidance">
-				<span class="caption-lg">Guidance</span>
-				<h2>Learn to format a post</h2>
-				<p>Read the guidance about how to format a post using Markdown.</p>
-				<a href="/manuals/format-a-post" class="button">Read the guidance</a>
-			</div>
-		</div>
-		<div class="grid-column-one-half">
-			<div class="admin--link-block admin--link-block--guidance">
-				<span class="caption-lg">Guidance</span>
-				<h2>Learn how to use GitHub</h2>
-				<p>Read the guidance about how to add a post to the website using GitHub.</p>
-				<a href="/manuals/using-github" class="button">Read the guidance</a>
-			</div>
-		</div>
-	</div>
-
-</section>
-
-<script type="text/javascript" src="{{ site.url | append: site.baseurl | append: site.js-path | append: '/admin.js' }}"></script>
+</article>
