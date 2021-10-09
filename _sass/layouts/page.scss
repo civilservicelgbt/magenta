@@ -27,6 +27,14 @@
 	@include clearfix();
 }
 
+.page--meta-info--list {
+	@include clearfix();
+}
+
+.page--meta-info--list--with-image {
+	display: inline-block;
+}
+
 .page--meta-info--term,
 .page--meta-info--definition {
 	position: relative;
@@ -53,6 +61,12 @@
 	@include media-query($from: tablet) {
 		clear: right;
 	}
+}
+
+.volunteer--author {
+	float: left;
+	box-sizing: border-box;
+	margin: 0 spacing(5) 0 0;
 }
 
 .page--content {
