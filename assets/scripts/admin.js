@@ -317,7 +317,7 @@
 			if (postConsultationWebsite.value == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "consultation-link: \"" + postConsultationWebsite.value + "\"\n";
+			jekyllPost += "link: \"" + postConsultationWebsite.value + "\"\n";
 			if (postConsultationEndYear.value == "") {
 				jekyllPost += "# ";
 			}
