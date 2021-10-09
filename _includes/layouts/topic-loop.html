@@ -28,6 +28,12 @@
 	{% assign topicTitle = "Previous updates" %}
 	{% assign skipLoop = false %}
 
+{% elsif topicCollection == "news" %}
+
+	{% assign topicLoop = site[topicCollection] | where: 'category', page.category | sort: 'date' | reverse %}
+	{% assign topicTitle = "Recent updates" %}
+	{% assign skipLoop = false %}
+
 {% else %}
 
 	{% assign topicLoop = site[topicCollection] | where: 'category', page.category | sort: 'date' | reverse %}
