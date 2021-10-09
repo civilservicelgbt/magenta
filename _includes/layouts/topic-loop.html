@@ -1,6 +1,6 @@
 {% if topicCollection == "events" %}
 
-	{% assign topicLoop = site[topicCollection] | where: 'category', page.category | sort: 'event-date' %}
+	{% assign topicLoop = site[topicCollection] | where: 'category', page.category | sort: 'start-date' %}
 	{% assign topicTitle = "Upcoming " | append: topicCollection %}
 
 	{% assign countOpenEvents = 0 %}

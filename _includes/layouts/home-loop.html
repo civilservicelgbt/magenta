@@ -1,6 +1,6 @@
 {% if homeCollection == "events" %}
 
-	{% assign homeLoop = site[homeCollection] | sort: 'event-date' %}
+	{% assign homeLoop = site[homeCollection] | sort: 'start-date' %}
 	{% assign homeTitle = "Upcoming " | append: homeCollection %}
 
 	{% assign countOpenEvents = 0 %}
