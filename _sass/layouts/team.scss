@@ -38,6 +38,23 @@
 	text-overflow: ellipsis;
 	width: 100%;
 }
+// On 'post' format pages
+.volunteer--image--small {
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+
+	@include media-query($until: tablet) {
+		display: none;
+	}
+
+	@include media-query($from: tablet) {
+		max-width: 100px;
+		max-height: 100px;
+	}
+}
 
 // On 'volunteer' format pages
 .volunteer--image--large {

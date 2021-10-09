@@ -35,21 +35,64 @@
 
 	<div class="grid-column-full">
 
+		<div class="page--meta-info">
+		{% if page.author %}
+			{% assign author = page.author %}
+			{% assign author-escaped = author | slugify %}
+			{% assign volunteers = site.team | where_exp: "volunteer", "volunteer.url contains author-escaped" %}
+		{% else %}
+			{% assign author = "Civil Service LGBT+ Network" %}
+		{% endif %}
+
+		{% if volunteers == empty %}
 		<dl class="page--meta-info">
+
+			<dt class="page--meta-info--term">By</dt>
+			<dd class="page--meta-info--definition">{{ author }}</dd>
 
 			<dt class="page--meta-info--term">Published</dt>
 			<dd class="page--meta-info--definition">{{ page.date | date: "%d %B %Y" }}</dd>
 
-			<dt class="page--meta-info--term">Author</dt>
-			{% if page.author %}
-				{% assign author = page.author %}
-			{% else %}
-				{% assign author = "Civil Service LGBT+ Network" %}
-			{% endif %}
-			<dd class="page--meta-info--definition">{{ author }}</dd>
-
 		</dl>
+		{% else %}
 
+			{% for volunteer in volunteers %}
+
+				<a href="{{ site.url | append: site.baseurl | append: volunteer.url }}" class="volunteer--link volunteer--author">
+					{% if volunteer.image %}
+					<img src="{{ volunteer.image }}" class="volunteer--image volunteer--image--small" loading="lazy" alt="a photo of {{ volunteer.name }}">
+					{% else %}
+					<img src="{{ site.url | append: site.baseurl | append: '/assets/images/volunteers/no-picture.jpg' }}" class="volunteer--image pixelate" alt="a blank profile image">
+					{% endif %}
+				</a>
+
+				<dl class="page--meta-info--list page--meta-info--list--with-image">
+
+					<dt class="page--meta-info--term">By</dt>
+					<dd class="page--meta-info--definition">
+						<a href="{{ site.url | append: site.baseurl | append: volunteer.url }}" class="link--no-underline link--text-color">{{ volunteer.name }}</a>
+
+					</dd>
+
+					{% if volunteer.role %}
+						<dt class="page--meta-info--term">Role</dt>
+						<dd class="page--meta-info--definition">
+							{% if volunteer.archive == true %}Former{% endif %}
+							{{ volunteer.role | capitalize }}{% if volunteer.region %}, {{ volunteer.region | capitalize }}{% endif %}{% if volunteer.project %}, {{ volunteer.project | capitalize }}{% endif %}
+						</dd>
+					{% endif %}
+
+
+
+					<dt class="page--meta-info--term">Published</dt>
+					<dd class="page--meta-info--definition">{{ page.date | date: "%d %B %Y" }}</dd>
+
+				</dl>
+
+			{% endfor %}
+
+		{% endif %}
+		</div>
 
 	</div>
 
