@@ -10,7 +10,7 @@ layout: default
 
 {% assign cat-count = 0 %}
 {% for item in loop %}
-    {% unless item.categories == null %}
+    {% unless item.category == null %}
       {% assign cat-count = cat-count | plus: 1 %}
     {% endunless %}
 {% endfor %}
