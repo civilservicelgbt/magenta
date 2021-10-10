@@ -152,7 +152,6 @@ var base = "https://github.com/civilservicelgbt/images/upload/main/store"
 		var imagepreview = document.getElementById("details--image-preview");
 		var imageURL = imagepreview.src;
 		navigator.clipboard.writeText(imageURL);
-		alert("Text copied to clipboard.")
 	}
 
 // ADD TO GITHUB

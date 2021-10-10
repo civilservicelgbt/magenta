@@ -148,7 +148,6 @@ var base = "https://github.com/civilservicelgbt/documents/upload/main/store"
 		var documentpath = document.getElementById("details--path");
 		var documentURL = "https://www.civilservice.lgbt/documents" + documentpath.innerHTML;
 		navigator.clipboard.writeText(documentURL);
-		alert("Text copied to clipboard.")
 	}
 
 // ADD TO GITHUB
