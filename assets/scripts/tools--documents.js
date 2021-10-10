@@ -138,15 +138,15 @@ var base = "https://github.com/civilservicelgbt/documents/upload/main/store"
 
 	// Open document in new window
 	function openDocumentInWindow() {
-		var documentpreview = document.getElementById("details--document-preview");
-		var documentURL = documentpreview.src;
+		var documentpath = document.getElementById("details--path");
+		var documentURL = documentpreview.innerHTML;
 		var documentWindow = window.documentWindow = window.open(documentURL, "Open document in new window");
 	}
 
 	// Copy document URL to clipboard
 	function copyDocumentURL() {
-		var documentpreview = document.getElementById("details--document-preview");
-		var documentURL = documentpreview.src;
+		var documentpath = document.getElementById("details--path");
+		var documentURL = documentpath.innerHTML;
 		navigator.clipboard.writeText(documentURL);
 		alert("Text copied to clipboard.")
 	}
