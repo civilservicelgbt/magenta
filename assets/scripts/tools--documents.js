@@ -139,7 +139,7 @@ var base = "https://github.com/civilservicelgbt/documents/upload/main/store"
 	// Open document in new window
 	function openDocumentInWindow() {
 		var documentpath = document.getElementById("details--path");
-		var documentURL = documentpreview.innerHTML;
+		var documentURL = documentpath.innerHTML;
 		var documentWindow = window.documentWindow = window.open(documentURL, "Open document in new window");
 	}
 
