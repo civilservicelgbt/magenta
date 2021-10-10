@@ -1,0 +1,121 @@
+<div class="fieldset-row" id="fieldset--document--upload--folder">
+
+	<span class="caption-md">Step 1 of 4</span>
+	<fieldset id="upload--folder--fieldset" aria-describedby="upload--folder--hint" class="fieldset">
+
+		<legend id="upload--folder--title">
+			Select a folder
+		</legend>
+		<p id="upload--folder--hint" class="hint">Choose an existing directory to upload your document to, or create a new one by selecting "new folder".</p>
+
+		<div class="radios">
+
+			<div class="radios--item">
+				<input class="radios--input" id="upload--folder--new-folder" name="upload--folder" type="radio" value="new-folder" onchange="revealTextInputOnChange('new-folder', 'input--new-folder', 'upload--folder')">
+				<label class="radios--label" for="upload--folder--new-folder">
+					New folder
+				</label>
+			</div>
+			<div id="input--new-folder" class="revealed-input" hidden>
+				<label class="label-sm" for="document--new-folder-name">Enter your folder name</label>
+				<input class="input" id="document--new-folder-name" name="document--new-folder-name" type="text" placeholder="your-folder-name" onfocusout="cleanFolderName('document--new-folder-name')">
+			</div>
+
+			{% assign documents = site.static_files | where: "document", true %}
+			{% for document in documents %}
+
+				{% assign file = document.basename | prepend: '/' | append: document.extname %}
+				{% assign currentfolder = document.path | remove: '/store/' | remove: file %}
+				{% assign nofolder = document.path | remove: '/store/' | remove: document.basename | remove: document.extname %}
+				{% assign foldername = document.path | remove: '/store' | remove: document.basename | remove: document.extname %}
+				{% assign filename = document.basename | remove: document.extname | remove: "+" | replace: "-", " " | replace: "lgbti", "LGBTI" | replace: "lgbt", "LGBT" %}
+
+				{% if currentfolder != folder %}{% unless nofolder =="" %}
+				<div class="radios--item">
+					<input class="radios--input"
+						id="upload--folder--{{ foldername | slugify }}"
+						name="upload--folder"
+						type="radio"
+						value="{{ foldername }}"
+						onchange="revealTextInputOnChange('new-folder', 'input--new-folder', 'upload--folder')">
+					<label class="radios--label" for="upload--folder--{{ foldername | slugify }}">
+						{% if nofolder == "" %}
+							No folder
+						{% else %}
+							{{ foldername | slugify | replace: "-", " " | capitalize | prepend: "🗂 " }}
+						{% endif %}
+					</label>
+				</div>
+				{% assign folder = currentfolder %}
+				{% endunless %}{% endif %}
+			{% endfor %}
+
+		</div>
+
+		<div class="fieldset-row" hidden>
+			<label class="label-md" for="document--folder-name">Folder name</label>
+			<input class="input" id="document--folder-name" name="document--folder-name" type="text" value="/">
+		</div>
+
+	</fieldset>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary button--align-right" onclick="getFolderName('upload--folder'); switchStep('fieldset--document--upload--folder', 'fieldset--document--upload--filename');">Next step ❯</button>
+	</div>
+
+</div>
+
+<div class="fieldset-row" id="fieldset--document--upload--filename" hidden>
+
+	<span class="caption-md">Step 2 of 4</span>
+	<fieldset id="fieldset--document-filename" aria-describedby="fieldset--document-filename--title" class="fieldset-row">
+		<legend id="fieldset--document-filename--title" class="legend-lg">Validate a file name</legend>
+
+		<label class="label-md" for="document--filename">Enter your file name</label>
+		<p class="hint" id="document-filename--hint">File names must not contain spaces or certain special characters. Enter your file name into the field below, then select "Next step".</p>
+		<!-- URL must be in this format: https://github.com/civilservicelgbt/REPO/new/BRANCH/ROOT-DIRECTORY -->
+		<input class="input" id="document--filename" name="document--filename" type="text" placeholder="name-of-your-file.jpeg" onfocusout="cleanFieldInput('document--filename', 'not-dots')">
+	</fieldset>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" onclick="switchStep('fieldset--document--upload--filename', 'fieldset--document--upload--folder');">❮ Previous step</button>
+
+		<button class="button button--secondary button--align-right" onclick="updateFilenamePreview(); switchStep('fieldset--document--upload--filename', 'fieldset--document--upload--copy-filename');">Next step ❯</button>
+	</div>
+
+</div>
+
+<div class="fieldset-row" id="fieldset--document--upload--copy-filename" hidden>
+
+	<span class="caption-md">Step 3 of 4</span>
+	<label for="document--copy-filename" class="label-md">Rename your file</label>
+	<p class="hint">Before you upload your file, you should rename your file. You should rename your file to the following:
+		<br>
+		<pre><code id="filename-code">filename</code></pre>
+	</p>
+
+	<button class="button" id="document--copy-filename" name=="document--copy-filename">Copy file name</button>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" onclick="switchStep('fieldset--document--upload--copy-filename', 'fieldset--document--upload--filename');">❮ Previous step</button>
+
+		<button class="button button--secondary button--align-right" onclick="switchStep('fieldset--document--upload--copy-filename', 'fieldset--document--upload--open-github');">Next step ❯</button>
+	</div>
+
+</div>
+
+<div class="fieldset-row" id="fieldset--document--upload--open-github" hidden>
+
+	<span class="caption-md">Step 4 of 4</span>
+	<label for="document--upload--open-github" class="label-md">Upload your file to GitHub</label>
+	<p class="hint">The button will open GitHub at the correct directory to create the new folder. Upload your file in that window.</p>
+
+	<button class="button" id="document--upload--open-github" name=="document--upload--open-github" onclick="openGitHub()">Open GitHub in a new window</button>
+
+	<p>Once your file is processed, it will be listed on the “<a href="/documents/edit">Find an existing document</a>” page. You may need to wait several minutes, and then refresh this window.</p>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" onclick="switchStep('fieldset--document--upload--open-github', 'fieldset--document--upload--copy-filename');">❮ Previous step</button>
+	</div>
+
+</div>
