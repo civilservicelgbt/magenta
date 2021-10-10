@@ -43,7 +43,7 @@ meta-info: false
 		</ul>
 
 	{% elsif collection == "manuals" %}
-	{% assign loop = site[collection] | sort: 'date' | reverse %}
+	{% assign loop = site[collection] | sort: 'category' | reverse %}
 
 		<ul class="list--no-styles loop--article-list">
 
