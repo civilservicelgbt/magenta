@@ -295,9 +295,9 @@
 			jekyllPost += "image: \"" + postImage.value + "\"\n";
 
 			if (postPermalink.value == "") {
-				jekyllPost += "# permalink: \n# - " + postPermalink.value + "\n";
+				jekyllPost += "# permalink: " + postPermalink.value + "\n";
 			} else {
-				jekyllPost += "permalink: \n- " + postPermalink.value + "\n";
+				jekyllPost += "permalink: " + postPermalink.value + "\n";
 			}
 
 		}
@@ -380,9 +380,9 @@
 
 
 			if (postPermalink.value == "") {
-				jekyllPost += "# permalink: \n# - " + postPermalink.value + "\n";
+				jekyllPost += "# permalink: " + postPermalink.value + "\n";
 			} else {
-				jekyllPost += "permalink: \n- " + postPermalink.value + "\n";
+				jekyllPost += "permalink: " + postPermalink.value + "\n";
 			}
 
 			if (postRedirectFrom.value == "") {
