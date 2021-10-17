@@ -1,23 +1,21 @@
 {% assign volunteers = site.team | where_exp: "volunteer", "volunteer.role == volunteerType and volunteer.archive != true" %}
 {% for volunteer in volunteers %}
 <div class="grid-column-one-quarter">
+	<a href="{{ site.url | append: site.baseurl | append: volunteer.url }}" class="volunteer--link">
+		{% if volunteer.image %}
+		<img src="{{ volunteer.image }}" class="volunteer--image" loading="lazy">
+		{% else %}
+		<img src="{{ site.url | append: site.baseurl | append: '/assets/images/volunteers/no-picture.jpg' }}" class="volunteer--image pixelate">
+		{% endif %}
 
-		<a href="{{ site.url | append: site.baseurl | append: volunteer.url }}" class="volunteer--link">
-			{% if volunteer.image %}
-			<img src="{{ volunteer.image }}" class="volunteer--image" loading="lazy">
-			{% else %}
-			<img src="{{ site.url | append: site.baseurl | append: '/assets/images/volunteers/no-picture.jpg' }}" class="volunteer--image pixelate">
-			{% endif %}
-
-			{% if volunteer.region %}
-			<span class="volunteer--role">{{ volunteer.region | capitalize }}</span>
-			{% elsif volunteer.project %}
-			<span class="volunteer--role">{{ volunteer.project | capitalize }}</span>
-			{% else %}
-			<span class="volunteer--role">{{ volunteer.role | capitalize }}</span>
-			{% endif %}
-			<span class="volunteer--name">{{ volunteer.name }}</span>
-		</a>
-
+		{% if volunteer.region %}
+		<span class="volunteer--role">{{ volunteer.region | capitalize }}</span>
+		{% elsif volunteer.project %}
+		<span class="volunteer--role">{{ volunteer.project | capitalize }}</span>
+		{% else %}
+		<span class="volunteer--role">{{ volunteer.role | capitalize }}</span>
+		{% endif %}
+		<span class="volunteer--name">{{ volunteer.name }}</span>
+	</a>
 </div>
 {% endfor %}
