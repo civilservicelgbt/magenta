@@ -30,9 +30,9 @@ layout: default
 			<details class="objective" id="{{ obj.objective | slugify }}">
 				<summary class="objective-summary">
 
-					<h3>{{ obj.objective }}</h3>
+					{{ obj.objective | smartify }}
 
-					<p>{{ obj.description }}</p>
+					{{ obj.description | markdownify }}
 
 					{% for mile in obj.milestones %}
 						{% assign count-milestones = count-milestones | plus: 1 %}
@@ -50,26 +50,61 @@ layout: default
 
 				</summary>
 
-				<div class="container">
+				{% if obj.details %}
+				{{ obj.details | markdownify }}
+				{% endif %}
 
-					<ul class="milestones">
-					{% assign milestones = obj.milestones | sort: "date" %}
-					{% for mile in milestones %}
-						<li class="milestone">
-							<span class="milestone">
-								{% if mile.complete == true %}
-								<span class="status complete"><span class="sr-only">Complete</span></span>
-								{% else %}
-								<span class="status in-progress"><span class="sr-only">In progress</span></span>
-								{% endif %}
-								{{ mile.milestone | markdownify }}
-								<p class="date">{{ mile.date | date: "%B %Y" }}</p>
-							</span>
-						</li>
+				<ul class="milestones">
+				{% assign milestones = obj.milestones | sort: "date" %}
+				{% for mile in milestones %}
+					<li class="milestone">
+						<span class="milestone">
+							{% if mile.complete == true %}
+							<span class="status complete"><span class="sr-only">Complete</span></span>
+							{% else %}
+							<span class="status in-progress"><span class="sr-only">In progress</span></span>
+							{% endif %}
+							{{ mile.milestone | markdownify }}
+							<p class="date">{{ mile.date | date: "%B %Y" }}</p>
+						</span>
+					</li>
+				{% endfor %}
+				</ul>
+
+				{% if obj.team %}
+				<div class="grid-row">
+				<div class="grid-column-full">
+					<div class="business-plan--team">
+					<p class="heading-md">Team members involved in this work</p>
+					<p>These are the members of our <a href="/team">volunteer team</a> that are delivering this programme of work. Contact them directly if you'd like to get involved.</p>
+
+					<hr>
+
+					<div class="grid-row">
+					{% assign team = obj.team | sort: "name" %}
+					{% for member in team %}
+						{% assign member-escaped = member.name | slugify %}
+						{% assign volunteers = site.team | where_exp: "volunteer", "volunteer.url contains member-escaped" %}
+						{% for volunteer in volunteers %}
+						<div class="grid-column-one-third">
+							<a href="{{ site.url | append: site.baseurl | append: volunteer.url }}" class="volunteer--link">
+							{% if volunteer.image %}
+							<img src="{{ volunteer.image }}" class="volunteer--image" loading="lazy" alt="a photo of {{ volunteer.name }}">
+							{% else %}
+							<img src="{{ site.url | append: site.baseurl | append: '/assets/images/volunteers/no-picture.jpg' }}" class="volunteer--image pixelate" alt="a blank profile image">
+							{% endif %}
+							<span class="volunteer--role">{{ volunteer.role | capitalize }}</span>
+							<span class="volunteer--name">{{ volunteer.name }}</span>
+							</a>
+						</div>
+						{% endfor %}
 					{% endfor %}
-					</ul>
-
+					</div>
+					</div>
 				</div>
+				</div>
+				{% endif %}
+
 			</details>
 
 			{% endfor %}
