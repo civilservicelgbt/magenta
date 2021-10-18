@@ -43,7 +43,20 @@
 	@include media-query($media-type: print) {
 		color: color("white");
 		font-weight: bold;
+
+		margin-top: 0;
+		padding-top: 40%;
 	}
+}
+
+.page--caption + .page--heading {
+
+	@include media-query($media-type: print) {
+
+		padding: 0;
+
+	}
+
 }
 
 .page--excerpt {
