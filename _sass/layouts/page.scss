@@ -38,7 +38,7 @@
 	@extend %heading-xxl;
 	@include responsive-margin(3, "top");
 	@include responsive-margin(7, "bottom");
-	max-width: 25ch;
+	max-width: 80%;
 
 	@include media-query($media-type: print) {
 		color: color("white");
