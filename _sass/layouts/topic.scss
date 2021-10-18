@@ -1,5 +1,7 @@
-.topic--banner--image {
-
+[class^="topic--banner--"] {
+	@include media-query($media-type: print) {
+		display: none;
+	}
 }
 
 .topic--background--yellow {
