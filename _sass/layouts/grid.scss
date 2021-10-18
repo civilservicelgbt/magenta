@@ -41,4 +41,8 @@
 .main-wrapper--auto-spacing:first-child,
 .main-wrapper--lg {
 	@include responsive-padding(8, "top");
+
+	@include media-query($media-type: print) {
+		padding-top: 0;
+	}
 }
