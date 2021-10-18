@@ -7,6 +7,10 @@ footer,
 	// border-top: 5px solid $footer--border-color;
 	color: $footer--text-color;
 	background: $footer--background-color;
+
+	@include media-query($media-type: print) {
+		display: none;
+	}
 }
 
 footer a,
@@ -76,4 +80,11 @@ footer a,
 
 .feedback {
 	margin-bottom: spacing(3);
+
+	padding: spacing(2);
+	background: color("magenta--light");
+
+	@include media-query($media-type: print) {
+		display: none;
+	}
 }

@@ -9,6 +9,10 @@
 		padding-bottom: spacing(2);
 		border-bottom: 1px solid $border-color;
 	}
+
+	@include media-query($media-type: print) {
+		display: none;
+	}
 }
 
 .breadcrumbs--list {

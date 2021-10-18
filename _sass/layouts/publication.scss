@@ -19,6 +19,25 @@
 #markdown-toc li:first-child {
 	border-top: 3px solid color("magenta");
 	padding-top: spacing(5);
+
+	@include media-query($media-type: print) {
+		page-break-before: always;
+		border-top: none !important;
+
+		&:before {
+			position: relative;
+			display: block;
+
+			content: "Contents";
+			color: $text-color;
+			@include font($size: 36, $weight: bold);
+
+			display: block;
+
+			margin-top: 0;
+			@include responsive-margin(6, "bottom");
+		}
+	}
 }
 
 #markdown-toc ul {
@@ -32,6 +51,11 @@
 #markdown-content > *:first-child {
 	border-top: 3px solid color("light-gray");
 	padding-top: spacing(5);
+
+	@include media-query($media-type: print) {
+		page-break-before: always;
+		border-top: none !important;
+	}
 }
 
 #markdown-content + .footnotes {

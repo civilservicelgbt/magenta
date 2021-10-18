@@ -53,6 +53,10 @@
 	// border-bottom: spacing(2) solid $header--border-color !important;
 	color: $header--text-color;
 	background: $header--background-color;
+
+	@include media-query($media-type: print) {
+		display: none;
+	}
 }
 
 .header--container--full-width {

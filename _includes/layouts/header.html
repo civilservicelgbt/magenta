@@ -35,7 +35,6 @@
 
 	<div class="grid-column-full">
 
-		<div class="page--meta-info">
 		{% if page.author %}
 			{% assign author = page.author %}
 			{% assign author-escaped = author | slugify %}
@@ -45,16 +44,21 @@
 		{% endif %}
 
 		{% if volunteers == empty %}
-		<dl class="page--meta-info--list">
+		<div class="page--meta-info">
 
-			<dt class="page--meta-info--term">By</dt>
-			<dd class="page--meta-info--definition">{{ author }}</dd>
+			<dl class="page--meta-info--list">
 
-			<dt class="page--meta-info--term">Published</dt>
-			<dd class="page--meta-info--definition">{{ page.date | date: "%d %B %Y" }}</dd>
+				<dt class="page--meta-info--term">By</dt>
+				<dd class="page--meta-info--definition">{{ author }}</dd>
 
-		</dl>
+				<dt class="page--meta-info--term">Published</dt>
+				<dd class="page--meta-info--definition">{{ page.date | date: "%d %B %Y" }}</dd>
+
+			</dl>
+
+		</div>
 		{% else %}
+		<div class="page--meta-info page--meta-info--team-member">
 
 			{% for volunteer in volunteers %}
 
@@ -90,7 +94,7 @@
 				</dl>
 
 			{% endfor %}
-
+		</div>
 		{% endif %}
 		</div>
 

@@ -49,10 +49,7 @@
 	{% include head/favicons.html %}
 
 	<!-- CSS -->
-	<link rel="stylesheet" media="screen" href="{{ site.url | append: site.baseurl | append: site.css-path | append: '/styles.css' }}">
-
-	<!-- Print styles -->
-	<link rel="stylesheet" media="print" href="{{ site.url | append: site.baseurl | append: site.css-path | append: '/print.css' }}">
+	<link rel="stylesheet" href="{{ site.url | append: site.baseurl | append: site.css-path | append: '/styles.css' }}">
 
 	{% if jekyll.environment == 'production' %}
     <!-- Global site tag (gtag.js) - Google Analytics -->
