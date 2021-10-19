@@ -351,6 +351,9 @@
 		}
 
 		if (postType == "team") {
+			
+			jekyllPost += "name: \"" + postTitle.value + "\"\n";
+			
 			if (postTeamMemberRole.value == "") {
 				jekyllPost += "# ";
 			}
