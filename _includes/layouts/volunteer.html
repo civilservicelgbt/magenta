@@ -8,13 +8,19 @@
 		<img src="{{ site.url | append: site.baseurl | append: '/assets/images/volunteers/no-picture.jpg' }}" class="volunteer--image pixelate">
 		{% endif %}
 
-		{% if volunteer.region %}
-		<span class="volunteer--role">{{ volunteer.region | capitalize }}</span>
-		{% elsif volunteer.project %}
-		<span class="volunteer--role">{{ volunteer.project | capitalize }}</span>
+		{% if volunteer.role == "chair" or volunteer.role == "vice-chair" %}
+			<span class="volunteer--role">{{ volunteer.role | capitalize }}</span>
 		{% else %}
-		<span class="volunteer--role">{{ volunteer.role | capitalize }}</span>
+			{% if volunteer.region %}
+			<span class="volunteer--role">{{ volunteer.region | capitalize }}</span>
+			{% elsif volunteer.project %}
+			<span class="volunteer--role">{{ volunteer.project | capitalize }}</span>
+			{% else %}
+			<span class="volunteer--role">{{ volunteer.role | capitalize }}</span>
+			{% endif %}
 		{% endif %}
+
+
 		<span class="volunteer--name">{{ volunteer.name }}</span>
 	</a>
 </div>
