@@ -8,7 +8,7 @@
 		<img src="{{ site.url | append: site.baseurl | append: '/assets/images/volunteers/no-picture.jpg' }}" class="volunteer--image pixelate">
 		{% endif %}
 
-		{% if volunteer.role == "chair" or volunteer.role == "vice-chair" %}
+		{% if volunteer.role == "chair" or volunteer.role == "vice chair" %}
 			<span class="volunteer--role">{{ volunteer.role | capitalize }}</span>
 		{% else %}
 			{% if volunteer.region %}
