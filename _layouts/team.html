@@ -18,7 +18,7 @@ excerpt: false
 				<dd class="volunteer--details--value">{{ page.role | capitalize }}</dd>
 				{% if page.project %}
 				<dt class="volunteer--details--label">Projects </dt>
-				<dd class="volunteer--details--value">{{ page.project | capitalize }}</dd>
+				<dd class="volunteer--details--value">{{ page.project | capitalize | replace: "lgbt", "LGBT" }}</dd>
 				{% endif %}
 				{% if page.region %}
 				<dt class="volunteer--details--label">Region </dt>
