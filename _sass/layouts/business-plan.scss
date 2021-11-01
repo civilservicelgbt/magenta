@@ -2,11 +2,29 @@
 
 details.objective {
 
+	@include media-query($media-type: print) {
+		page-break-before: always;
+
+		.volunteer--link::after {
+			display: none;
+		}
+
+		.grid-column-one-third {
+			display: inline-block;
+			width: 30%;
+		}
+	}
+
 	ul {
 	  padding: 0;
 	}
 
 	li {
+
+		@include media-query($media-type: print) {
+			page-break-inside: avoid;
+		}
+
 	  display: block;
 	  position: relative;
 
@@ -14,7 +32,7 @@ details.objective {
 	  list-style: none;
 	  padding: $gutter-half 0 !important;
 	  @include media-query($from: tablet) {
-		padding: $gutter-half ($gutter-half * 0.5);
+			padding: $gutter-half ($gutter-half * 0.5);
 	  }
 	  border-top: 1px solid color("light-gray");
 
@@ -99,6 +117,10 @@ details.objective {
 
 .objective-summary {
 
+	@include media-query($media-type: print) {
+		page-break-inside: avoid;
+	}
+
 	progress {
 
 	  &[value] {
@@ -115,7 +137,6 @@ details.objective {
 	  position: relative;
 
 	  width: 100%;
-	  max-width: 600px;
 
 	  &::-webkit-progress-bar {
 		/* style rules */
@@ -155,6 +176,11 @@ details.objective {
 }
 
 .business-plan--team {
+	@include media-query($media-type: print) {
+		page-break-before: always;
+		page-break-inside: avoid;
+	}
+
 	background: color("magenta--light");
 	padding: spacing(3) spacing(3) spacing(1);
 	margin: spacing(3) 0;

@@ -8,7 +8,7 @@ details > summary {
 	position: relative;
 	cursor: pointer;
 
-	color: $link-color;
+	color: color("black");
 
 	/* Hide the marker completely. */
 	list-style-image: none;
@@ -21,25 +21,25 @@ details > summary {
 		height: 0;
 	}
 
-	&:before {
+	&:after {
 		display: block;
 		position: relative;
-		top: 0;
-		right: auto;
+		padding: spacing(2) 0 0;
+		bottom: 0;
 		left: 0;
-		content: '+';
-		@include font($size: 24, $weight: bold);
-		width: $gutter * 2;
-		float: right;
+		content: 'Show more';
+		@include media-query($media-type: print) {
+			content: '';
+		}
+		@include font($size: 19, $line-height: 24, $weight: bold);
 
-		color: color("black");
-		text-align: right;
+		color: $link-color;
+		text-align: left;
 		font-weight: bold;
-		line-height: 1 !important;
+
 	}
 
 	&:hover {
-		color: $link-color--hover;
 		text-decoration: underline !important;
 		cursor: pointer;
 	}
@@ -47,10 +47,16 @@ details > summary {
 		color: $link-color--focus;
 		background: $link-background--focus;
 		outline: 3px solid $link-background--focus;
+		&:after {
+			color: color("black");
+		}
 	}
 	&:active {
 		background: transparent;
 		outline: 3px solid $link-background--focus;
+		&:after {
+			color: color("black");
+		}
 	}
 
 }
@@ -84,8 +90,11 @@ details[open] > summary {
 		content: '';
 	}
 
-	&:before {
-		content: '–';
+	&:after {
+		content: 'Show less';
+		@include media-query($media-type: print) {
+			content: '';
+		}
 	}
 }
 
