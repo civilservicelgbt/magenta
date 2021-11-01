@@ -68,3 +68,9 @@
 .visually-hidden-focusable {
   @include visually-hidden-focusable;
 }
+
+.hide-when-printed {
+  @include media-query($media-type: print) {
+    display: none !important;
+  }
+}
