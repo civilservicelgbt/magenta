@@ -13,3 +13,7 @@
 
 	@include clearfix();
 }
+
+dialog {
+	z-index: 9999999;
+}
