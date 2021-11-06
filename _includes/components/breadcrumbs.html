@@ -7,10 +7,10 @@
 %}
 <div class="breadcrumbs breadcrumbs--collapse-on-mobile">
 	<ol class="breadcrumbs--list">
+		{% unless page.breadcrumbs-override == true %}
 		<li class="breadcrumbs--list-item">
 			<a class="breadcrumbs--link" href="{{ site.url | append: site.baseurl }}">Home</a>
 		</li>
-		{% unless page.breadcrumbs-override == true %}
 		<li class="breadcrumbs--list-item">
 			<a class="breadcrumbs--link" href="{{ site.url | append: site.baseurl | append: '/' | append: page.collection }}">{{ page.collection | replace: '-', ' ' | capitalize }}</a>
 		</li>
