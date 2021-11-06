@@ -2,18 +2,41 @@
 	position: sticky;
 	z-index: 999999;
 
-	bottom: 20px;
+	bottom: spacing(2);
 	top: auto;
 	left: 0;
 	right: 0;
 
-	padding: 20px;
+	padding: spacing(2);
 
 	background: #fff2f9;
 
 	@include clearfix();
 }
 
-dialog {
+.dialog {
 	z-index: 9999999;
+	padding: 0;
+}
+
+.dialog--title {
+	margin: 0;
+}
+
+.button--close {
+	position: absolute;
+	top: spacing(1);
+	right: spacing(1);
+	left: auto;
+	bottom: auto;
+}
+
+.button--dialog {
+	margin: 0;
+}
+
+.dialog--header,
+.dialog--actions {
+	padding: spacing(2);
+	margin: 0;
 }
