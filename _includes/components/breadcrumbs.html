@@ -18,10 +18,8 @@
 		{% if layout.breadcrumbs or page.breadcrumbs %}
 		{% if page.breadcrumbs %}
 			{% assign breadcrumbs = page.breadcrumbs %}
-		{% if layout.breadcrumbs %}
-			{% assign breadcrumbs = layout.breadcrumbs %}
 		{% else %}
-			{% assign breadcrumbs = page.breadcrumbs %}
+			{% assign breadcrumbs = layout.breadcrumbs %}
 		{% endif %}
 		{% for item in breadcrumbs %}
 		<li class="breadcrumbs--list-item">
