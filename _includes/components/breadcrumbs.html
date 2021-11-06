@@ -7,7 +7,7 @@
 %}
 <div class="breadcrumbs breadcrumbs--collapse-on-mobile">
 	<ol class="breadcrumbs--list">
-		{% unless page.breadcrumbs-override == true %}
+		{% unless page.breadcrumbs-override == true or layout.breadcrumbs-override == true %}
 		<li class="breadcrumbs--list-item">
 			<a class="breadcrumbs--link" href="{{ site.url | append: site.baseurl }}">Home</a>
 		</li>
