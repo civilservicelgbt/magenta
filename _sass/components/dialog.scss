@@ -25,11 +25,7 @@
 }
 
 .button--close {
-	position: absolute;
-	top: spacing(1);
-	right: spacing(1);
-	left: auto;
-	bottom: auto;
+	float: right;
 }
 
 .button--dialog,
@@ -42,6 +38,7 @@
 .dialog--actions {
 	padding: spacing(3);
 	margin: 0;
+	@include clearfix();
 }
 
 .dialog--header,
