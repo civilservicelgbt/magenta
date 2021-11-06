@@ -20,6 +20,10 @@
 	min-width: 50vh;
 }
 
+.dialog::backdrop {
+	background: rgba(0, 0, 0, 0.7);
+}
+
 .dialog--title {
 	margin: 0;
 }
@@ -39,6 +43,10 @@
 	padding: spacing(3);
 	margin: 0;
 	@include clearfix();
+}
+
+.dialog--content {
+	text-align: center;
 }
 
 .dialog--header,
