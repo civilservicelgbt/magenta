@@ -2,7 +2,7 @@
 	position: sticky;
 	z-index: 999999;
 
-	bottom: spacing(2);
+	bottom: 0;
 	top: auto;
 	left: 0;
 	right: 0;
@@ -31,8 +31,9 @@
 	bottom: auto;
 }
 
-.button--dialog {
-	margin: 0;
+.button--dialog,
+.button--toolbar {
+	margin: 0 !important;
 }
 
 .dialog--header,
