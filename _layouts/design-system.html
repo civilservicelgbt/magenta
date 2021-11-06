@@ -10,18 +10,11 @@ breadcrumbs:
 - title: Design system
   url: "https://www.civilservice.lgbt/design-system/"
 ---
-{% if page.loop %}
-    {% assign page-loop = page.loop %}
-{% else %}
-    {% assign page-loop = page.collection %}
-{% endif %}
-{% assign loop = site[page-loop] %}
-
 {% assign cat-count = 0 %}
-{% for item in loop %}
-    {% unless item.category == null %}
-      {% assign cat-count = cat-count | plus: 1 %}
-    {% endunless %}
+{% for item in site.design-system %}
+  {% unless item.categories == null %}
+    {% assign cat-count = cat-count | plus: 1 %}
+  {% endunless %}
 {% endfor %}
 
 <div class="grid-row">
@@ -36,7 +29,7 @@ breadcrumbs:
         <ul class="list--no-styles collection--left-nav--navigation">
 
         {% if cat-count > 0 %}
-          {% assign groups = loop | group_by: "category" | sort: "name" %}
+          {% assign groups = site.design-system | group_by: "categories" | sort: "name" %}
 
           {% for group in groups %}
           {{ group.name | remove: '["' | remove: '"]' | capitalize | prepend: '<li class="list--category">' | append: '</li><ul class="list--no-styles">' }}
