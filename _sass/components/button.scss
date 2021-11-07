@@ -224,6 +224,102 @@ button[disabled] {
 	}
 }
 
+.button--toggle {
+	@include font($size: 19, $line-height: 19px);
+
+	box-sizing: border-box;
+	position: relative;
+	width: 100%;
+	margin-top: 0;
+	margin-right: 0;
+	margin-left: 0;
+	@include responsive-margin(6, "bottom", $adjustment: $button-shadow-size); // s2
+	padding: (spacing(2) - $border-width-form-element) spacing(2) (spacing(2) - $border-width-form-element - ($button-shadow-size / 2)); // s1
+	border: $border-width-form-element solid transparent;
+	border-radius: 0;
+	color: $button-text-color;
+	background-color: $button-color;
+	box-shadow: 0 $button-shadow-size 0 $button-shadow-color; // s0
+	text-align: center;
+	vertical-align: top;
+	cursor: pointer;
+	-webkit-appearance: none;
+
+	@include media-query($from: tablet) {
+		width: auto;
+	}
+
+	// Ensure that any global link styles are overridden
+	&:link,
+	&:visited,
+	&:active,
+	&:hover {
+		color: $button-text-color;
+		text-decoration: none;
+	}
+
+	// Fix unwanted button padding in Firefox
+	&::-moz-focus-inner {
+		padding: 0;
+		border: 0;
+	}
+
+	&:hover {
+		background-color: $button-hover-color;
+	}
+
+	&:active {
+		// Bump the button down so it looks like its being pressed in
+		top: $button-shadow-size;
+	}
+
+	&:focus {
+		border-color: $focus-background-color;
+		outline: $focus-width solid transparent;
+		box-shadow: inset 0 0 0 1px $focus-background-color;
+	}
+
+	&:focus:not(:active):not(:hover) {
+		border-color: $focus-background-color;
+		color: $focus-text-color;
+		background-color: $focus-background-color;
+		box-shadow: 0 2px 0 $focus-text-color;
+	}
+
+	// The following adjustments do not work for <input type="button"> as
+	// non-container elements cannot include pseudo elements (i.e. ::before).
+
+	// Use a pseudo element to expand the click target area to include the
+	// button's shadow as well, in case users try to click it.
+	&:before {
+		content: "";
+		display: block;
+
+		position: absolute;
+
+		top: -$border-width-form-element;
+		right: -$border-width-form-element;
+		bottom: -($border-width-form-element + $button-shadow-size);
+		left: -$border-width-form-element;
+
+		background: transparent;
+	}
+
+	// When the button is active it is shifted down by $button-shadow-size to
+	// denote a 'pressed' state. If the user happened to click at the very top
+	// of the button, their mouse is no longer over the button (because it has
+	// 'moved beneath them') and so the click event is not fired.
+	//
+	// This corrects that by shifting the top of the pseudo element so that it
+	// continues to cover the area that the user originally clicked, which means
+	// the click event is still fired.
+	//
+	// 🎉
+	&:active:before {
+		top: -($border-width-form-element + $button-shadow-size);
+	}
+}
+
 .button-group--clearfix {
 	@include clearfix();
 }

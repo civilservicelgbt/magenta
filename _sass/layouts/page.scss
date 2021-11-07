@@ -6,8 +6,41 @@
 		padding: 0 1cm;
 		width:100%;
 		height:99%;
+		page-break-before: always;
 		page-break-after: always;
 		background: color("magenta--accessible");
+		box-sizing: border-box;
+	}
+}
+
+.page--divider {
+	@include clearfix;
+
+	@include media-query($media-type: print) {
+		@include font($size: 60, $weight: bold);
+		margin: 0;
+		padding: 7cm 1cm 0;
+		width:100%;
+		height:99%;
+		page-break-before: always;
+		page-break-after: always;
+		background: color("magenta--light");
+		color: color("magenta--accessible");
+		box-sizing: border-box;
+
+		&:before {
+			position: relative;
+			display: block;
+
+			top: -5cm;
+
+			@include font($size: 36, $weight: bold);
+
+			content: "Civil Service \A LGBT+ Network.";
+			white-space:pre;
+
+			color: color("magenta--accessible") !important;
+		}
 	}
 }
 
@@ -15,7 +48,7 @@
 	@extend %caption-xl;
 
 	@include media-query($media-type: print) {
-		padding: 40% 0 0;
+		padding: 7cm 0 0;
 		color: color("white");
 		font-weight: bold;
 
@@ -23,9 +56,9 @@
 			position: absolute;
 			display: block;
 
-			top: spacing(10);
+			top: 2cm;
 
-			content: "Civil Service \A LGBT+ Network";
+			content: "Civil Service \A LGBT+ Network.";
 			white-space:pre;
 
 			color: color("magenta--light") !important;

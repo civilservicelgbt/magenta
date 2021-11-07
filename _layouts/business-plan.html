@@ -23,6 +23,10 @@ layout: default
 
 			{{ content }}
 
+			<div class="button-group button-group--clearfix">
+				<button id="open-objectives" onclick="openAllObjectives()" class="button--toggle button--align-right hide-when-printed">Show all</button>
+				<button id="close-objectives" onclick="closeAllObjectives()" class="button--toggle button--align-right hide-when-printed" hidden>Collapse all</button>
+			</div>
 			{% for obj in page.objectives %}
 			{% assign count-milestones = 0 %}
 			{% assign count-completed-milestones = 0 %}
@@ -117,3 +121,23 @@ layout: default
 		</div>
 
 </article>
+
+
+<script>
+	function openAllObjectives() {
+		var objectives = document.getElementsByClassName("objective");
+		for (i = 0; i < objectives.length; i++) {
+			objectives[i].open = true;
+		}
+		document.getElementById("open-objectives").hidden = true;
+		document.getElementById("close-objectives").hidden = false;
+	}
+	function closeAllObjectives() {
+		var objectives = document.getElementsByClassName("objective");
+		for (i = 0; i < objectives.length; i++) {
+			objectives[i].open = false;
+		}
+		document.getElementById("open-objectives").hidden = false;
+		document.getElementById("close-objectives").hidden = true;
+	}
+</script>
