@@ -9,7 +9,7 @@
 
 	padding: spacing(3) 0;
 
-	background: #fff2f9;
+	background: $toolbar--background-color;
 
 	@include clearfix();
 }
