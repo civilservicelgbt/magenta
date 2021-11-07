@@ -78,8 +78,6 @@ layout: default
 					<p class="heading-md">Team members involved in this work</p>
 					<p>These are the members of our <a href="/team">volunteer team</a> that are delivering this programme of work. Contact them directly if you'd like to get involved.</p>
 
-					<hr>
-
 					<div class="grid-row">
 					{% assign team = obj.team | sort: "name" %}
 					{% for member in team %}
@@ -93,13 +91,18 @@ layout: default
 							{% else %}
 							<img src="{{ site.url | append: site.baseurl | append: '/assets/images/volunteers/no-picture.jpg' }}" class="volunteer--image pixelate" alt="a blank profile image">
 							{% endif %}
+							{% if volunteer.region %}
+							<span class="volunteer--role">{{ volunteer.region | capitalize }}</span>
+							{% else %}
 							<span class="volunteer--role">{{ volunteer.role | capitalize }}</span>
+							{% endif %}
 							<span class="volunteer--name">{{ volunteer.name }}</span>
 							</a>
 						</div>
 						{% endfor %}
 					{% endfor %}
 					</div>
+
 					</div>
 				</div>
 				</div>
