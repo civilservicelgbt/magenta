@@ -2,7 +2,7 @@ blockquote.warning-text {
 	position: relative;
 	@include font($size: 19);
 	color: $text-color;
-	padding: spacing(2) spacing(2) spacing(2) 0;
+	padding: spacing(2) spacing(4) spacing(2) 0;
 	// Margin top intended to collapse
 	// This adds an additional 10px to the paragraph above
 	@include responsive-margin(6, "top");

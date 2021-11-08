@@ -1,0 +1,128 @@
+---
+layout: default
+meta-info: false
+---
+
+{% assign type = page.url | remove: '/tools/new/' | remove: '/' %}
+
+<section id="post-generator" class="section--{{ page.layout }}" data-posttype="{{ type }}">
+
+	<div class="grid-row">
+		{% include layouts/header.html %}
+	</div>
+
+	<div class="grid-row" style="margin-bottom: 40px;">
+		<div class="grid-column-two-thirds">
+
+				<details>
+
+					<summary>About this tool</summary>
+
+						<p>The <strong>Civil Service LGBT+ Network</strong> uses GOV.UK Notify to send transactional emails informing our mailing lists of updates to our website. The updates we send our relate to new blog posts, publications and events.</p>
+
+						<p>Use this tool to generate content for GOV.UK Notify's templating feature, and to be guided step by step through sending an email to the mailing list.</p>
+
+						<p>Emails should be sent sparingly to avoid spam.</p>
+
+						<blockquote class="warning-text">
+							<p><strong>This form might not work on your departmental IT system.</strong></p>
+							<p>There is nothing we can do to fix this. If you experience problems, try using a personal device instead.</p>
+						</blockquote>
+
+				</details>
+
+		</div>
+	</div>
+
+	<div class="grid-row">
+		<div class="grid-column-full">
+
+			<div class="admin--select">
+
+			<div class="grid-row">
+
+				<div class="grid-column-one-third">
+					<h2 class="admin-inputs">Choose posts</p>
+				</div>
+				<div class="grid-column-two-thirds">
+					<div class="fieldset--email-notify">
+
+						<fieldset  id="notify--select-posts">
+					    <legend>Select posts to include in email</legend>
+							<p class="hint">Only posts from the last 2 months are shown.</p>
+
+							<hr>
+
+							<div class="checkboxes">
+							{% for post in site.news %}
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="{{ post.collection | slugify }}-{{ post.title | slugify }}" name="posts" type="checkbox" value="{{ post.collection | slugify }}-{{ post.title | slugify }}">
+            			<label class="checkboxes--label" for="{{ post.collection | slugify }}-{{ post.title | slugify }}">
+										<strong>{{ post.title }}</strong>
+										<span class="hint checkboxes-hint">{{ post.date | date: "%d %B %Y" }}</span>
+									</label>
+								</div>
+							{% endfor %}
+							</div>
+
+						</fieldset>
+
+					</div>
+				</div>
+
+			</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="grid-row">
+		<div class="grid-column-full">
+
+			<div class="admin--step-by-step">
+
+				<div class="grid-row">
+
+					<div class="grid-column-one-third">
+						<h2 class="admin-outputs">Set up the template</p>
+					</div>
+					<div class="grid-column-two-thirds">
+						<section class="fieldset--email-notify">
+						{% include fields/output-notify-template-step-by-step.html %}
+						</section>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="grid-row">
+		<div class="grid-column-full">
+
+			<div class="admin--step-by-step">
+
+				<div class="grid-row">
+
+					<div class="grid-column-one-third">
+						<h2 class="admin-outputs">Send the email</p>
+					</div>
+					<div class="grid-column-two-thirds">
+						<section class="fieldset--email-notify">
+						{% include fields/output-notify-send-step-by-step.html %}
+						</section>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+</section>
+
+<script type="text/javascript" src="{{ site.url | append: site.baseurl | append: site.js-path | append: '/tools--notify.js' }}"></script>

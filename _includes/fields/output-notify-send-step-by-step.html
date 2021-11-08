@@ -1,0 +1,121 @@
+<input id="mailing-identifier-service" class="input" type="text" value="" hidden>
+<input id="mailing-identifier-tab" class="input" type="text" value="" hidden>
+
+<div id="email--open-mailing-list">
+	<span class="caption-md">Step 1 of 7</span>
+	<p class="label-md">Open the mailing list</p>
+
+	<p class="hint">Open the mailing list. If you do not have access to the mailing list data, please contact the Chair to send the email on your behalf.</p>
+
+	<button class="button" onclick="openMailingList()">Open the mailing list</button>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary button--align-right" onclick="switchStep('email--open-mailing-list', 'email--export-mailing-list');">Next step ❯</button>
+	</div>
+</div>
+
+<div id="email--export-mailing-list" hidden>
+	<span class="caption-md">Step 2 of 7</span>
+	<p class="label-md">Export the mailing list</p>
+
+	<p class="hint">Select the tab with the mailing list data you need.</p>
+	<p class="hint">Export the data in CSV format. It will automatically download to your device.</p>
+
+	<blockquote class="warning-text">
+		<p><strong>Keep this data safe</strong></p>
+		<p>Only use the data for its intended purpose.</p>
+		<p>Use a work device when using the data.</p>
+		<p>Do not send the data to anyone else or upload it to anywhere other than GOV.UK Notify.</p>
+		<p>Delete the data from your device as soon as you have finished using it.</p>
+	</blockquote>
+
+	<button class="button" onclick="focusMailingList()">Go back to the mailing list</button>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" onclick="switchStep('email--export-mailing-list', 'email--open-mailing-list');">❮ Previous step</button>
+		<button class="button button--secondary button--align-right" onclick="switchStep('email--export-mailing-list', 'email--open-templates');">Next step ❯</button>
+	</div>
+</div>
+
+<div id="email--open-templates" hidden>
+	<span class="caption-md">Step 3 of 7</span>
+	<p class="label-md">Find the template</p>
+
+	<p class="hint">On GOV.UK Notify, find the template for the email you want to send.</p>
+	<p class="hint">Open the template and select the <code>Send</code> button.</p>
+
+	<button class="button" onclick="openNotify();">Go to GOV.UK Notify</button>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" onclick="switchStep('email--open-templates', 'email--export-mailing-list');">❮ Previous step</button>
+		<button class="button button--secondary button--align-right" onclick="switchStep('email--open-templates', 'email--reply-to');">Next step ❯</button>
+	</div>
+</div>
+
+<div id="email--reply-to" hidden>
+	<span class="caption-md">Step 4 of 7</span>
+	<p class="label-md">Select ‘reply to’ email address</p>
+
+	<p class="hint">On GOV.UK Notify the on screen prompts to select the 'reply to' email address for the email. This should match the kind of email you are sending and be in the format:</p>
+	<pre><code>[type]@alerts.civilservice.lgbt</code></pre>
+
+	<button class="button" onclick="focusNotify();">Go to GOV.UK Notify</button>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" onclick="switchStep('email--reply-to', 'email--open-templates');">❮ Previous step</button>
+		<button class="button button--secondary button--align-right" onclick="switchStep('email--reply-to', 'email--upload-mailing-list');">Next step ❯</button>
+	</div>
+</div>
+
+<div id="email--upload-mailing-list" hidden>
+	<span class="caption-md">Step 5 of 7</span>
+	<p class="label-md">Upload the mailing list</p>
+
+	<p class="hint">On GOV.UK Notify, select the <code>Upload a list of email addresses</code> option and follow the on screen prompts to upload the CSV file containing the mailing list data.</p>
+
+	<button class="button" onclick="focusNotify();">Go to GOV.UK Notify</button>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" onclick="switchStep('email--upload-mailing-list', 'email--reply-to');">❮ Previous step</button>
+		<button class="button button--secondary button--align-right" onclick="switchStep('email--upload-mailing-list', 'email--check-preview');">Next step ❯</button>
+	</div>
+</div>
+
+<div id="email--check-preview" hidden>
+	<span class="caption-md">Step 6 of 7</span>
+	<p class="label-md">Check the preview</p>
+
+	<p class="hint">On GOV.UK Notify, after you have uploaded the mailing list data, you should see a preview of the email content. Check the email for any typos, errors or missing content.</p>
+	<p class="hint">If you see an error, go back and amend the template, and repeat the “Send the email” process.</p>
+
+	<blockquote class="warning-text">
+		<p><strong>Check carefully</strong></p>
+		<p>Sending email cannot be undone or edited later. Check spelling, grammar, links and that there is nothing missing.</p>
+		<p>If you spot a mistake, and it is minor, <em>do not</em> send a follow up email; this might force your email to go to spam.</p>
+	</blockquote>
+
+	<button class="button" onclick="focusNotify();">Go to GOV.UK Notify</button>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" onclick="switchStep('email--check-preview', 'email--upload-mailing-list');">❮ Previous step</button>
+		<button class="button button--secondary button--align-right" onclick="switchStep('email--check-preview', 'email--send-or-schedule');">Next step ❯</button>
+	</div>
+</div>
+
+<div id="email--send-or-schedule" hidden>
+	<span class="caption-md">Step 7 of 7</span>
+	<p class="label-md">Send or schedule the email</p>
+
+	<p class="hint">On GOV.UK Notify, follow the on screen prompts to send or schedule the email.</p>
+
+	<button class="button" onclick="focusNotify();">Go to GOV.UK Notify</button>
+
+	<blockquote class="warning-text">
+		<p><strong>Remember to delete the data</strong></p>
+		<p>Delete the mailing list data from your device now.</p>
+	</blockquote>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" onclick="switchStep('email--send-or-schedule', 'email--check-preview');">❮ Previous step</button>
+	</div>
+</div>

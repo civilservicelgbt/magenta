@@ -1,0 +1,111 @@
+<input id="service-identifier" class="input" type="text" value="47604c3d-48fd-4df0-a8e9-2890ce95dd35" hidden>
+
+<div id="email--login-to-notify">
+	<span class="caption-md">Step 1 of 7</span>
+	<p class="label-md">Log in to GOV.UK Notify</p>
+
+	<p class="hint">Open GOV.UK Notify in a new window and log in.</p>
+	<p class="hint">If you do not have access to the Network's GOV.UK Notify account, contact the Chair.</p>
+
+	<button class="button" onclick="openNotify('login');">Open GOV.UK Notify in a new window</button>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary button--align-right" onclick="switchStep('email--login-to-notify', 'email--go-to-notify-templates');">Next step ❯</button>
+	</div>
+</div>
+
+<div id="email--go-to-notify-templates" hidden>
+	<span class="caption-md">Step 2 of 7</span>
+	<p class="label-md">Add a new template</p>
+
+	<p class="hint">On the GOV.UK Notify service, create a new email template.</p>
+
+	<button class="button" onclick="openNotify('new-template');">Open the new template page</button>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" onclick="switchStep('email--go-to-notify-templates', 'email--login-to-notify');">❮ Previous step</button>
+		<button class="button button--secondary button--align-right" onclick="switchStep('email--go-to-notify-templates', 'email--copy-template-name');">Next step ❯</button>
+	</div>
+</div>
+
+<div id="email--copy-template-name" hidden>
+	<span class="caption-md">Step 3 of 7</span>
+	<p class="label-md">Copy the template name</p>
+
+	<p class="hint">Copy the template name, using the button below.</p>
+	<p class="hint">Paste it into the <code>Template name</code> field on the GOV.UK Notify service.</p>
+
+	<div class="button-group">
+		<button class="button" onclick="copyToClipboard('template-name');">Copy the template name</button>
+		<button class="button button--secondary" onclick="focusNotify('new-template');">Go back to GOV.UK Notify</button>
+	</div>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" onclick="switchStep('email--copy-template-name', 'email--go-to-notify-templates');">❮ Previous step</button>
+		<button class="button button--secondary button--align-right" onclick="switchStep('email--copy-template-name', 'email--copy-email-subject');">Next step ❯</button>
+	</div>
+</div>
+
+<div id="email--copy-email-subject" hidden>
+	<span class="caption-md">Step 4 of 7</span>
+	<p class="label-md">Copy the email subject</p>
+
+	<p class="hint">Copy the email subject, using the button below.</p>
+	<p class="hint">Paste it into the <code>Subject</code> field on the GOV.UK Notify service.</p>
+
+	<div class="button-group">
+		<button class="button" onclick="copyToClipboard('subject');">Copy the email subject</button>
+		<button class="button button--secondary" onclick="focusNotify('new-template');">Go back to GOV.UK Notify</button>
+	</div>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" onclick="switchStep('email--copy-email-subject', 'email--copy-template-name');">❮ Previous step</button>
+		<button class="button button--secondary button--align-right" onclick="switchStep('email--copy-email-subject', 'email--copy-email-message');">Next step ❯</button>
+	</div>
+</div>
+
+<div id="email--copy-email-message" hidden>
+	<span class="caption-md">Step 5 of 7</span>
+	<p class="label-md">Copy the email message</p>
+
+	<p class="hint">Copy the email message content, using the button below.</p>
+	<p class="hint">Paste it into the <code>Message</code> field on the GOV.UK Notify service.</p>
+
+	<div class="button-group">
+		<button class="button" onclick="copyToClipboard('message');">Copy the email subject</button>
+		<button class="button button--secondary" onclick="focusNotify('new-template');">Go back to GOV.UK Notify</button>
+	</div>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" onclick="switchStep('email--copy-email-message', 'email--copy-email-subject');">❮ Previous step</button>
+		<button class="button button--secondary button--align-right" onclick="switchStep('email--copy-email-message', 'email--save-template');">Next step ❯</button>
+	</div>
+</div>
+
+<div id="email--save-template" hidden>
+	<span class="caption-md">Step 6 of 7</span>
+	<p class="label-md">Save the template</p>
+
+	<p class="hint">On the GOV.UK Notify service, save the email template using the <code>Save</code> button.</p>
+
+	<div class="button-group">
+		<button class="button button--secondary" onclick="focusNotify('new-template');">Go back to GOV.UK Notify</button>
+	</div>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" onclick="switchStep('email--save-template', 'email--copy-email-message');">❮ Previous step</button>
+		<button class="button button--secondary button--align-right" onclick="switchStep('email--save-template', 'email--template-complete');">Next step ❯</button>
+	</div>
+</div>
+
+<div id="email--template-complete" hidden>
+	<span class="caption-md">Step 7 of 7</span>
+	<p class="label-md">Your template is ready to use</p>
+
+	<p class="hint">You now need to use the template to send the email.</p>
+	<p class="hint">If you have access to the mailing list data, use the “Send the email” step-by-step guide below. If you do not have access to the mailing list data, please contact the Chair to send the email on your behalf.</p>
+
+	<div class="button-group button-group--bordered button-group--clearfix">
+		<button class="button button--secondary" onclick="switchStep('email--template-complete', 'email--save-template');">❮ Previous step</button>
+	</div>
+</div>

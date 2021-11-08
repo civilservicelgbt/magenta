@@ -211,7 +211,7 @@ button[disabled] {
 
 .button-group--bordered {
 	border-top: 5px solid color("light-gray");
-	padding: spacing(5) 0;
+	padding: spacing(5) 0 0;
 	.button {
 		@include media-query($from: tablet) {
 			margin-bottom: 0;

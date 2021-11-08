@@ -14,12 +14,14 @@
 	border-top: 5px solid color("cyan");
 }
 
-.admin--step-by-step {
+.admin--step-by-step,
+.admin--select {
 	@include clearfix;
 	padding-bottom: spacing(10);
 }
 
-.admin--step-by-step h2 {
+.admin--step-by-step h2,
+.admin--select h2 {
 	border-top: 5px solid color("magenta");
 	padding-top: spacing(5);
 }
@@ -30,8 +32,9 @@
 	margin-bottom: spacing(5);
 }
 
-.fieldset--post-github {
-	padding: spacing(5) 0;
+.fieldset--post-github,
+.fieldset--email-notify {
+	padding: spacing(5) 0 0;
 	border-top: 5px solid color("light-gray");
 }
 
