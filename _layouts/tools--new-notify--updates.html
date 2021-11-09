@@ -54,16 +54,48 @@ meta-info: false
 							<hr>
 
 							<div class="checkboxes">
-							{% for post in site.news %}
+							{% assign now = 'now' | date: '%s' %}
+							{% assign recent = now | minus: 5260000 | date: '%s' %}
+							{% assign posts = site.documents | where_exp: "item", "item.collection == 'news' or item.collection == 'publications'" | sort: "date" | reverse %}
+
+							{% for post in posts %}
+								{% assign postdate = post.date | date: "%s" %}
+								{% if postdate > recent %}
 								<div class="checkboxes--item">
-									<input class="checkboxes--input" id="{{ post.collection | slugify }}-{{ post.title | slugify }}" name="posts" type="checkbox" value="{{ post.collection | slugify }}-{{ post.title | slugify }}">
+									<input onchange="updateContent('updates')" class="checkboxes--input" id="{{ post.collection | slugify }}-{{ post.title | slugify }}" name="notify-posts" type="checkbox" value="{{ post.collection | slugify }}-{{ post.title | slugify }}" data-title="{{ post.title }}" data-excerpt="{{ post.excerpt }}" data-date="{{ post.date | date: '%d %B %Y' }}" data-url="https://www.civilservice.lgbt{{ post.url }}" >
             			<label class="checkboxes--label" for="{{ post.collection | slugify }}-{{ post.title | slugify }}">
 										<strong>{{ post.title }}</strong>
 										<span class="hint checkboxes-hint">{{ post.date | date: "%d %B %Y" }}</span>
 									</label>
 								</div>
+								{% endif %}
 							{% endfor %}
 							</div>
+
+						</fieldset>
+
+						<fieldset hidden>
+
+							<legend>Notify email template</legend>
+							<p class="hint">These fields contain the information you need to create your email template.</p>
+
+							<hr>
+
+							<label class="label-sm" id="notify--label--template" for="notify--input--template">Notify template name</label>
+
+							<input type="text" class="input" id="notify--input--template" name="notify--input--template" aria-describedby="notify--label--template">
+
+							<hr>
+
+							<label class="label-sm" for="notify--input--subject">Notify subject</label>
+
+							<input type="text" class="input" id="notify--input--subject" name="notify--input--subject" aria-describedby="notify--label--subject">
+
+							<hr>
+
+							<label class="label-sm" for="notify--textarea--message-content">Notify message content</label>
+
+							<textarea class="textarea" id="notify--textarea--message-content" name="notify--textarea--message-content" aria-describedby="notify--label--message-content" rows="20"></textarea>
 
 						</fieldset>
 

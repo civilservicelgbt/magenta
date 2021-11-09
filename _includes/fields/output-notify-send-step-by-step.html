@@ -2,7 +2,7 @@
 <input id="mailing-identifier-tab" class="input" type="text" value="" hidden>
 
 <div id="email--open-mailing-list">
-	<span class="caption-md">Step 1 of 7</span>
+	<span class="caption-md">Step 1 of 6</span>
 	<p class="label-md">Open the mailing list</p>
 
 	<p class="hint">Open the mailing list. If you do not have access to the mailing list data, please contact the Chair to send the email on your behalf.</p>
@@ -15,7 +15,7 @@
 </div>
 
 <div id="email--export-mailing-list" hidden>
-	<span class="caption-md">Step 2 of 7</span>
+	<span class="caption-md">Step 2 of 6</span>
 	<p class="label-md">Export the mailing list</p>
 
 	<p class="hint">Select the tab with the mailing list data you need.</p>
@@ -38,37 +38,25 @@
 </div>
 
 <div id="email--open-templates" hidden>
-	<span class="caption-md">Step 3 of 7</span>
+	<span class="caption-md">Step 3 of 6</span>
 	<p class="label-md">Find the template</p>
 
-	<p class="hint">On GOV.UK Notify, find the template for the email you want to send.</p>
+	<p class="hint">On GOV.UK Notify, find the template for the email you want to send. If you followed the above instructions, it should be called:</p>
+
+	<pre id="notify--code--template-name"></pre>
+
 	<p class="hint">Open the template and select the <code>Send</code> button.</p>
 
 	<button class="button" onclick="openNotify();">Go to GOV.UK Notify</button>
 
 	<div class="button-group button-group--bordered button-group--clearfix">
 		<button class="button button--secondary" onclick="switchStep('email--open-templates', 'email--export-mailing-list');">❮ Previous step</button>
-		<button class="button button--secondary button--align-right" onclick="switchStep('email--open-templates', 'email--reply-to');">Next step ❯</button>
-	</div>
-</div>
-
-<div id="email--reply-to" hidden>
-	<span class="caption-md">Step 4 of 7</span>
-	<p class="label-md">Select ‘reply to’ email address</p>
-
-	<p class="hint">On GOV.UK Notify the on screen prompts to select the 'reply to' email address for the email. This should match the kind of email you are sending and be in the format:</p>
-	<pre><code>[type]@alerts.civilservice.lgbt</code></pre>
-
-	<button class="button" onclick="focusNotify();">Go to GOV.UK Notify</button>
-
-	<div class="button-group button-group--bordered button-group--clearfix">
-		<button class="button button--secondary" onclick="switchStep('email--reply-to', 'email--open-templates');">❮ Previous step</button>
-		<button class="button button--secondary button--align-right" onclick="switchStep('email--reply-to', 'email--upload-mailing-list');">Next step ❯</button>
+		<button class="button button--secondary button--align-right" onclick="switchStep('email--open-templates', 'email--upload-mailing-list');">Next step ❯</button>
 	</div>
 </div>
 
 <div id="email--upload-mailing-list" hidden>
-	<span class="caption-md">Step 5 of 7</span>
+	<span class="caption-md">Step 4 of 6</span>
 	<p class="label-md">Upload the mailing list</p>
 
 	<p class="hint">On GOV.UK Notify, select the <code>Upload a list of email addresses</code> option and follow the on screen prompts to upload the CSV file containing the mailing list data.</p>
@@ -76,13 +64,13 @@
 	<button class="button" onclick="focusNotify();">Go to GOV.UK Notify</button>
 
 	<div class="button-group button-group--bordered button-group--clearfix">
-		<button class="button button--secondary" onclick="switchStep('email--upload-mailing-list', 'email--reply-to');">❮ Previous step</button>
+		<button class="button button--secondary" onclick="switchStep('email--upload-mailing-list', 'email--open-templates');">❮ Previous step</button>
 		<button class="button button--secondary button--align-right" onclick="switchStep('email--upload-mailing-list', 'email--check-preview');">Next step ❯</button>
 	</div>
 </div>
 
 <div id="email--check-preview" hidden>
-	<span class="caption-md">Step 6 of 7</span>
+	<span class="caption-md">Step 5 of 6</span>
 	<p class="label-md">Check the preview</p>
 
 	<p class="hint">On GOV.UK Notify, after you have uploaded the mailing list data, you should see a preview of the email content. Check the email for any typos, errors or missing content.</p>
@@ -103,7 +91,7 @@
 </div>
 
 <div id="email--send-or-schedule" hidden>
-	<span class="caption-md">Step 7 of 7</span>
+	<span class="caption-md">Step 6 of 6</span>
 	<p class="label-md">Send or schedule the email</p>
 
 	<p class="hint">On GOV.UK Notify, follow the on screen prompts to send or schedule the email.</p>

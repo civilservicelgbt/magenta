@@ -11,77 +11,98 @@ meta-info: false
 		{% include layouts/header.html %}
 	</div>
 
-	<div class="grid-row">
+	<div class="grid-row" style="margin-bottom: 40px;">
 		<div class="grid-column-two-thirds">
 
 				<details>
 
 					<summary>About this tool</summary>
 
-						<p>Complete this form to generate the text you need to upload content to the website.</p>
+						<p>The <strong>Civil Service LGBT+ Network</strong> uses GOV.UK Notify to send transactional emails informing our mailing lists of updates to our website. The updates we send our relate to new blog posts, publications and events.</p>
 
-						<p>Enter the information into the form below, then select the output you require.</p>
+						<p>Use this tool to generate content for GOV.UK Notify's templating feature, and to be guided step by step through sending an email to the mailing list.</p>
 
-						<p><strong>The fastest way to add posts to the website is to use GitHub.</strong> If you have a GitHub account, you can add files directly to our GitHub repository via a pull request. The tool can step you through the process of creating a new post directly.</p>
+						<p>Emails should be sent sparingly to avoid spam.</p>
 
-						<p><strong>If you have difficulties using GitHub, you can also send the information via email.</strong> The tool can:</p>
-
-						<ol>
-							<li>generate an email to send to our central team to post the information</li>
-							<li>generate a file that you can send to our central team via email to post</li>
-							<li>copy the information the central team will need to your clipboard; you can then paste this information into an email to send to our central team to post</li>
-						</ol>
+						<blockquote class="warning-text">
+							<p><strong>This form might not work on your departmental IT system.</strong></p>
+							<p>There is nothing we can do to fix this. If you experience problems, try using a personal device instead.</p>
+						</blockquote>
 
 				</details>
 
-				<blockquote class="warning-text">
-					<p><strong>This form might not work on your departmental IT system.</strong></p>
-					<p>There is nothing we can do to fix this. If you experience problems, try using a personal device instead.</p>
-				</blockquote>
-
 		</div>
 	</div>
 
 	<div class="grid-row">
 		<div class="grid-column-full">
 
-			<div class="page--content">
+			<div class="admin--select">
 
-				{% include fields/post-title-and-summary.html %}
-			{% unless type == "team" or type == "manual" %}
-				{% include fields/post-author.html %}
-				{% include fields/post-topics.html %}
-			{% endunless %}
-			{% unless type == "team" %}
-				{% include fields/post-publication-date.html %}
-			{% endunless %}
-			{% if type == "team" %}
-				{% include fields/team-member-details.html %}
-			{% endif %}
-			{% if type == "event" %}
-				{% include fields/post-event-start-date.html %}
-				{% include fields/post-event-registration-info.html %}
-				{% include fields/post-event-registration-location.html %}
-			{% endif %}
-			{% if type == "consultation" %}
-				{% include fields/post-consultation-end-date.html %}
-				{% include fields/post-consultation-details.html %}
-			{% endif %}
-				{% include fields/post-images-and-video.html %}
-				{% include fields/post-permalinks.html %}
-				{% include fields/post-filename.html %}
+			<div class="grid-row">
+
+				<div class="grid-column-one-third">
+					<h2 class="admin-inputs">Choose posts</p>
+				</div>
+				<div class="grid-column-two-thirds">
+					<div class="fieldset--email-notify">
+
+						<fieldset  id="notify--select-posts">
+					    <legend>Select posts to include in email</legend>
+							<p class="hint">Only posts from the last 2 months are shown.</p>
+
+							<hr>
+
+							<div class="checkboxes">
+							{% assign now = 'now' | date: '%s' %}
+							{% assign recent = now | plus: 5260000 | date: '%s' %}
+							{% assign posts = site.events | sort: "start-date" %}
+
+							{% for post in posts %}
+								{% assign event-start-date = post.start-date | date: "%s" %}
+								{% if event-start-date > now and event-start-date < recent %}
+								<div class="checkboxes--item">
+									<input onchange="updateContent('events')" class="checkboxes--input" id="{{ post.collection | slugify }}-{{ post.title | slugify }}" name="notify-posts" type="checkbox" value="{{ post.collection | slugify }}-{{ post.title | slugify }}" data-title="{{ post.title }}" data-excerpt="{{ post.excerpt }}" data-date="{{ post.start-date | date: '%d %B %Y' }}" data-url="https://www.civilservice.lgbt{{ post.url }}" >
+            			<label class="checkboxes--label" for="{{ post.collection | slugify }}-{{ post.title | slugify }}">
+										<strong>{{ post.title }}</strong>
+										<span class="hint checkboxes-hint">{{ post.start-date | date: "%d %B %Y" }}</span>
+									</label>
+								</div>
+								{% endif %}
+							{% endfor %}
+							</div>
+
+						</fieldset>
+
+						<fieldset>
+
+							<legend>Notify email template</legend>
+							<p class="hint">These fields contain the information you need to create your email template.</p>
+
+							<hr>
+
+							<label class="label-sm" id="notify--label--template" for="notify--input--template">Notify template name</label>
+
+							<input type="text" class="input" id="notify--input--template" name="notify--input--template" aria-describedby="notify--label--template">
+
+							<hr>
+
+							<label class="label-sm" for="notify--input--subject">Notify subject</label>
+
+							<input type="text" class="input" id="notify--input--subject" name="notify--input--subject" aria-describedby="notify--label--subject">
+
+							<hr>
+
+							<label class="label-sm" for="notify--textarea--message-content">Notify message content</label>
+
+							<textarea class="textarea" id="notify--textarea--message-content" name="notify--textarea--message-content" aria-describedby="notify--label--message-content" rows="20"></textarea>
+
+						</fieldset>
+
+					</div>
+				</div>
 
 			</div>
-
-		</div>
-	</div>
-
-	<div class="grid-row">
-		<div class="grid-column-full">
-
-			<div class="page--content">
-
-				{% include fields/post-content.html %}
 
 			</div>
 
@@ -96,71 +117,44 @@ meta-info: false
 				<div class="grid-row">
 
 					<div class="grid-column-one-third">
-						<h2 class="admin-outputs">Upload the post</p>
+						<h2 class="admin-outputs">Set up the template</p>
 					</div>
 					<div class="grid-column-two-thirds">
-						<section class="fieldset--post-github">
-						{% include fields/output-github-step-by-step.html %}
+						<section class="fieldset--email-notify">
+						{% include fields/output-notify-template-step-by-step.html %}
 						</section>
 					</div>
 
 				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="grid-row">
+		<div class="grid-column-full">
+
+			<div class="admin--step-by-step">
+
 				<div class="grid-row">
+
 					<div class="grid-column-one-third">
-						<h2 class="admin-outputs">Alternative methods</p>
-						<p>Use these options only if you can't upload via GitHub.</p>
+						<h2 class="admin-outputs">Send the email</p>
 					</div>
 					<div class="grid-column-two-thirds">
-						{% include fields/output-generate-an-email.html %}
-						{% include fields/output-download-as-file.html %}
-						{% include fields/output-copy-to-clipboard.html %}
+						<section class="fieldset--email-notify">
+						{% include fields/output-notify-send-step-by-step.html %}
+						</section>
 					</div>
 
 				</div>
 
 			</div>
 
-		</div>
-	</div>
-
-	<div class="grid-row">
-		<div class="grid-column-one-half">
-			<div class="admin--link-block admin--link-block--tool">
-			<span class="caption-lg">Tool</span>
-				<h2>Upload an image</h2>
-				<p>Use this tool to upload an image or photo to the image store.</p>
-				<a href="/images" class="button">Upload an image</a>
-			</div>
-		</div>
-		<div class="grid-column-one-half">
-			<div class="admin--link-block admin--link-block--tool">
-				<span class="caption-lg">Tool</span>
-				<h2>Upload a document</h2>
-				<p>Use this tool to upload a document to the document store.</p>
-				<a href="/documents" class="button">Upload a document</a>
-			</div>
-		</div>
-	</div>
-
-	<div class="grid-row">
-		<div class="grid-column-one-half">
-			<div class="admin--link-block admin--link-block--guidance">
-				<span class="caption-lg">Guidance</span>
-				<h2>Learn to format a post</h2>
-				<p>Read the guidance about how to format a post using Markdown.</p>
-				<a href="/manuals/format-a-post" class="button">Read the guidance</a>
-			</div>
-		</div>
-		<div class="grid-column-one-half">
-			<div class="admin--link-block admin--link-block--guidance">
-				<span class="caption-lg">Guidance</span>
-				<h2>Learn how to use GitHub</h2>
-				<p>Read the guidance about how to add a post to the website using GitHub.</p>
-				<a href="/manuals/using-github" class="button">Read the guidance</a>
-			</div>
 		</div>
 	</div>
 
 </section>
 
-<script type="text/javascript" src="{{ site.url | append: site.baseurl | append: site.js-path | append: '/tools--posts.js' }}"></script>
+<script type="text/javascript" src="{{ site.url | append: site.baseurl | append: site.js-path | append: '/tools--notify.js' }}"></script>

@@ -4,28 +4,125 @@
 	var mailingListService = document.getElementById("mailing-identifier-service").value;
 	var mailingListTab = document.getElementById("mailing-identifier-tab").value;
 
-// GENERATE THE NOTIFY CONTENT
 
-	function generateNotifyEmail(type) {
+	function getCurrentDate() {
 
-		// Create a variable to hold the post output
-		var jekyllPost = "";
-
-		if (type == "updates") {
-				jekyllPost += ""
-		} else if (type == "events") {
-				jekyllPost += ""
-		} else {
-			alert("An error occured.\n\nEmail types not specified.")
+		const months = {
+		  0: 'January',
+		  1: 'February',
+		  2: 'March',
+		  3: 'April',
+		  4: 'May',
+		  5: 'June',
+		  6: 'July',
+		  7: 'August',
+		  8: 'September',
+		  9: 'October',
+		  10: 'November',
+		  11: 'December'
 		}
 
-		// Output the content
+		const now = new Date();
+		const d = now.getDate();
+		const m = now.getMonth();
+		const month = months[m]; //January is 0!
+		const y = now.getFullYear();
+		const date = d + " " + month + " " + y;
 
-		return jekyllPost;
+		return date;
+	}
 
+// GENERATE THE NOTIFY CONTENT
+
+	function updateContent(type) {
+
+		var posts = document.getElementsByName("notify-posts");
+
+		var date = getCurrentDate();
+
+		// Create variables to hold the outputs
+		if (type == "events") {
+			var emailTemplateName = "Events: " + date;
+			var emailSubject = "Upcoming events: " + date;
+		} else {
+			var emailTemplateName = "Updates: " + date;
+			var emailSubject = "Latest news and updates: " + date;
+		}
+		var emailMessageContent = "";
+
+		var inputTemplateName = document.getElementById("notify--input--template");
+		var inputSubject = document.getElementById("notify--input--subject");
+		var textareaMessageContent = document.getElementById("notify--textarea--message-content");
+		var codeTemplateName = document.getElementById("notify--code--template-name");
+
+		if (type == "events") {
+			emailMessageContent += "# Upcoming events\n\n";
+			emailMessageContent += date + "\n\n";
+			emailMessageContent += "Upcoming events and activities from the Civil Service LGBT+ Network.\n\n";
+		} else {
+			emailMessageContent += "# Latest updates\n\n";
+			emailMessageContent += date + "\n\n";
+			emailMessageContent += "The latest news and updates from the Civil Service LGBT+ Network.\n\n";
+		}
+
+		console.group("Selected posts")
+		for (i = 0; i < posts.length; i++) {
+			var postTitle = posts[i].dataset.title;
+			var postExcerpt = posts[i].dataset.excerpt;
+			var postDate = posts[i].dataset.date;
+			var postURL = posts[i].dataset.url;
+
+		  if (posts[i].checked) {
+				if (type == "events") {
+					console.groupCollapsed(postTitle);
+						console.info("Event excerpt: " + postExcerpt);
+			    	console.info("Event date: " + postDate);
+						console.info("Event URL: " + postURL);
+					console.groupEnd();
+
+					emailMessageContent += "---\n";
+					emailMessageContent += "# " + postTitle + "\n";
+					emailMessageContent += "Taking place on " + postDate + "\n\n";
+					emailMessageContent += postExcerpt + "\n\n";
+					emailMessageContent += "Find out more and register to attend at: \n" + postURL + "\n\n";
+				} else {
+					console.groupCollapsed(postTitle);
+						console.info("Post excerpt: " + postExcerpt);
+			    	console.info("Post date: " + postDate);
+						console.info("Post URL: " + postURL);
+					console.groupEnd();
+
+					emailMessageContent += "---\n";
+					emailMessageContent += "# " + postTitle + "\n";
+					emailMessageContent += postExcerpt + "\n\n";
+					emailMessageContent += "Read more at: \n" + postURL + "\n\n";
+					emailMessageContent += "Published " + postDate + "\n\n";
+				}
+		  }
+		}
+		console.groupEnd()
+
+		emailMessageContent += "---\n"
+		emailMessageContent += "If you no longer want to recieve our email alerts, please email us at updates@alerts.civilservice.lgbt or just reply to this email."
+
+		inputTemplateName.value = emailTemplateName;
+		inputSubject.value = emailSubject;
+		textareaMessageContent.value = emailMessageContent;
+		codeTemplateName.innerHTML = "<code>" + emailTemplateName + "</code>"
 	}
 
 // COPY TO CLIPBOARD
+
+	function copyToClipboard(el){
+		/* Get the text field */
+		var output = document.getElementById(el).value;
+		if (output == "") {
+			alert("ERROR\n\nCannot copy.\n\nThe text field you are trying to copy is empty.");
+		} else {
+		/* Copy the text inside the text field */
+			navigator.clipboard.writeText(output);
+		}
+	}
 
 	function postContentToClipboard(){
 		var output = generateJekyllPostContent();
