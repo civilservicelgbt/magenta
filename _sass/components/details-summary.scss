@@ -126,3 +126,7 @@ p + details,
 ul + details {
 	@include responsive-margin(6, "top");
 }
+
+details.spacing-bottom {
+	margin-bottom: spacing(9);
+}

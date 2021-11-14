@@ -3,8 +3,8 @@
 
 	box-sizing: border-box;
 
-	margin-bottom: spacing(3);
-	padding: spacing(7) - $border-width;
+	margin-bottom: spacing(6);
+	padding: spacing(10) (spacing(7) - $border-width);
 
 	border: $border-width solid transparent;
 

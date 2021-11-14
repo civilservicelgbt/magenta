@@ -124,6 +124,10 @@ button[disabled] {
 	}
 }
 
+.button--primary {
+	@include font($size: 24, $line-height: 1);
+}
+
 .button--secondary {
 	background-color: $secondary-button-color;
 	box-shadow: 0 $button-shadow-size 0 $secondary-button-shadow-color;
