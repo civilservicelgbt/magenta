@@ -14,166 +14,206 @@ meta-info: false
 
 	<div id="page--content">
 
-			<form action="" method="post" id="" name="" target="_blank">
+			<form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSe_x2T2kG1vEhlca2dvYlv7c_EnmaC8EmWiFX43mzgh7ZA28Q/formResponse" method="post" id="register-for-email-updates" target="_blank">
 
-					<fieldset id="fieldset--personal-details" aria-describedby="fieldset-legend--personal-details">
+					<fieldset  class="fieldset fieldset-row" id="fieldset--personal-details" aria-describedby="fieldset-legend--personal-details">
 				    <legend id="fieldset-legend--personal-details" class="legend-lg">Your contact details</legend>
 
+						<label class="input-label label-sm" for="register--email-address">Email address</label>
+						<input onfocusout="checkMandatoryFields()" class="input" id="register--email-address" name="entry.631754769" type="email">
+
 						<label class="input-label label-sm" for="register--first-name">First name</label>
-						<input class="input" id="register--first-name" name="register--first-name" type="text">
+						<input onfocusout="checkMandatoryFields()" class="input" id="register--first-name" name="entry.1537856661" type="text">
 
 						<label class="input-label label-sm" for="register--last-name">Last name</label>
-						<input class="input" id="register--last-name" name="register--last-name" type="text">
-
-						<label class="input-label label-sm" for="register--email-address">Email address</label>
-						<input class="input" id="register--email-address" name="register--email-address" type="email">
+						<input onfocusout="checkMandatoryFields()" class="input" id="register--last-name" name="entry.1933497432" type="text">
 
 					</fieldset>
 
-					<blockquote class="warning-text">
-						<p>If you answer the questions in this section, we'll be able to keep you informed of events or activities that might be more relevant to you. You don't have to answer these questions if you don't want to.</p>
-					</blockquote>
-
-					<fieldset id="fieldset--regions" aria-describedby="fieldset-hint--regions">
-				    <legend id="fieldset-legend--regions" class="legend-lg">You want to hear about events and activities taking place in:</legend>
-						<p class="hint" id="fieldset-hint--regions">Select all that apply</p>
-						<div class="checkboxes">
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="regions--east-of-england" name="regions" type="checkbox" value="East of England">
-								<label class="checkboxes--label" for="regions--east-of-england">East of England</label>
+					<fieldset class="fieldset fieldset-row" id="fieldset--permission-to-contact" aria-describedby="fieldset-legend--permission-to-contact">
+				    <legend id="fieldset-legend--permission-to-contact" class="legend-lg">Can we send you email updates about our work and events?</legend>
+						<p class="hint">You can opt out of receiving our email alerts at any time by emailing us at <a href="mailto:info@civilservice.lgbt" title="Email us">info@civilservice.lgbt</a>.</p>
+						<p class="hint"> If you do not wish to receive these alerts, you do not need to complete this form. Opting out of email alerts does not affect your ability to take part in our events or use our other services.</p>
+						<div class="radios">
+							<div class="radios--item">
+								<input class="radios--input" id="permission-to-contact--agree" onchange="checkMandatoryFields()" name="entry.2068507182" type="radio" value="Yes, send me email alerts">
+				        <label class="radios--label" for="permission-to-contact--agree">Yes, send me email alerts</label>
 							</div>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="regions--east-midlands" name="regions" type="checkbox" value="East Midlands">
-								<label class="checkboxes--label" for="regions--east-midlands">East Midlands</label>
-							</div>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="regions--london" name="regions" type="checkbox" value="London">
-								<label class="checkboxes--label" for="regions--london">London</label>
-							</div>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="regions--north-east" name="regions" type="checkbox" value="North East">
-								<label class="checkboxes--label" for="regions--north-east">North East</label>
-							</div>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="regions--north-west" name="regions" type="checkbox" value="North West">
-								<label class="checkboxes--label" for="regions--north-west">North West</label>
-							</div>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="regions--northern-ireland" name="regions" type="checkbox" value="Northern Ireland">
-								<label class="checkboxes--label" for="regions--northern-ireland">Northern Ireland</label>
-							</div>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="regions--scotland" name="regions" type="checkbox" value="Scotland">
-								<label class="checkboxes--label" for="regions--scotland">Scotland</label>
-							</div>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="regions--south-east" name="regions" type="checkbox" value="South East">
-								<label class="checkboxes--label" for="regions--south-east">South East</label>
-							</div>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="regions--south-west" name="regions" type="checkbox" value="South West">
-								<label class="checkboxes--label" for="regions--south-west">South West</label>
-							</div>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="regions--wales" name="regions" type="checkbox" value="Wales">
-								<label class="checkboxes--label" for="regions--wales">Wales</label>
-							</div>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="regions--west-midlands" name="regions" type="checkbox" value="West Midlands">
-								<label class="checkboxes--label" for="regions--west-midlands">West Midlands</label>
-							</div>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="regions--yorkshire-and-humber" name="regions" type="checkbox" value="Yorkshire and Humber">
-								<label class="checkboxes--label" for="regions--yorkshire-and-humber">Yorkshire and Humber</label>
+						</div>
+						<div class="radios">
+							<div class="radios--item">
+								<input class="radios--input" id="permission-to-contact--not-agree" onchange="checkMandatoryFields()" name="entry.2068507182" type="radio" value="No, don't send me email alerts">
+				        <label class="radios--label" for="permission-to-contact--not-agree">No, don't send me email alerts</label>
 							</div>
 						</div>
 					</fieldset>
 
-					<fieldset id="fieldset--topics" aria-describedby="fieldset-hint--topics">
-				    <legend id="fieldset-legend--topics" class="legend-lg">You want to hear about things relevant to:</legend>
-						<p class="hint" id="fieldset-hint--topics">Select all that apply</p>
-						<div class="checkboxes">
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="topics--gaylesbian" name="topics" type="checkbox" value="">
-								<label class="checkboxes--label" for="topics--gaylesbian">Gay or lesbian people</label>
+
+					<h2 class="heading-lg">Choose your alerts</h2>
+					<p>By default, you will be subscribed to our general email updates. This includes new blog posts, publications and upcoming events.</p>
+					<p>We occasionally send more specific updates tailored to regions or topics of interest. If you want to receive these updates in addition to the general email updates, please select from the options below.</p>
+					<details>
+						<summary>Regional update alerts</summary>
+						<fieldset  class="fieldset" id="fieldset--regions" aria-describedby="fieldset-legend--regions">
+					    <legend id="fieldset-legend--regions" class="legend-sm">If you would like to receive updates about activities happening in specific areas of the country, select the regions below.</legend>
+							<p class="hint">Select all that apply.</p>
+							<p class="hint">You don't have to answer this question if you don't want to.</p>
+							</blockquote>
+							<div class="checkboxes">
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="regions--east-of-england" name="entry.1342613772" type="checkbox" value="East of England">
+									<label class="checkboxes--label" for="regions--east-of-england">East of England</label>
+								</div>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="regions--east-midlands" name="entry.1342613772" type="checkbox" value="East Midlands">
+									<label class="checkboxes--label" for="regions--east-midlands">East Midlands</label>
+								</div>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="regions--london" name="entry.1342613772" type="checkbox" value="London">
+									<label class="checkboxes--label" for="regions--london">London</label>
+								</div>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="regions--north-east" name="entry.1342613772" type="checkbox" value="North East">
+									<label class="checkboxes--label" for="regions--north-east">North East</label>
+								</div>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="regions--north-west" name="entry.1342613772" type="checkbox" value="North West">
+									<label class="checkboxes--label" for="regions--north-west">North West</label>
+								</div>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="regions--northern-ireland" name="entry.1342613772" type="checkbox" value="Northern Ireland">
+									<label class="checkboxes--label" for="regions--northern-ireland">Northern Ireland</label>
+								</div>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="regions--scotland" name="entry.1342613772" type="checkbox" value="Scotland">
+									<label class="checkboxes--label" for="regions--scotland">Scotland</label>
+								</div>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="regions--south-east" name="entry.1342613772" type="checkbox" value="South East">
+									<label class="checkboxes--label" for="regions--south-east">South East</label>
+								</div>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="regions--south-west" name="entry.1342613772" type="checkbox" value="South West">
+									<label class="checkboxes--label" for="regions--south-west">South West</label>
+								</div>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="regions--wales" name="entry.1342613772" type="checkbox" value="Wales">
+									<label class="checkboxes--label" for="regions--wales">Wales</label>
+								</div>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="regions--west-midlands" name="entry.1342613772" type="checkbox" value="West Midlands">
+									<label class="checkboxes--label" for="regions--west-midlands">West Midlands</label>
+								</div>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="regions--yorkshire-and-humber" name="entry.1342613772" type="checkbox" value="Yorkshire and Humber">
+									<label class="checkboxes--label" for="regions--yorkshire-and-humber">Yorkshire and Humber</label>
+								</div>
 							</div>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="topics--bisexual" name="topics" type="checkbox" value="Bisexual people">
-								<label class="checkboxes--label" for="topics--bisexual">Bisexual people</label>
+						</fieldset>
+					</details>
+
+					<details class="spacing-bottom">
+						<summary>Topical update alerts</summary>
+
+						<fieldset class="fieldset" id="fieldset--topics" aria-describedby="fieldset-legend--topics">
+					    <legend id="fieldset-legend--topics" class="legend-sm">If you would like to receive additional updates about certain topics, select the topics from the items below.</p>
+							<p class="hint">Select all that apply.</p>
+							<p class="hint">You don't have to answer this question if you don't want to.</p>
+							<div class="checkboxes">
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="topics--gaylesbian" name="entry.1870224098" type="checkbox" value="Gay or lesbian people">
+									<label class="checkboxes--label" for="topics--gaylesbian">Gay or lesbian people</label>
+								</div>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="topics--bisexual" name="entry.1870224098" type="checkbox" value="Bisexual people">
+									<label class="checkboxes--label" for="topics--bisexual">Bisexual people</label>
+								</div>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="topics--othersexualorientations" name="entry.1870224098" type="checkbox" value="People with other minority sexual orientations">
+									<label class="checkboxes--label" for="topics--othersexualorientations">People with other minority sexual orientations</label>
+								</div>
+								<hr>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="topics--men" name="entry.1870224098" type="checkbox" value="Men">
+									<label class="checkboxes--label" for="topics--men">Men</label>
+								</div>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="topics--women" name="entry.1870224098" type="checkbox" value="Women">
+									<label class="checkboxes--label" for="topics--women">Women</label>
+								</div>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="topics--nonbinary" name="entry.1870224098" type="checkbox" value="Non-binary people">
+									<label class="checkboxes--label" for="topics--nonbinary">Non-binary people</label>
+								</div>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="topics--othergenderidentities" name="entry.1870224098" type="checkbox" value="People with other minority gender identities and expressions">
+									<label class="checkboxes--label" for="topics--othergenderidentities">People with other minority gender identities and expressions</label>
+								</div>
+								<hr>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="topics--trans" name="entry.1870224098" type="checkbox" value="People who are trans, or have a trans history">
+									<label class="checkboxes--label" for="topics--trans">People who are trans, or have a trans history</label>
+								</div>
+								<hr>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="topics--intersex" name="entry.1870224098" type="checkbox" value="People who are intersex or who have a variation in sex characteristics">
+									<label class="checkboxes--label" for="topics--intersex">People who are intersex or who have a variation in sex characteristics</label>
+								</div>
+								<hr>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="topics--minorityethnicity" name="entry.1870224098" type="checkbox" value="People who have a minority ethnicity">
+									<label class="checkboxes--label" for="topics--minorityethnicity">People who have a minority ethnicity</label>
+								</div>
+								<hr>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="topics--disability" name="entry.1870224098" type="checkbox" value="People who have a disability or long term health condition">
+									<label class="checkboxes--label" for="topics--disability">People who have a disability or long term health condition</label>
+								</div>
+								<hr>
+								<div class="checkboxes--item">
+									<input class="checkboxes--input" id="topics--allies" name="entry.1870224098" type="checkbox" value="LGBT allies">
+									<label class="checkboxes--label" for="topics--allies">LGBT+ allies</label>
+								</div>
 							</div>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="topics--othersexualorientations" name="topics" type="checkbox" value="People with other minority sexual orientations">
-								<label class="checkboxes--label" for="topics--othersexualorientations">People with other minority sexual orientations</label>
+						</fieldset>
+					</details>
+
+					<fieldset class="fieldset fieldset-row" id="fieldset--privacy-policy" aria-describedby="fieldset-legend--privacy-policy">
+				    <legend id="fieldset-legend--privacy-policy" class="legend-lg">Do you agree to our privacy policy?</legend>
+						<p class="hint">We will treat your information with respect. You can <a href="/about/your-data/" title="Read the 'your data' policy">read our data and privacy policy</a> to understand how we use your data. By agreeing to the policy, you agree that we can process your data in accordance with these terms.</p>
+						<div class="radios">
+							<div class="radios--item">
+								<input class="radios--input" id="privacy-policy--agree" onchange="checkMandatoryFields()" name="entry.2036359820" type="radio" value="I agree">
+				        <label class="radios--label" for="privacy-policy--agree">I agree</label>
 							</div>
-							<hr>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="topics--men" name="topics" type="checkbox" value="Men">
-								<label class="checkboxes--label" for="topics--men">Men</label>
-							</div>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="topics--women" name="topics" type="checkbox" value="Women">
-								<label class="checkboxes--label" for="topics--women">Women</label>
-							</div>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="topics--nonbinary" name="topics" type="checkbox" value="Non-binary people">
-								<label class="checkboxes--label" for="topics--nonbinary">Non-binary people</label>
-							</div>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="topics--othergenderidentities" name="topics" type="checkbox" value="People with other minority gender identities and expressions">
-								<label class="checkboxes--label" for="topics--othergenderidentities">People with other minority gender identities and expressions</label>
-							</div>
-							<hr>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="topics--trans" name="topics" type="checkbox" value="People who are trans, or have a trans history">
-								<label class="checkboxes--label" for="topics--trans">People who are trans, or have a trans history</label>
-							</div>
-							<hr>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="topics--intersex" name="topics" type="checkbox" value="People who are intersex or who have a variation in sex characteristics">
-								<label class="checkboxes--label" for="topics--intersex">People who are intersex or who have a variation in sex characteristics</label>
-							</div>
-							<hr>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="topics--minorityethnicity" name="topics" type="checkbox" value="People who have a minority ethnicity">
-								<label class="checkboxes--label" for="topics--minorityethnicity">People who have a minority ethnicity</label>
-							</div>
-							<hr>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="topics--disability" name="topics" type="checkbox" value="People who have a disability or long term health condition">
-								<label class="checkboxes--label" for="topics--disability">People who have a disability or long term health condition</label>
-							</div>
-							<hr>
-							<div class="checkboxes--item">
-								<input class="checkboxes--input" id="topics--allies" name="topics" type="checkbox" value="LGBT allies">
-								<label class="checkboxes--label" for="topics--allies">LGBT allies</label>
+						</div>
+						<div class="radios">
+							<div class="radios--item">
+								<input class="radios--input" id="privacy-policy--not-agree" onchange="checkMandatoryFields()" name="entry.2036359820" type="radio" value="I do not agree">
+				        <label class="radios--label" for="privacy-policy--not-agree">I do not agree</label>
 							</div>
 						</div>
 					</fieldset>
-
-					<blockquote class="warning-text">
-						<p>By submitting this form and joining our newsletter, you become a member of the Civil Service LGBT+ Network.</p>
-						<p>Please tick the box below to give us permission to contact you.</p>
-					</blockquote>
-
-					<blockquote>
-
-					{{ content }}
-
-					</blockquote>
 
 					<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-			    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="antibotchecks" tabindex="-1" value=""></div>
+			    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="antibotchecks" id="antibotchecks" tabindex="-1" value=""></div>
 
-					<div class="grid-row">
-						<div class="grid-column-full">
-							<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-						</div>
-					</div>
-
-				</div>
+					<fieldset class="fieldset fieldset-row">
+							<blockquote class="warning-text" id="warning-text">
+								<p><strong>You can't submit the form yet.</strong></p>
+								<p id="error--email-address">Please provide a valid email address.</p>
+								<p id="error--first-name">Please enter your first name.</p>
+								<p id="error--last-name">Please enter your last name.</p>
+								<p id="error--email-permissions">You must agree to receive email updates.</p>
+								<p id="error--privacy-policy">You must agree to the privacy policy.</p>
+							</blockquote>
+							<input type="submit" id="button-subscribe" value="Subscribe to email updates" name="subscribe" class="button button--primary">
+					</fieldset>
 
 			</form>
 
-	</div>
+		</div>
 </div>
 </div>
+
+<script type="text/javascript" src="{{ site.url | append: site.baseurl | append: site.js-path | append: '/email-subscriptions.js' }}"></script>
