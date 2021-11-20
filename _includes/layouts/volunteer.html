@@ -1,6 +1,11 @@
 {% assign volunteers = site.team | where_exp: "volunteer", "volunteer.role == volunteerType and volunteer.archive != true" %}
+{% if volunteerType == "project team" %}
+	{% assign volunteers = volunteers | sort: "project" %}
+{% else volunteerType == "local organiser" %}
+	{% assign volunteers = volunteers | sort: "region" %}
+{% endif %}
 {% for volunteer in volunteers %}
-<div class="grid-column-one-quarter">
+<div class="grid-column-one-third">
 	<a href="{{ site.url | append: site.baseurl | append: volunteer.url }}" class="volunteer--link">
 		{% if volunteer.image %}
 		<img src="{{ volunteer.image }}" class="volunteer--image" loading="lazy">
