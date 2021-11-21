@@ -39,4 +39,11 @@
 
 	{% include layouts/event-register-buttons.html %}
 
+	{% if page.link contains "docs.google.com" %}
+		<blockquote class="warning-text"">
+			<p><strong>This registration form is a Google Form.</strong></p>
+			<p>Google Forms are blocked by some departmental IT systems. If you can't open or submit this form, please try again from a personal device.</p>
+		</blockquote>
+	{% endif %}
+
 </div>
