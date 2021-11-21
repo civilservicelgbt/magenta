@@ -4,7 +4,7 @@
 
 .section--event-details {
 	padding: spacing(5);
-	background: lighten(color("magenta"), 50%);
+	background: color("magenta--light");
 
 	p:last-child {
 		margin-bottom: 0;
@@ -32,10 +32,11 @@
 }
 
 .event--aside {
-	padding-top: spacing(5);
-	border-top: 3px solid color("light-gray");
+	margin: spacing(6) 0;
+	padding: spacing(4) spacing(4) spacing(2);
+	background: color("magenta--light");
 
-	blockquote:first-of-type {
-		margin-top: 0;
+	details:last-of-type {
+		border-bottom: 0;
 	}
 }
