@@ -62,7 +62,7 @@ meta-info: false
 								{% assign postdate = post.date | date: "%s" %}
 								{% if postdate > recent %}
 								<div class="checkboxes--item">
-									<input onchange="updateContent('updates')" class="checkboxes--input" id="{{ post.id | slugify }}" name="notify-posts" type="checkbox" value="{{ post.id | slugify }}" data-title="{{ post.title }}" data-excerpt="{{ post.excerpt }}" data-date="{{ post.date | date: '%d %B %Y' }}" data-url="https://www.civilservice.lgbt{{ post.url }}" >
+									<input onchange="updateContent('updates')" class="checkboxes--input" id="{{ post.id | slugify }}" name="notify-posts" type="checkbox" value="{{ post.id | slugify }}" data-title="{{ post.title }}" data-category="{{ post.category | first | slugify }}" data-excerpt="{{ post.excerpt }}" data-date="{{ post.date | date: '%d %B %Y' }}" data-url="https://www.civilservice.lgbt{{ post.url }}" >
             			<label class="checkboxes--label" for="{{ post.id | slugify }}">
 										<strong>{{ post.title }}</strong>
 										<span class="hint checkboxes-hint">{{ post.date | date: "%d %B %Y" }}</span>
