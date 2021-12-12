@@ -68,7 +68,12 @@ layout: default
 							{% else %}
 							<span class="status in-progress"><span class="sr-only">In progress</span></span>
 							{% endif %}
-							{{ mile.milestone | markdownify }}
+							{% if mile.details %}
+								<p class="milestone-with-details">{{ mile.milestone }}</p>
+								{{ mile.details | append: "_" | prepend: "_" |  markdownify }}
+							{% else %}
+								<p>{{ mile.milestone }}</p>
+							{% endif %}
 							<p class="date">{{ mile.date | date: "%B %Y" }}</p>
 						</span>
 					</li>
