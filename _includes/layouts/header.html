@@ -39,7 +39,7 @@
 
 		{% if page.author %}
 			{% assign author = page.author %}
-			{% assign author-escaped = author | slugify %}
+			{% assign author-escaped = author | slugify | prepend: "/" %}
 			{% assign volunteers = site.team | where_exp: "volunteer", "volunteer.url contains author-escaped" %}
 		{% else %}
 			{% assign author = "Civil Service LGBT+ Network" %}

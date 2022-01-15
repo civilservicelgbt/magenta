@@ -9,14 +9,14 @@
 # This title will display across the website
 title: "Civil Service LGBT+ Network"
 # This description is predominantly for Search Engine Optimisation
-description: "The Civil Service LGBT+ Network helps to create a more diverse, inclusive and equal place to work for lesbian, gay, bisexual and trans civil servants."
+description: "The Civil Service LGBT+ Network helps to create a more diverse, inclusive and equal place to work for civil servants who are lesbian, gay, bisexual and trans, or who have another minority sexual orientation, gender identity or expression or sex characteristics."
 # Instead of "author", have the organisation name as the default
 author: "Civil Service LGBT+ Network"
 organisation: "Civil Service LGBT+ Network"
 email: "info@civilservice.lgbt"
 
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://localhost:4000"
+url: "https://www.civilservice.lgbt"
 
 #########################
 # Social media accounts #
@@ -87,6 +87,10 @@ header-menu--links:
     alt-text: "Visit the Networks page"
     url: "/networks"
     hidden: false
+  - display-text: "Our team"
+    alt-text: "See who we are"
+    url: "/team"
+    hidden: false
   - display-text: "About"
     alt-text: "Learn more about us"
     url: "/about"
@@ -112,14 +116,18 @@ footer-menu--links:
   - display-text: "Update your profile"
     alt-text: "Update your contact details and preferences"
     url: "/update-profile"
-    hidden: false
+    hidden: true
   - display-text: "Contact us"
     alt-text: "Get our contact details"
     url: "/about/contact-us"
     hidden: false
-  - display-text: "About us"
+  - display-text: "About"
     alt-text: "Learn more about us"
     url: "/about"
+    hidden: true
+  - display-text: "Our team"
+    alt-text: "Find out about our team"
+    url: "/team"
     hidden: false
   - display-text: "Your data"
     alt-text: "Read our data and privacy policy"
@@ -129,7 +137,6 @@ footer-menu--links:
     alt-text: "View archived news posts"
     url: "/archives"
     hidden: false
-
 
 ###############
 # Asset paths #
@@ -174,135 +181,84 @@ collections:
     defaults:
       values:
         layout: page
-        admin:
-          add-to-collection: true
-          show-in-formats: true
   archives:
     output: true
     permalink: /archives/:year/:month/:day/:title/
     defaults:
       values:
         layout: news
-        admin:
-          add-to-collection: false
-          show-in-formats: false
   news:
     output: true
     permalink: /news/:year/:month/:day/:title/
     defaults:
       values:
         layout: news
-        admin:
-          add-to-collection: true
-          show-in-formats: true
   publications:
     output: true
     permalink: /publication/:title/
     defaults:
       values:
         layout: publication
-        admin:
-          add-to-collection: true
-          show-in-formats: true
   consultations:
     output: true
     permalink: /consultation/:title/
     defaults:
       values:
         layout: consultation
-        admin:
-          add-to-collection: true
-          show-in-formats: true
   events:
     output: true
     permalink: /event/:title/
     defaults:
       values:
         layout: event
-        admin:
-          add-to-collection: true
-          show-in-formats: true
   notices:
     output: true
     permalink: /notice/:title/
     defaults:
       values:
         layout: notice
-        admin:
-          add-to-collection: true
-          show-in-formats: true
   topics:
     output: true
     permalink: /:title/
     defaults:
       values:
         layout: topic
-        admin:
-          add-to-collection: true
-          show-in-formats: true
   team:
     output: true
-    permalink: /our-team/:title/
+    permalink: /team/:title/
     defaults:
       values:
         layout: page
-        admin:
-          add-to-collection: true
-          show-in-formats: false
   rules:
     output: true
-    permalink: /our-rules/:title/
+    permalink: /rules/:title/
     defaults:
       values:
         layout: publication
-        admin:
-          add-to-collection: true
-          show-in-formats: false
-  forum:
-    output: true
-    permalink: /discuss/:title/
-    defaults:
-      values:
-        layout: publication
-        admin:
-          add-to-collection: true
-          show-in-formats: false
   membership:
     output: true
     permalink: /membership/:title/
     defaults:
       values:
         layout: page
-        admin:
-          add-to-collections: true
-          show-in-formats: false
   programmes:
     output: true
-    permalink: /programmes/:title/
+    permalink: /programme/:title/
     defaults:
       values:
         layout: page
-        admin:
-          add-to-collection: true
-          show-in-formats: false
-  contact:
+  manuals:
     output: true
-    permalink: /contact/:title/
+    permalink: /manual/:title/
     defaults:
       values:
         layout: page
-        admin:
-          add-to-collection: false
-          show-in-formats: false
   tools:
     output: true
     permalink: /tools/:title/
     defaults:
       values:
-        layout: page
-        admin:
-          add-to-collection: false
-          show-in-formats: false
+        layout: tools
   design-system:
     output: true
     permalink: /design-system/:title/
@@ -310,22 +266,12 @@ collections:
       values:
         layout: page
 
-defaults:
-  - scope:
-      path: "store"
-    values:
-      document: true
-  - scope:
-      path: "store"
-    values:
-      image: true
 ##################
 # Build settings #
 ##################
-# remote_theme: civilservicelgbt/theme
+remote_theme: civilservicelgbt/magenta
 permalink: pretty
 markdown: kramdown
-future: false
 highlighter: rouge
 sass:
   sass_dir: _sass
@@ -348,3 +294,7 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+
+
+# Date - 2021-07-23
