@@ -5,11 +5,14 @@
 	{% assign background = "magenta" %}
 {% endif %}
 
+{% if page.image %}
 <header class="topic--banner--{{ page.category }} topic--background--{{ background }}">
   <div class="width-container">
   {% assign default_image_path = site.url | append: site.baseurl | append: '/assets/images/pages/' | append: page.category | append: '.png' %}
   <img src="{{ page.image | default: default_image_path  }}" class="topic--banner--image">
   </div>
 </header>
+
+{% endif %}
 
 {% endif %}
