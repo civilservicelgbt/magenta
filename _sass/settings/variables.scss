@@ -127,6 +127,12 @@ $warning-button-hover-color: darken($warning-button-color, 20%);
 $warning-button-shadow-color: darken($warning-button-color, 60%);
 $warning-button-text-color: color("white");
 
+// Action button variables
+$action-button-color: color("green");
+$action-button-hover-color: darken($action-button-color, 10%);
+$action-button-shadow-color: darken($action-button-color, 50%);
+$action-button-text-color: color("white");
+
 // =========================================================
 // Input colors
 // =========================================================

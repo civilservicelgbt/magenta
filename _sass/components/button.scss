@@ -189,6 +189,36 @@ button[disabled] {
 	}
 }
 
+.button--action {
+  @include font(27);
+  font-weight: $font-weight-bold;
+  background: $action-button-color;
+	box-shadow: 0 $button-shadow-size 0 $action-button-shadow-color;
+
+	&,
+	&:link,
+	&:visited,
+	&:active,
+	&:hover {
+		color: $action-button-text-color;
+	}
+
+	&:hover {
+		background-color: $action-button-hover-color;
+
+		&[disabled] {
+			background-color: $action-button-color;
+		}
+	}
+  
+  &:after {
+    display: inline-block;
+    position: relative;
+    padding-left: 5px;
+    content: "❯";
+  }
+}
+
 .button--feedback {
 	@include font(16);
 
