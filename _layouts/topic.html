@@ -15,6 +15,7 @@ meta-info: false
 
 
 			<div id="page--content">
+				
 
 			{% assign now = 'now' | date: '%s' %}
 
@@ -43,6 +44,8 @@ meta-info: false
 			{% assign topicCollection = "archives" %}
 			{% include layouts/topic-loop.html %}
 
+      {% include layouts/topic-team.html %}
+      
 			</div>
 		</div>
 	</div>
