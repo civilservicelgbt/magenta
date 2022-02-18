@@ -190,7 +190,7 @@ button[disabled] {
 }
 
 .button--action {
-  @include font(27);
+  @include font($size: 27, $weight: bold);
   font-weight: $font-weight-bold;
   background: $action-button-color;
 	box-shadow: 0 $button-shadow-size 0 $action-button-shadow-color;
@@ -220,8 +220,7 @@ button[disabled] {
 }
 
 .button--action--progress {
-  @include font(27);
-  font-weight: $font-weight-bold;
+  @include font($size: 27, $weight: bold);
   background: $action-button-color;
 	box-shadow: 0 $button-shadow-size 0 $action-button-shadow-color;
 
