@@ -219,6 +219,29 @@ button[disabled] {
   }
 }
 
+.button--action--progress {
+  @include font(27);
+  font-weight: $font-weight-bold;
+  background: $action-button-color;
+	box-shadow: 0 $button-shadow-size 0 $action-button-shadow-color;
+
+	&,
+	&:link,
+	&:visited,
+	&:active,
+	&:hover {
+		color: $action-button-text-color;
+	}
+
+	&:hover {
+		background-color: $action-button-hover-color;
+
+		&[disabled] {
+			background-color: $action-button-color;
+		}
+	}
+}
+
 .button--feedback {
 	@include font(16);
 
