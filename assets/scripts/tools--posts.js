@@ -613,7 +613,7 @@ function postContentToEmail() {
 			var month = postEventStartMonth.value;
 			var day = postEventStartDay.value;
 
-			var date = year + separator + month + separator + day;
+			var date = year + separator + month;
 
 		} else {
 
