@@ -7,6 +7,19 @@
 	const nowDay = String(now.getDate()).padStart(2, '0');
 	const nowMonth = String(now.getMonth() + 1).padStart(2, '0'); //January is 0!
 	const nowYear = now.getFullYear();
+	
+  function getRadiosValue(radios) {
+		var radioItems = document.getElementsByName(radios);
+
+		for (var i = 0; i < radioItems.length; i++) {   
+			if (radioItems[i].checked) {       
+				var value = radioItems[i].value;
+			}
+		}
+
+		return value;  
+
+	}
 
 // GET THE FIELDS
 
@@ -39,7 +52,7 @@
 	// Team member details
 
 		// Role
-		var postTeamMemberRole = document.getElementById("post-team-member-role");
+		var postTeamMemberRole = getRadiosValue("radios-team-select-role");
 		// Project
 		var postTeamMemberProject = document.getElementById("post-team-member-project");
 		// Region
@@ -354,10 +367,11 @@
 
 			jekyllPost += "name: \"" + postTitle.value + "\"\n";
 
-			if (postTeamMemberRole.value == "") {
+      postTeamMemberRole = getRadiosValue("radios-team-select-role");
+			if (postTeamMemberRole == "") {
 				jekyllPost += "# ";
 			}
-			jekyllPost += "role: \"" + postTeamMemberRole.value + "\"\n";
+			jekyllPost += "role: \"" + postTeamMemberRole + "\"\n";
 
 			if (postTeamMemberProject.value == "") {
 				jekyllPost += "# ";

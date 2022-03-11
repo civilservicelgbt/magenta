@@ -1,18 +1,39 @@
 <fieldset id="fieldset--post-team-member-details" aria-describedby="fieldset--post-team-member-details--title">
 	<legend id="fieldset--post-team-member-details--title" class="legend-lg">Team member details</legend>
-
-	<div class="grid-row form-row">
-		<div class="grid-column-one-third">
-			<label class="inline-label label-md" for="post-team-member-role">
-				Role
-			</label>
-			<p class="hint">This label determines which section of the team page the person appears on.</p>
-			<p class="hint">For example – "vice-chair", "project team", "local organiser"</p>
-		</div>
-		<div class="grid-column-two-thirds">
-			<input class="input" id="post-team-member-role" name="post-team-member-role" type="text">
-		</div>
-	</div>
+  
+  <div class="grid-row form-row">
+    <fieldset id="team-select-role" aria-describedby="team-select-role--hint" class="fieldset">
+      <div class="grid-column-one-third">
+        <legend class="inline-label label-md" id="team-select-role--title">Role</legend>
+        <p id="team-select-role--hint" class="hint">This label determines which section of the team page the person appears on.</p>
+      </div>
+      <div class="grid-column-two-thirds">
+      <div class="radios">
+      
+          <div class="radios--item">
+              <input class="radios--input" id="team-select-role--vicechair" name="radios-team-select-role" type="radio" value="vice chair" checked>
+              <label class="radios--label" for="team-select-role--vicechair">
+                  Vice chair
+              </label>
+          </div>
+      
+          <div class="radios--item">
+              <input class="radios--input" id="team-select-role--projectteam" name="radios-team-select-role" type="radio" value="project team">
+              <label class="radios--label" for="team-select-role--projectteam">
+                  Project team
+              </label>
+          </div>
+      
+          <div class="radios--item">
+              <input class="radios--input" id="team-select-role--localorganiser" name="radios-team-select-role" type="radio" value="local organiser">
+              <label class="radios--label" for="team-select-role--localorganiser">
+                  Local organiser
+              </label>
+          </div>
+      </div>
+      </div>
+    </fieldset>
+  </div>
 
 	<div class="grid-row form-row">
 		<div class="grid-column-one-third">
