@@ -51,22 +51,13 @@ meta-info: false
 							<legend>Choose the topic you are generating an update for</legend>
 
 							<div class="radios">
-								<div class="radios--item">
-									<input onchange="updateContent('topics')" class="radios--input" id="topics--bispace" name="topic-select" type="radio" value="BiSpace" checked>
-									<label class="radios--label" for="topics--bispace">BiSpace</label>
-								</div>
-								<div class="radios--item">
-									<input onchange="updateContent('topics')" class="radios--input" id="topics--trans" name="topic-select" type="radio" value="trans and non-binary inclusion">
-									<label class="radios--label" for="topics--trans">Trans and non-binary inclusion</label>
-								</div>
-								<div class="radios--item">
-									<input onchange="updateContent('topics')" class="radios--input" id="topics--women" name="topic-select" type="radio" value="women's inclusion">
-									<label class="radios--label" for="topics--women">Women's inclusion</label>
-								</div>
-								<div class="radios--item">
-									<input onchange="updateContent('topics')" class="radios--input" id="topics--minority-ethnicity" name="topic-select" type="radio" value="minority ethnicity inclusion">
-									<label class="radios--label" for="topics--minority-ethnicity">Minority ethnicity inclusion</label>
-								</div>
+                {% assign topics = site.topics | sort: "title" %}
+                {% for topic in topics %}
+                  <div class="radios--item">
+									  <input onchange="updateContent('topics')" class="radios--input" id="topics--{{ topic.title | slugify }}" name="topic-select" type="radio" value="{{ topic.title }}" {% if forloop.first == true %}checked{% endif %}>
+									  <label class="radios--label" for="topics--{{ topic.title | slugify }}">{{ topic.title }}</label>
+								  </div>
+                {% endfor %}
 							</div>
 
 						</fieldset>
@@ -121,7 +112,7 @@ meta-info: false
 								</div>
 						</fieldset>
 
-						<fieldset>
+						<fieldset hidden>
 
 							<legend>Notify email template</legend>
 							<p class="hint">These fields contain the information you need to create your email template.</p>
