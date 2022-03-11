@@ -191,7 +191,6 @@ button[disabled] {
 
 .button--action {
   @include font($size: 27, $weight: bold);
-  font-weight: $font-weight-bold;
   background: $action-button-color;
 	box-shadow: 0 $button-shadow-size 0 $action-button-shadow-color;
 
@@ -221,22 +220,23 @@ button[disabled] {
 
 .button--action--progress {
   @include font($size: 27, $weight: bold);
-  background: $action-button-color;
-	box-shadow: 0 $button-shadow-size 0 $action-button-shadow-color;
+  opacity: (.5);
+  background: $button-color;
+	box-shadow: 0 $button-shadow-size 0 $button-shadow-color;
 
 	&,
 	&:link,
 	&:visited,
 	&:active,
 	&:hover {
-		color: $action-button-text-color;
+		color: $button-text-color;
 	}
 
 	&:hover {
-		background-color: $action-button-hover-color;
+		background-color: $button-hover-color;
 
 		&[disabled] {
-			background-color: $action-button-color;
+			background-color: $button-color;
 		}
 	}
 }
