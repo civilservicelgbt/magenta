@@ -31,18 +31,18 @@
 		return date;
 	}
 
-function getRadios(el) {
-	var radios = document.getElementsByName(el);
-	for (var i = 0, length = radios.length; i < length; i++) {
-		if (radios[i].checked) {
-		  // do whatever you want with the checked radio
-		  value = radios[i].value;
-		  // only one radio can be logically checked, don't check the rest
-		  break;
-		}
-	}
-	return value;
-}
+  function getRadios(el) {
+	  var radios = document.getElementsByName(el);
+	  for (var i = 0, length = radios.length; i < length; i++) {
+		  if (radios[i].checked) {
+		    // do whatever you want with the checked radio
+		    value = radios[i].value;
+		    // only one radio can be logically checked, don't check the rest
+		    break;
+		  }
+	  }
+	  return value;
+  }
 
 // GENERATE THE NOTIFY CONTENT
 
@@ -58,10 +58,7 @@ function getRadios(el) {
 		var date = getCurrentDate();
 
 		// Create variables to hold the outputs
-		if (type == "events") {
-			var emailTemplateName = "Events: " + date;
-			var emailSubject = "Upcoming events: " + date;
-		} else if (type == "regions") {
+		if (type == "regions") {
 			var emailTemplateName = "Regional update (" + regionName + "): " + date;
 			var emailSubject = "Regional update for " + regionName + ": " + date;
 		} else if (type == "topics") {
@@ -78,11 +75,7 @@ function getRadios(el) {
 		var textareaMessageContent = document.getElementById("notify--textarea--message-content");
 		var codeTemplateName = document.getElementById("notify--code--template-name");
 
-		if (type == "events") {
-			emailMessageContent += "# Upcoming events\n\n";
-			emailMessageContent += date + "\n\n";
-			emailMessageContent += "Upcoming events and activities from the Civil Service LGBT+ Network.\n\n";
-		} else if (type == "regions") {
+		if (type == "regions") {
 			emailMessageContent += "# Region update: " + regionName + "\n\n";
 			emailMessageContent += date + "\n\n";
 			emailMessageContent += "Updates for " + regionName + " from the Civil Service LGBT+ Network.\n\n";
@@ -93,7 +86,7 @@ function getRadios(el) {
 		} else {
 			emailMessageContent += "# Latest updates\n\n";
 			emailMessageContent += date + "\n\n";
-			emailMessageContent += "The latest news and updates from the Civil Service LGBT+ Network.\n\n";
+			emailMessageContent += "The latest news and events from the Civil Service LGBT+ Network.\n\n";
 		}
 
 		console.group("Selected posts")
@@ -107,23 +100,7 @@ function getRadios(el) {
 			var postURL = posts[i].dataset.url;
 
 		  if (posts[i].checked) {
-				if (type == "events") {
-					console.groupCollapsed(postTitle);
-						console.info("Collection: " + postCollection);
-						console.info("Event excerpt: " + postExcerpt);
-			    	console.info("Event date: " + postDate);
-						console.info("Event URL: " + postURL);
-						console.info("Category: " + postCategory);
-					console.groupEnd();
-
-					emailMessageContent += "---\n";
-					emailMessageContent += "# " + postTitle + "\n";
-					emailMessageContent += "Taking place on " + postDate + "\n\n";
-					emailMessageContent += postExcerpt + "\n\n";
-					emailMessageContent += "Find out more and register to attend at: \n" + postURL + "\n\n";
-				} else if (type == "regions" || type == "topics") {
-
-					if (postCollection == "events") {
+				if (postCollection == "events") {
 						console.groupCollapsed(postTitle);
 							console.info("Collection: " + postCollection);
 							console.info("Event excerpt: " + postExcerpt);
@@ -152,22 +129,6 @@ function getRadios(el) {
 						emailMessageContent += "Read more at: \n" + postURL + "\n\n";
 						emailMessageContent += "Published " + postDate + "\n\n";
 					}
-
-				} else {
-					console.groupCollapsed(postTitle);
-						console.info("Collection: " + postCollection);
-						console.info("Post excerpt: " + postExcerpt);
-			    	console.info("Post date: " + postDate);
-						console.info("Post URL: " + postURL);
-						console.info("Category: " + postCategory);
-					console.groupEnd();
-
-					emailMessageContent += "---\n";
-					emailMessageContent += "# " + postTitle + "\n";
-					emailMessageContent += postExcerpt + "\n\n";
-					emailMessageContent += "Read more at: \n" + postURL + "\n\n";
-					emailMessageContent += "Published " + postDate + "\n\n";
-				}
 		  }
 		}
 		console.groupEnd()
