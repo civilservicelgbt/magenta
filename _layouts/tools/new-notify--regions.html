@@ -51,7 +51,7 @@ meta-info: false
 							<legend>Choose the topic you are generating an update for</legend>
 
 							<div class="radios">
-                {% assign topics = site.topics | where_exp: "topic", "topic.topic-type != 'region'" | sort: "title" %}
+                {% assign topics = site.topics | where: "topic-type", "region" | sort: "title" %}
                 {% for topic in topics %}
                   <div class="radios--item">
 									  <input onchange="updateContent('topics')" class="radios--input" id="topics--{{ topic.title | slugify }}" name="topic-select" type="radio" value="{{ topic.title }}" {% if forloop.first == true %}checked{% endif %}>
