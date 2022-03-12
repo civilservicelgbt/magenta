@@ -51,283 +51,107 @@ breadcrumbs: false
 	</div>
 
 	<div class="grid-row">
-		<div class="grid-column-full">
+		<div class="grid-column-one-half">
+      <div class="page--content">
 
-			<h2>Website posts</h2>
+			<h2>Add a website post</h2>
+      {% assign tools = site.tools | where: "tool-type", "website" %}
+      {% for tool in tools %}
+				  <details>
+            <summary>{{ tool.title | remove: "Add an " | remove: "Add a " | capitalize }}</summary>
+				      <p>{{ tool.excerpt }}</p>
+				      <a href="{{ tool.url }}" class="button">{{ tool.title }}</a>
+				  </details>
+      
+      {% endfor %}
+      
+      </div>
+		</div>
+		<div class="grid-column-one-half">
+      <div class="page--content">
 
-			<div class="page--content">
-
-				<div class="grid-row">
-
-					<div class="grid-column-one-half">
-
-						<div class="admin--link-block admin--link-block--tool">
-
-						<span class="caption-lg">Tool</span>
-						<h2>Add a news article</h2>
-						<p>Use this tool to add a news article to the website.</p>
-						<a href="/tools/new/news" class="button">Create a post</a>
-
-						</div>
-
-					</div>
-
-					<div class="grid-column-one-half">
-
-						<div class="admin--link-block admin--link-block--tool">
-
-						<span class="caption-lg">Tool</span>
-						<h2>Add an event</h2>
-						<p>Use this tool to add an event to the website.</p>
-						<a href="/tools/new/event" class="button">Create an event</a>
-
-						</div>
-
-					</div>
-
-				</div>
-
-				<div class="grid-row">
-
-					<div class="grid-column-one-half">
-
-						<div class="admin--link-block admin--link-block--tool">
-
-						<span class="caption-lg">Tool</span>
-						<h2>Add a publication</h2>
-						<p>Use this tool to add a publication to the website.</p>
-						<a href="/tools/new/publication" class="button">Create a publication</a>
-
-						</div>
-
-					</div>
-
-					<div class="grid-column-one-half">
-
-						<div class="admin--link-block admin--link-block--tool">
-
-						<span class="caption-lg">Tool</span>
-						<h2>Add a consultation</h2>
-						<p>Use this tool to add a consultation page to the website.</p>
-						<a href="/tools/new/consultation" class="button">Create a consultation</a>
-
-						</div>
-
-					</div>
-
-				</div>
-
-				<div class="grid-row">
-
-					<div class="grid-column-one-half">
-
-						<div class="admin--link-block admin--link-block--tool">
-
-						<span class="caption-lg">Tool</span>
-						<h2>Add a topic</h2>
-						<p>Use this tool to add a topic page to the website.</p>
-						<a href="/tools/new/topic" class="button">Create a topic</a>
-
-						</div>
-
-					</div>
-
-					<div class="grid-column-one-half">
-
-						<div class="admin--link-block admin--link-block--tool">
-
-						<span class="caption-lg">Tool</span>
-						<h2>Add a team member</h2>
-						<p>Use this tool to add a team member profile to the website.</p>
-						<a href="/tools/new/team" class="button">Create a team member</a>
-
-						</div>
-
-					</div>
-
-				</div>
-
-				<div class="grid-row">
-
-					<div class="grid-column-one-half">
-
-						<div class="admin--link-block admin--link-block--tool">
-
-						<span class="caption-lg">Tool</span>
-						<h2>Add a notice</h2>
-						<p>Use this tool to add a data notice to the website.</p>
-						<a href="/tools/new/notice" class="button">Create a notice</a>
-
-						</div>
-
-					</div>
-
-					<div class="grid-column-one-half">
-
-						<div class="admin--link-block admin--link-block--tool">
-
-						<span class="caption-lg">Tool</span>
-						<h2>Add a manual</h2>
-						<p>Use this tool to add a volunteer manual to the website.</p>
-						<a href="/tools/new/manual" class="button">Create a manual</a>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
+			<h2>Create an email alert</h2>
+      {% assign tools = site.tools | where: "tool-type", "email-alert" %}
+      {% for tool in tools %}
+				  <details>
+            <summary>{{ tool.title | remove: "Generate " | remove: " email content" | replace: "update", "alert" | capitalize }}</summary>
+				      <p>{{ tool.excerpt }}</p>
+				      <a href="{{ tool.url }}" class="button">{{ tool.title }}</a>
+				  </details>
+      
+      {% endfor %}
+      
+      </div>
 		</div>
 	</div>
 
 	<div class="grid-row">
-		<div class="grid-column-full">
+		<div class="grid-column-one-half">
+      <div class="page--content">
 
-			<h2>Images and documents</h2>
-
-			<div class="page--content">
-
-				<div class="grid-row">
-					<div class="grid-column-one-half">
-						<div class="admin--link-block admin--link-block--tool">
-						<span class="caption-lg">Tool</span>
-							<h2>Upload an image</h2>
-							<p>Use this tool to upload an image or photo to the image store.</p>
-							<a href="/images/new" class="button">Upload an image</a>
-						</div>
-					</div>
-					<div class="grid-column-one-half">
-						<div class="admin--link-block admin--link-block--tool">
-							<span class="caption-lg">Tool</span>
-							<h2>Find an image</h2>
-							<p>Use this tool to find an image that has been added to the image store.</p>
-							<a href="/images/edit" class="button">Find an image</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="grid-row">
-					<div class="grid-column-one-half">
-						<div class="admin--link-block admin--link-block--tool">
-							<span class="caption-lg">Tool</span>
-							<h2>Upload a document</h2>
-							<p>Use this tool to upload a document to the document store.</p>
-							<a href="/documents/new" class="button">Upload a document</a>
-						</div>
-					</div>
-					<div class="grid-column-one-half">
-						<div class="admin--link-block admin--link-block--tool">
-							<span class="caption-lg">Tool</span>
-							<h2>Find a document</h2>
-							<p>Use this tool to find a document that has been added to the document store.</p>
-							<a href="/documents/edit" class="button">Find a document</a>
-						</div>
-					</div>
-				</div>
-
-			</div>
+			<h2>Use an image</h2>
+      {% assign tools = site.tools | where: "tool-type", "image-uploads" %}
+      {% for tool in tools %}
+				  <details>
+            <summary>{{ tool.title | capitalize }}</summary>
+				      <p>{{ tool.excerpt }}</p>
+				      <a href="{{ tool.url }}" class="button">{{ tool.title }}</a>
+				  </details>
+      
+      {% endfor %}
+      
+      </div>
 		</div>
-	</div>
+		<div class="grid-column-one-half">
+      <div class="page--content">
 
-		<div class="grid-row">
-		<div class="grid-column-full">
-
-			<h2>Newsletter</h2>
-
-			<div class="page--content">
-
-				<div class="grid-row">
-					<div class="grid-column-one-half">
-						<div class="admin--link-block admin--link-block--tool">
-							<span class="caption-lg">Tool</span>
-							<h2>Generate news update email content</h2>
-							<p>Select news articles and publications to populate a GOV.UK Notify template.</p>
-							<a href="/tools/new/notify/updates" class="button">Generate news update</a>
-						</div>
-					</div>
-					<div class="grid-column-one-half">
-						<div class="admin--link-block admin--link-block--tool">
-							<span class="caption-lg">Tool</span>
-							<h2>Generate events update email content</h2>
-							<p>Select events to populate a GOV.UK Notify template.</p>
-							<a href="/tools/new/notify/events" class="button">Generate event update</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="grid-row">
-					<div class="grid-column-one-half">
-						<div class="admin--link-block admin--link-block--tool">
-							<span class="caption-lg">Tool</span>
-							<h2>Generate topic update email content</h2>
-							<p>Select posts and events to populate a GOV.UK Notify template.</p>
-							<a href="/tools/new/notify/topics" class="button">Generate topic update</a>
-						</div>
-					</div>
-					<div class="grid-column-one-half">
-						<div class="admin--link-block admin--link-block--tool">
-							<span class="caption-lg">Tool</span>
-							<h2>Generate regions update email content</h2>
-							<p>Select posts and events to populate a GOV.UK Notify template.</p>
-							<a href="/tools/new/notify/regions" class="button">Generate regions update</a>
-						</div>
-					</div>
-				</div>
-
-			</div>
+			<h2>Use a document</h2>
+      {% assign tools = site.tools | where: "tool-type", "document-uploads" %}
+      {% for tool in tools %}
+				  <details>
+            <summary>{{ tool.title | capitalize }}</summary>
+				      <p>{{ tool.excerpt }}</p>
+				      <a href="{{ tool.url }}" class="button">{{ tool.title }}</a>
+				  </details>
+      
+      {% endfor %}
+      
+      </div>
 		</div>
 	</div>
 
 	<div class="grid-row">
-		<div class="grid-column-full">
+		<div class="grid-column-one-half">
+      <div class="page--content">
 
-			<h2>Image makers</h2>
-
-			<div class="page--content">
-
-				<div class="grid-row">
-					<div class="grid-column-one-half">
-						<div class="admin--link-block admin--link-block--tool">
-						<span class="caption-lg">Tool</span>
-							<h2>Image maker</h2>
-							<p>Use this tool to create images for use on social media.</p>
-							<a href="/image-maker" class="button">Create an image</a>
-						</div>
-					</div>
-				</div>
-
-			</div>
+			<h2>Create a social image</h2>
+      {% assign tools = site.tools | where: "tool-type", "image-maker" %}
+      {% for tool in tools %}
+				  <details>
+            <summary>{{ tool.title | capitalize }}</summary>
+				      <p>{{ tool.excerpt }}</p>
+				      <a href="{{ tool.url }}" class="button">{{ tool.title }}</a>
+				  </details>
+      
+      {% endfor %}
+      
+      </div>
 		</div>
-	</div>
+		<div class="grid-column-one-half">
+      <div class="page--content">
 
-	<div class="grid-row">
-		<div class="grid-column-full">
-
-			<h2>Email signature makers</h2>
-
-			<div class="page--content">
-
-				<div class="grid-row">
-					<div class="grid-column-one-half">
-						<div class="admin--link-block admin--link-block--tool">
-						<span class="caption-lg">Tool</span>
-							<h2>Volunteer signatures</h2>
-							<p>Use this tool to create an email signature for volunteers.</p>
-							<a href="/email-signatures/volunteers" class="button">Create a signature</a>
-						</div>
-					</div>
-					<div class="grid-column-one-half">
-						<div class="admin--link-block admin--link-block--tool">
-						<span class="caption-lg">Tool</span>
-							<h2>PrideON signatures</h2>
-							<p>Use this tool to create an email signature for PrideON.</p>
-							<a href="/email-signatures/pride-on/" class="button">Create a signature</a>
-						</div>
-					</div>
-				</div>
-
-			</div>
+			<h2>Create an email signature</h2>
+      {% assign tools = site.tools | where: "tool-type", "email-signatures" %}
+      {% for tool in tools %}
+				  <details>
+            <summary>{{ tool.title | capitalize }}</summary>
+				      <p>{{ tool.excerpt }}</p>
+				      <a href="{{ tool.url }}" class="button">{{ tool.title }}</a>
+				  </details>
+      
+      {% endfor %}
+      
+      </div>
 		</div>
 	</div>
 </section>
