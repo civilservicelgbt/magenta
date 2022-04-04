@@ -20,11 +20,7 @@
 <meta property="twitter:description" content="{{ site.description | strip_html | strip_newlines | truncate: 160 }}">
 {% endif %}
 
-{% if page.image %}
-<meta property="twitter:image" content="{{ page.image }}">
-{% else %}
 <meta property="twitter:image" content="{{ site.url | append: site.baseurl | append: site.social-media-image }}">
-{% endif %}
 
 {% if page.image-alt %}
 <meta name="twitter:image:alt" 	content="{{ page.image-alt | strip_html }}">
