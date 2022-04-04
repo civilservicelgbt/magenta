@@ -269,7 +269,6 @@ collections:
 ##################
 # Build settings #
 ##################
-remote_theme: civilservicelgbt/magenta
 permalink: pretty
 markdown: kramdown
 highlighter: rouge

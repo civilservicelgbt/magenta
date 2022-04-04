@@ -12,60 +12,29 @@ layout: default
 	</div>
 </div>
 
-<div class="grid-row">
-	<div class="grid-column-two-thirds">
-
-		{{ content }}
-
-		{% assign deptnetworks = site.data.networks | where: "type", "Departmental" %}
-
-		<details>
-			<summary>Local LGBT+ employee networks</summary>
-			{% for network in deptnetworks %}
-			<details>
-				<summary>{{ network.department }}</summary>
-				<p><strong>Organisation:</strong> {{ network.department }}</p>
-				<p><strong>Network:</strong> {{ network.network }}</p>
-
-				{% if network.email != '' %}
-				<a href="mailto:{{ network.email }}" title="email {{ network.network }}" class="button">Email this network</a>
-				{% endif %}
-				{% if network.website != '' %}
-				<a href="{{ network.website }}" title="Open {{ network.network }}s website" rel="external noreferrer nofollow" class="button">Network website</a>
-				{% endif %}
-				{% if network.twitter != '' %}
-				<a href="mailto:{{ network.twitter }}" title="Open {{ network.network }}s Twitter" class="button">Twitter</a>
-				{% endif %}
-			</details>
-			{% endfor %}
-		</details>
-
-
-		{% assign crossgovnetworks = site.data.networks | where: "type", "Cross-government" %}
-		<details>
-			<summary>Cross-government diversity and inclusion networks</summary>
-			{% for network in crossgovnetworks %}
-			<details>
-				<summary>{{ network.network }}</summary>
-
-				{% if network.email != '' %}
-				<a href="mailto:{{ network.email | first }}" title="email {{ network.network }}" class="button">Email this network</a>
-				{% endif %}
-				{% if network.website != '' %}
-				<a href="{{ network.website }}" title="Open {{ network.network }}s website" rel="external noreferrer nofollow" class="button">Network website</a>
-				{% endif %}
-				{% if network.twitter != '' %}
-				<a href="mailto:{{ network.twitter }}" title="Open {{ network.network }}s Twitter" class="button">Twitter</a>
-				{% endif %}
-			</details>
-			{% endfor %}
-		</details>
-
-	</div>
+<div id="networks-list" class="grid-row">
+  
+    {% assign deptnetworks = site.data.networks | where: "type", "Departmental" %}
+    {% assign networkscount = 0 %}
+    {% for network in deptnetworks %}
+    {% assign networkscount = networkscount | plus: 1 %}
+    {% endfor %}
+    {% assign networkscount = networkscount | divided_by: 2 %}
+    
+  <div class="grid-column-two-thirds">
+    <ul class="list--no-styles networks--network-list">
+    {% for network in deptnetworks %}
+      {% include layouts/network-details.html %}
+    {% endfor %}
+    </ul>
+  </div>
+  
 	<div class="grid-column-one-third">
-
-		<!-- secondary content here -->
-
+    <aside class="networks-aside">
+		  <!-- secondary content here -->
+		  {{ content }}
+    </aside>
 	</div>
+  
 </div>
 

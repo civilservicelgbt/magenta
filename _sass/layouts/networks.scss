@@ -1,0 +1,42 @@
+.networks--network-list {
+	border-top: 5px solid color("magenta");
+	padding: 0 0 spacing(6);
+}
+
+.networks--network-list--item {
+	padding: spacing(4) 0;
+	margin-bottom: 0;
+	border-bottom: 1px solid color("gray");
+
+	&:last-child {
+		border-bottom: 0;
+	}
+
+	*:last-child {
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+}
+
+.networks--network-list--item--network {
+	color: $text-color;
+	@include font($size: 24, $weight: bold);
+	display: block;
+	margin-top: 0;
+	@include responsive-margin(2, "bottom");
+}
+
+.networks--network-list--item--meta,
+.networks--network-list--item--excerpt {
+	@extend %body-sm;
+	margin-bottom: spacing(2);
+}
+
+.networks--network-list--item--meta {
+	color: color("dark-gray");
+}
+
+.networks-aside {
+	border-top: 5px solid color("magenta");
+  padding: spacing(5) 0;
+}
