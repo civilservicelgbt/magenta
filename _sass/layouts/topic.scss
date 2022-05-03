@@ -114,3 +114,16 @@
 	  }
 	}
   }
+  
+#topic--section-groups {
+  
+  .topic--groups--description {
+	  padding: spacing(4) 0 0;
+	  border-top: 5px solid color("light-gray");
+  }
+
+  .topic--groups--more {
+	  margin: 0 0 spacing(6);
+    border-bottom: none;
+  }
+}
