@@ -17,7 +17,7 @@ meta-info: false
 		  <div id="page--content">
         
         {% assign groups = site.data.groups | where_exp: "group", "group.category == page.category" %}
-        {% for group in groups | first %}
+        {% for group in groups first %}
         <section id="topic--section-groups">
           <div class="grid-row">
             <div class="grid-column-one-third">
