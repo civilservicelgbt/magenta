@@ -1,0 +1,56 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+  "reset",
+  
+  "helpers/colors",
+  "helpers/media-queries",
+  "helpers/visually-hidden",
+  "helpers/spacing",
+  "helpers/grid",
+  "helpers/clearfix",
+  "helpers/typography",
+  "helpers/links",
+
+  "settings/variables",
+
+  "styles/images",
+  "styles/layout",
+  "styles/spacing",
+
+  "styles/typography/headings",
+  "styles/typography/paragraph",
+  "styles/typography/definition-list",
+  "styles/typography/lists",
+  "styles/typography/links",
+  "styles/typography/section-break",
+  "styles/typography/code",
+  "styles/typography/adjustments",
+
+  "components/back-link",
+  "components/breadcrumbs",
+  "components/button",
+  "components/checkbox",
+  "components/dialog",
+  "components/date-input",
+  "components/details-summary",
+  "components/fieldset",
+  "components/footer",
+  "components/header",
+  "components/inset-text",
+  "components/document-box",
+  "components/warning-text",
+  "components/label",
+  "components/notification-banner",
+  "components/panel",
+  "components/radios",
+  "components/skip-link",
+  "components/swatch",
+  "components/table",
+  "components/text-input",
+  "components/text-area",
+;
