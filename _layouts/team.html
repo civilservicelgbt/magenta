@@ -31,7 +31,7 @@ excerpt: false
 		<div class="page--content">
 			<blockquote class="volunteer--archive">
 				<h2 class="heading-md">This volunteer no longer works with us.</h2>
-				<p>{{ page.name }} is a former {{ page.role }} of the Civil Service LGBT+ Network.</p>
+				<p>{{ page.person-name }} is a former {{ page.role }} of the Civil Service LGBT+ Network.</p>
 			</blockquote>
 		</div>
 		{% endif %}
@@ -49,7 +49,7 @@ excerpt: false
 		<img src="{{ page.image }}" class="volunteer--image--large" loading="lazy">
 		{% endif %}
 		{% if page.email %}
-		<a href="mailto:{{ page.email }}" class="button button--volunteer">Email {{ page.name }}</a>
+		<a href="mailto:{{ page.email }}" class="button button--volunteer">Email {{ page.person-name }}</a>
 		{% endif %}
 
 	</div>
