@@ -1,11 +1,11 @@
 {% if homeCollection == "events" %}
 
-	{% assign homeLoop = site[homeCollection] | sort: 'start-date' %}
+	{% assign homeLoop = site[homeCollection] | sort: 'event.start' %}
 	{% assign homeTitle = "Upcoming " | append: homeCollection %}
 
 	{% assign countOpenEvents = 0 %}
 	{% for post in homeLoop %}
-		{% assign eventStartDate = post.start-date | date: '%s' %}
+		{% assign eventStartDate = post.event.start | date: '%s' %}
 		{% if now < eventStartDate %}
 			{% assign countOpenEvents = countOpenEvents | plus: 1 %}
 		{% endif %}
@@ -72,7 +72,7 @@
 
 				{% if homeCollection == "events" %}
 
-					{% assign eventStartDate = post.start-date | date: '%s' %}
+					{% assign eventStartDate = post.event.start | date: '%s' %}
 					{% if eventStartDate < now %}
 						{% assign skipPost = true %}
 					{% else %}
@@ -109,7 +109,7 @@
 						<p class="loop--article-list--item--excerpt">{{ post.excerpt }}</p>
 
 						{% if homeCollection == "events" %}
-						<p class="loop--article-list--item--meta">Taking place <time datetime="{{ post.start-date | date: '%Y-%m-%d' }}">{{ post.start-date | date:'%-d %B %Y at %H:%M' }}</time></p>
+						<p class="loop--article-list--item--meta">Taking place <time datetime="{{ post.event.start | date: '%Y-%m-%d' }}">{{ post.event.start | date:'%-d %B %Y at %H:%M' }}</time></p>
 						{% elsif homeCollection == "consultations" %}
 						<p class="loop--article-list--item--meta">{% if consultationOpen == true %}Consultation open until{% else %}Consultation closed on{% endif %} <time datetime="{{ post.end-date | date: '%Y-%m-%d %H:%M' }}">{{ post.end-date | date:'%-d %B %Y at %H:%M' }}</time></p>
 						{% elsif homeCollection == "topics" %}

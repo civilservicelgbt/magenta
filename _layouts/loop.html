@@ -62,22 +62,22 @@ meta-info: false
 		</ul>
 
 	{% elsif collection == "events" %}
-	{% assign loop = site[collection] | sort: 'start-date' %}
+	{% assign loop = site[collection] | sort: 'event.start' %}
 
 		<h2>Upcoming events</h2>
 
 		<ul class="list--no-styles loop--article-list">
 		{% assign upcoming-event-count = 0 %}
 		{% for post in loop %}
-			{% assign eventDate = post.start-date | date: '%s' %}
+			{% assign eventDate = post.event.start | date: '%s' %}
 			{% if now < eventDate %}
 			<li class="loop--article-list--item">
 				<article>
 					<h2 class="loop--article-list--item--title"><a href="{{ site.url | append: site.baseurl | append: post.url }}" title="Read {{ post.title }}">{{ post.title }}</a></h2>
-					{% if post.author %}{% if post.author != "Civil Service LGBT+ Network" %}
-					<p class="loop--article-list--item--meta">Hosted by the {{ post.author | remove: "The" }}</p>
+					{% if post.event.host %}{% if post.event.host != "Civil Service LGBT+ Network" %}
+					<p class="loop--article-list--item--meta">Hosted by the {{ post.event.host | remove: "The" }}</p>
 					{% endif %}{% endif %}
-					<p class="loop--article-list--item--meta">On <time datetime="{{ post.start-date | date: '%Y-%m-%d %H:%M' }}">{{ post.start-date  | date:'%-d %B %Y at %H:%M' }}</time></p>
+					<p class="loop--article-list--item--meta">On <time datetime="{{ post.event.start | date: '%Y-%m-%d %H:%M' }}">{{ post.event.start  | date:'%-d %B %Y at %H:%M' }}</time></p>
 				</article>
 			</li>
 			{% assign upcoming-event-count = upcoming-event-count | plus: 1 %}

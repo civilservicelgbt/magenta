@@ -1,11 +1,11 @@
 {% if topicCollection == "events" %}
 
-	{% assign topicLoop = site[topicCollection] | where: 'category', page.category | sort: 'start-date' %}
+	{% assign topicLoop = site[topicCollection] | where: 'category', page.category | sort: 'event.start' %}
 	{% assign topicTitle = "Upcoming " | append: topicCollection %}
 
 	{% assign countOpenEvents = 0 %}
 	{% for post in topicLoop %}
-		{% assign eventStartDate = post.start-date | date: '%s' %}
+		{% assign eventStartDate = post.event.start | date: '%s' %}
 		{% if now < eventStartDate %}
 			{% assign countOpenEvents = countOpenEvents | plus: 1 %}
 		{% endif %}
@@ -65,7 +65,7 @@
 
 				{% if topicCollection == "events" %}
 
-					{% assign eventStartDate = post.start-date | date: '%s' %}
+					{% assign eventStartDate = post.event.start | date: '%s' %}
 					{% if eventStartDate < now %}
 						{% assign skipPost = true %}
 					{% else %}
