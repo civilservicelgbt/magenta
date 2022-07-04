@@ -4,10 +4,12 @@ excerpt: false
 meta-info: false
 ---
 {% assign now = 'now' | date: '%s' %}
-{% assign eventStartDate = page.start-date | date: '%s' %}
-{% assign eventEndDate = page.end-date | date: '%s' %}
-{% if page.registration-close-date %}
-	{% assign registrationCloseDate = page.registration-close-date | date: '%s' %}
+
+{% assign eventStartDate = page.event.start | date: '%s' %}
+{% assign eventEndDate = page.event.end | date: '%s' %}
+
+{% if page.event.deadline %}
+	{% assign registrationCloseDate = page.event.deadline | date: '%s' %}
 
 	{% if now < registrationCloseDate %}
 		{% assign eventRegistrationOpen = true %}
@@ -22,31 +24,27 @@ meta-info: false
 	{% assign eventTakenPlace = true %}
 {% endif %}
 
-{% if page.link or page.email or page.no-register %}
+{% if page.event.link or page.event.email or page.event.no-register %}
 	{% assign validEventRegistrationInfo = true %}
 {% else %}
 	{% assign validEventRegistrationInfo = false %}
 {% endif %}
 
-{% if page.start-date %}
+{% if page.event.start %}
 	{% assign validEventDate = true %}
 {% else %}
 	{% assign validEventDate = false %}
 {% endif %}
 
-{% if page.author %}
-	{% unless page.author == "Civil Service LGBT+ Network" %}
-		{% assign host = page.author | replace: "The ", "the " %}
-	{% else %}
-		{% assign host = "Civil Service LGBT+ Network" %}
-	{% endunless %}
+{% if page.event.host %}
+	{% assign host = page.event.host %}
 {% endif %}
 
-{% assign location = page.location %}
-{% assign registrationURL = page.link %}
-{% assign registrationEmail = page.email %}
-{% assign registrationNotRequired = page.no-register %}
+{% assign location = page.event.location %}
 
+{% assign registrationURL = page.registration.link %}
+{% assign registrationEmail = page.registration.email %}
+{% assign registrationNotRequired = page.registration.no-register %}
 
 <article class="article--{{ page.layout }}">
 

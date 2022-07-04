@@ -14,7 +14,7 @@
 			</dd>
 
 			{% if eventTakenPlace == false %}
-			{% if page.registration-close-date %}
+			{% if registrationCloseDate %}
 			<dt class="event--event-details--label">Registration closing date</dt>
 			<dd class="event--event-details--value">
 				{% if eventRegistrationOpen == true %}
@@ -24,12 +24,17 @@
 				{% endif %}
 			</dd>
 			{% endif %}
-
+			
+			{% if location %}
 			<dt class="event--event-details--label">Location</dt>
 			<dd class="event--event-details--value">{{ location }}</dd>
+			{% endif %}
 
+			{% if host %}
 			<dt class="event--event-details--label">Hosted by</dt>
 			<dd class="event--event-details--value">{{ host }}</dd>
+			{% endif %}
+			
 			{% else if eventTakenPlace == true %}
 			<p><strong>This event has already taken place.</strong></p>
 			{% endif %}
@@ -39,7 +44,7 @@
 
 	{% include layouts/event-register-buttons.html %}
 
-	{% if page.link contains "docs.google.com" %}
+	{% if page.event.link contains "docs.google.com" %}
 		<blockquote class="warning-text"">
 			<p><strong>This registration form is a Google Form.</strong></p>
 			<p>Google Forms are blocked by some departmental IT systems. If you can't open or submit this form, please try again from a personal device.</p>
