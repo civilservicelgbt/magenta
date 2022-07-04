@@ -81,16 +81,16 @@ meta-info: false
 								<div class="checkboxes">
 								{% assign now = 'now' | date: '%s' %}
 								{% assign recent = now | plus: 5260000 | date: '%s' %}
-								{% assign posts = site.events | sort: "start-date" %}
+								{% assign posts = site.events | sort: "event.start" %}
 
 								{% for post in posts %}
-									{% assign event-start-date = post.start-date | date: "%s" %}
+									{% assign event-start-date = post.event.start | date: "%s" %}
 									{% if event-start-date > now and event-start-date < recent %}
 									<div class="checkboxes--item">
-										<input onchange="updateContent('general')" class="checkboxes--input" id="{{ post.id | slugify }}" name="notify-posts" type="checkbox" value="{{ post.id | slugify }}" data-title="{{ post.title }}"  data-collection="{{ post.collection }}" data-category="{{ post.category | first | slugify }}" data-excerpt="{{ post.excerpt }}" data-date="{{ post.start-date | date: '%d %B %Y' }}" data-url="https://www.civilservice.lgbt{{ post.url }}" >
+										<input onchange="updateContent('general')" class="checkboxes--input" id="{{ post.id | slugify }}" name="notify-posts" type="checkbox" value="{{ post.id | slugify }}" data-title="{{ post.title }}"  data-collection="{{ post.collection }}" data-category="{{ post.category | first | slugify }}" data-excerpt="{{ post.excerpt }}" data-date="{{ post.event.start | date: '%d %B %Y' }}" data-url="https://www.civilservice.lgbt{{ post.url }}" >
 	            			<label class="checkboxes--label" for="{{ post.id | slugify }}">
 											<strong>{{ post.title }}</strong>
-											<span class="hint checkboxes-hint"> Event on {{ post.start-date | date: "%d %B %Y" }}</span>
+											<span class="hint checkboxes-hint"> Event on {{ post.event.start | date: "%d %B %Y" }}</span>
 										</label>
 									</div>
 									{% endif %}
