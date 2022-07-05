@@ -65,7 +65,7 @@
 
 				<a href="{{ site.url | append: site.baseurl | append: volunteer.url }}" class="volunteer--link volunteer--author">
 					{% if volunteer.image %}
-					<img src="{{ volunteer.image }}" class="volunteer--image volunteer--image--small" loading="lazy" alt="a photo of {{ volunteer.name }}">
+					<img src="{{ volunteer.image }}" class="volunteer--image volunteer--image--small" loading="lazy" alt="a photo of {{ volunteer.person-name }}">
 					{% else %}
 					<img src="{{ site.url | append: site.baseurl | append: '/assets/images/volunteers/no-picture.jpg' }}" class="volunteer--image volunteer--image--small pixelate" alt="a blank profile image">
 					{% endif %}
@@ -75,7 +75,7 @@
 
 					<dt class="page--meta-info--term">By</dt>
 					<dd class="page--meta-info--definition">
-						<a href="{{ site.url | append: site.baseurl | append: volunteer.url }}" class="link--no-underline link--text-color">{{ volunteer.name }}</a>
+						<a href="{{ site.url | append: site.baseurl | append: volunteer.url }}" class="link--no-underline link--text-color">{{ volunteer.person-name }}</a>
 
 					</dd>
 
