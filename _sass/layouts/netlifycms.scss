@@ -1,7 +1,187 @@
 
 // Netlify CMS tweaks
 #nc-root {
-	span > img {
+	font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif !important;
+	-webkit-font-smoothing: antialiased;
+	box-sizing: border-box !important;
+	background: color("magenta--light");
+	
+	a, button, span[role="button"] {
+		border-radius: 0 !important;
+	}
+	
+	header[class*="AppHeader"] {
+		background: color("magenta--accessible") !important;
+	}
+	
+	a[class*="AppHeaderNavLink"] {
+		color: color("white");
+		
+		border-radius: 0 !important;
+		
+		svg > path {
+			fill: color("white");
+		}
+		
+		&:link {
+			color: color("white");
+			
+			svg > path {
+				fill: color("white");
+			}
+		}
+		&:hover {
+			color: color("magenta--light");
+			background: color("magenta");
+			
+			svg > path {
+				fill: color("white");
+			}
+		}
+		&:focus {
+			color: color("black");
+			background: color("yellow");
+			
+			svg > path {
+				fill: color("black");
+			}
+		}
+	}
+	
+	a[class*="CollectionTopNewButton"] {
+		color: color("white");
+		background: color("magenta--accessible");
+
+		border-radius: 0 !important;
+		
+		svg > path {
+			fill: color("white");
+		}
+		
+		&:link {
+			color: color("white");
+			background: color("magenta--accessible");
+			
+			svg > path {
+				fill: color("white");
+			}
+		}
+		&:hover {
+			color: color("magenta--light");
+			background: color("magenta");
+			
+			svg > path {
+				fill: color("white");
+			}
+		}
+		&:focus {
+			color: color("black");
+			background: color("yellow");
+			
+			svg > path {
+				fill: color("black");
+			}
+		}
+	}
+	
+	button[class*="AppHeaderButton"] {
+		color: color("white");
+		
+		border-radius: 0 !important;
+		
+		svg > path {
+			fill: color("white");
+		}
+		
+		&:hover {
+			color: color("magenta--light");
+			background: color("magenta");
+			
+			svg > path {
+				fill: color("white");
+			}
+		}
+		&:focus {
+			color: color("black");
+			background: color("yellow");
+			outline: 3px solid color("yellow");
+			
+			svg > path {
+				fill: color("black");
+			}
+		}
+	}
+	
+	div[class*="AppHeaderActions"] {
+		
+		span[class*="StyledDropdownButton"] {
+			display: inline;
+			padding: 5px 30px 5px 10px;
+			
+			font-size: 16px;
+			border-radius: 0;
+			
+			background: color("magenta--accessible");
+			color: color("white");
+			border: 3px solid color("white");
+		}
+		
+	}
+	
+	a[class*="AppHeaderSiteLink"] {
+		&:link,
+		&:visited {
+			color: $link-color--inverse;
+		}
+		&:hover {
+  			text-decoration: underline;
+		}
+		&:focus {
+			color: $link-color--focus;
+		}
+	}
+	
+	img[class*="AvatarImage"] {
 		margin: 0 !important;
+		border: 2px solid color("white");
+	}
+	
+	label[class*="FieldLabel"] {
+		background: color("magenta--accessible");
+		color: color("white");
+	}
+	
+	input, textarea {
+		border-color: color("magenta--accessible") !important;
+	}
+	
+	div.cms-editor-raw,
+	div.cms-editor-visual {
+		> div > div {
+			border-color: color("magenta--accessible") !important;
+		}
+		div[class*="ToolbarContainer"] {
+			background: color("magenta--accessible");
+			color: color("white");
+			
+			svg > path {
+				fill: color("white");
+			}
+		}
+		span[class*="ToolbarToggleLabel-ToolbarToggleLabel"] {
+			color: color("magenta--accessible");
+		}
+		span[class*="ToolbarToggleLabel"] {
+			color: color("white");
+		}
+		span[class*="ToggleBackground"] {
+			background: color("magenta--light");
+		}
+		span[class*="ToggleHandle"] {
+			background: color("magenta");
+		}
+		div[class*="ControlContainer"] div {
+			border-color: color("magenta--accessible") !important;
+		}
 	}
 }
