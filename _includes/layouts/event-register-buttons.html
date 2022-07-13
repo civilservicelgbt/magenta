@@ -1,18 +1,20 @@
 {% if eventTakenPlace == false %}
 <section class="section--event-registration">
 
-	{% if page.event.link and page.event.email %}
 	<div class="button-group">
+		
+		{% if page.event.link %}{% unless page.event.link == "" %}
 		<a href="{{ page.event.link }}" title="Register for this event" class="button button--event button-half">Register online</a>
+		{% endunless %}{% endif %}
+		{% if page.event.email %}{% unless page.event.email == "" %}
 		<a href="mailto:{{ page.event.email }}" title="Email {{ page.event.email }}" class="button button--event button-half">Register by email</a>
+		{% endunless %}{% endif %}
+		
 	</div>
-	{% elsif page.event.link %}
-	<a href="{{ page.event.link }}" title="Register for this event" class="button button--event">Register online</a>
-	{% elsif page.event.email %}
-	<a href="mailto:{{ page.event.email }}" title="Email {{ page.event.email }}" class="button button--event">Register by email</a>
-	{% elsif page.event.no-register %}
+
+	{% if page.event.no-register %}{% unless page.event.no-register == "" %}
 	<p>{{ page.event.no-register }}</p>
-	{% endif %}
+	{% endunless %}{% endif %}
 
 </section>
 {% else %}
