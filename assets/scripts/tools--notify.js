@@ -110,7 +110,7 @@
 						console.groupEnd();
 
 						emailMessageContent += "---\n";
-						emailMessageContent += "# [" + postTitle + "](" + postURL + "\n";
+						emailMessageContent += "# [" + postTitle + "](" + postURL + ")\n";
 						emailMessageContent += "Taking place on " + postDate + "\n\n";
 						emailMessageContent += postExcerpt + "\n\n";
 					} else {
@@ -123,9 +123,8 @@
 						console.groupEnd();
 
 						emailMessageContent += "---\n";
-						emailMessageContent += "# " + postTitle + "\n";
+						emailMessageContent += "# [" + postTitle + "](" + postURL + ")\n";
 						emailMessageContent += postExcerpt + "\n\n";
-						emailMessageContent += "Read more at: \n" + postURL + "\n\n";
 						emailMessageContent += "Published " + postDate + "\n\n";
 					}
 		  }
