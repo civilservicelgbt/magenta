@@ -36,14 +36,6 @@ breadcrumbs: false
 							<a href="/manual/format-a-post" class="button">Read the guidance</a>
 						</div>
 					</div>
-					<!-- <div class="grid-column-one-half">
-						<div class="admin--link-block admin--link-block--guidance">
-							<span class="caption-lg">Guidance</span>
-							<h2>Learn how to use GitHub</h2>
-							<p>Read the guidance about how to add a post to the website using GitHub.</p>
-							<a href="/manual/using-github" class="button">Read the guidance</a>
-						</div>
-					</div> -->
 				</div>
 
 			</div>
@@ -55,15 +47,8 @@ breadcrumbs: false
       <div class="page--content">
 
 			<h2>Add a website post</h2>
-      {% assign tools = site.tools | where: "tool-type", "website" %}
-      {% for tool in tools %}
-				  <details>
-            <summary>{{ tool.title | remove: "Add an " | remove: "Add a " | capitalize }}</summary>
-				      <p>{{ tool.excerpt }}</p>
-				      <a href="{{ tool.url }}" class="button">{{ tool.title }}</a>
-				  </details>
       
-      {% endfor %}
+			<p>You can add a post to the website using our <a href="https://www.civilservice.lgbt/admin">content management system</a>.</p>
       
       </div>
 		</div>
