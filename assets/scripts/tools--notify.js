@@ -110,10 +110,9 @@
 						console.groupEnd();
 
 						emailMessageContent += "---\n";
-						emailMessageContent += "# " + postTitle + "\n";
+						emailMessageContent += "# [" + postTitle + "](" + postURL + ")\n";
 						emailMessageContent += "Taking place on " + postDate + "\n\n";
 						emailMessageContent += postExcerpt + "\n\n";
-						emailMessageContent += "Find out more and register to attend at: \n" + postURL + "\n\n";
 					} else {
 						console.groupCollapsed(postTitle);
 							console.info("Collection: " + postCollection);
@@ -124,9 +123,8 @@
 						console.groupEnd();
 
 						emailMessageContent += "---\n";
-						emailMessageContent += "# " + postTitle + "\n";
+						emailMessageContent += "# [" + postTitle + "](" + postURL + ")\n";
 						emailMessageContent += postExcerpt + "\n\n";
-						emailMessageContent += "Read more at: \n" + postURL + "\n\n";
 						emailMessageContent += "Published " + postDate + "\n\n";
 					}
 		  }
@@ -134,7 +132,7 @@
 		console.groupEnd()
 
 		emailMessageContent += "---\n"
-		emailMessageContent += "If you no longer want to receive our email alerts, please email us at updates@alerts.civilservice.lgbt or just reply to this email."
+		emailMessageContent += "If you no longer want to receive our email alerts, please email us at [updates@alerts.civilservice.lgbt](mailto:updates@alerts.civilservice.lgbt) or just reply to this email."
 
 		inputTemplateName.value = emailTemplateName;
 		inputSubject.value = emailSubject;

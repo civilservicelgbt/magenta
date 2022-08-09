@@ -1,6 +1,7 @@
 
 // Netlify CMS tweaks
 #nc-root {
+	min-height: 100vh;
 	font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif !important;
 	-webkit-font-smoothing: antialiased;
 	box-sizing: border-box !important;
