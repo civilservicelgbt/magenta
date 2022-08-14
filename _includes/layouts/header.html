@@ -85,7 +85,7 @@
 						<dt class="page--meta-info--term">Role</dt>
 						<dd class="page--meta-info--definition">
 							{% if volunteer.archive == true %}Former{% endif %}
-							{{ volunteer.role | capitalize }}{% if volunteer.region %}, {{ volunteer.region | capitalize }}{% endif %}{% if volunteer.project %}, {{ volunteer.project | capitalize }}{% endif %}
+							{{ volunteer.role | capitalize }}{% if volunteer.region %}, {{ volunteer.region }}{% endif %}{% if volunteer.project %}, {{ volunteer.project | capitalize }}{% endif %}
 						</dd>
 					{% endif %}
 

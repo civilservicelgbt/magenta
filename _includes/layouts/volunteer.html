@@ -17,7 +17,7 @@
 			<span class="volunteer--role">{{ volunteer.role | capitalize }}</span>
 		{% else %}
 			{% if volunteer.region %}
-			<span class="volunteer--role">{{ volunteer.region | capitalize }}</span>
+			<span class="volunteer--role">{{ volunteer.region }}</span>
 			{% elsif volunteer.project %}
 			<span class="volunteer--role">{{ volunteer.project | capitalize }}</span>
 			{% else %}
