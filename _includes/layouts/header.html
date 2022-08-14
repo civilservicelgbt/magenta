@@ -17,8 +17,10 @@
 
 	{% endunless %}
 
-	{% if page.layout == loop %}
+	{% if page.layout == "loop" %}
 		{% assign title = collection | capitalize | replace: '-', ' ' %}
+	{% elsif page.layout == "team" %}
+		{% assign title = page.person-name %}
 	{% else %}
 		{% assign title = page.title %}
 	{% endif %}
