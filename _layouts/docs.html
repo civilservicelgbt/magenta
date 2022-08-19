@@ -7,11 +7,11 @@ breadcrumbs:
   url: "https://www.civilservice.lgbt/"
 - title: Tools
   url: "https://www.civilservice.lgbt/tools/"
-- title: Design system
-  url: "https://www.civilservice.lgbt/design-system/"
+- title: Mentor matcher
+  url: "http://mentoring.service.civilservice.lgbt/"
 ---
 {% assign cat-count = 0 %}
-{% for item in site.design-system %}
+{% for item in site.docs %}
   {% unless item.categories == null %}
     {% assign cat-count = cat-count | plus: 1 %}
   {% endunless %}
@@ -22,6 +22,7 @@ breadcrumbs:
     {% include layouts/header.html %}
 
 </div>
+
 <div class="grid-row">
 
     <div class="grid-column-one-third">
@@ -29,7 +30,7 @@ breadcrumbs:
         <ul class="list--no-styles collection--left-nav--navigation">
 
         {% if cat-count > 0 %}
-          {% assign groups = site.design-system | group_by: "categories" | sort: "name" %}
+          {% assign groups = site.docs | group_by: "categories" | sort: "name" %}
 
           {% for group in groups %}
           {{ group.name | remove: '["' | remove: '"]' | capitalize | prepend: '<li class="list--category">' | append: '</li><ul class="list--no-styles">' }}
