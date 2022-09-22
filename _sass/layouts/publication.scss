@@ -8,8 +8,9 @@
 }
 
 #markdown-toc {
-	@extend .grid-column-one-third;
-	padding-bottom: spacing(5);
+	padding: spacing(5) 0;
+	border-top: 3px solid color("magenta");
+	border-bottom: 3px solid color("light-gray");
 }
 
 #markdown-toc li {
@@ -17,9 +18,13 @@
 }
 
 #markdown-toc li:first-child {
-	border-top: 3px solid color("magenta");
-	padding-top: spacing(5);
 
+	&::before {
+		position: relative;
+		display: block;
+		@extend h3;
+		content: "Contents";
+	}
 	@include media-query($media-type: print) {
 		page-break-before: always;
 		border-top: none !important;
