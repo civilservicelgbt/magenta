@@ -1,0 +1,331 @@
+---
+layout: skeleton
+meta-info: false
+---
+
+{% include components/header.html %}
+{% include components/notification-banner.html %}
+
+{% if page.background %}
+      {% assign background = page.background %}
+{% else %}
+      {% assign background = "magenta" %}
+{% endif %}
+
+{% assign agendas = site.agendas | where_exp: "event", "event.event == page.category" %}
+
+<main class="main-wrapper main-wrapper--auto-spacing main-wrapper--no-top-padding" id="main-content" role="main">
+      
+      <header class="event--banner event--banner--{{ page.category }} topic--background--{{ background }}">
+        <div class="width-container">
+              <div class="grid-row">
+                    <div class="grid-column-full">
+                          <h1 class="event--heading">{{ page.title | default: "Civil Service LGBT+ Conference" }}</h1>
+                          <p class="event--date">{{ page.event-date | default: "6 October 2022" }}</h1>
+                    </div>
+              </div>
+        </div>
+      </header>
+                  
+      <div class="width-container">
+
+            <section class="section--{{ page.layout }}">
+                  
+                  <div id="page--content">
+                                                            
+                        <section id="event--section--{{ topicCollection }}" class="event--section">
+                              
+                              <div class="grid-row">
+                              
+                                    <div class="grid-column-one-third">
+                                          <h2 class="topic--section-title">Welcome</h2>
+                                    </div>
+                                    
+                                    <div class="grid-column-two-thirds">
+
+                                          {% assign section = agendas | where: "section", "welcome" | sort: "sequence" %}
+                                          {% for item in section %}
+                                          
+                                                <details>
+                                                      <summary>{{ item.title }}</summary>
+                                                      {{ item.content | markdownify }}
+                                                </details>
+                                          
+                                          {% endfor %}
+                                          
+                                    </div>
+                                    
+                              </div>
+                              
+                        </section>
+                        
+                        <section id="event--section--{{ topicCollection }}" class="event--section">
+                              
+                              <div class="grid-row">
+                              
+                                    <div class="grid-column-one-third">
+                                          <h2 class="topic--section-title">
+                                                Before you arrive
+                                          </h2>
+                                    </div>
+                                    
+                                    <div class="grid-column-two-thirds">
+                                    
+                                          {% assign section = agendas | where: "section", "before" | sort: "sequence" %}
+                                          {% for item in section %}
+                                          
+                                                <details>
+                                                      <summary>{{ item.title }}</summary>
+                                                      {{ item.content | markdownify }}
+                                                </details>
+                                          
+                                          {% endfor %}
+                                          
+                                    </div>
+                                    
+                              </div>
+                              
+                        </section>
+                        
+                        <section id="event--section--{{ topicCollection }}" class="event--section">
+                              
+                              <div class="grid-row">
+                              
+                                    <div class="grid-column-one-third">
+                                          <h2 class="topic--section-title">
+                                                {% if page.event-type == "virtual" %}
+                                                      Joining the conference
+                                                {% elsif page.event-type == "in person" %}
+                                                      Getting to the conference
+                                                {% else %}
+                                                      Logistics
+                                                {% endif %}
+                                          </h2>
+                                    </div>
+                                    
+                                    <div class="grid-column-two-thirds">
+                                    
+                                          {% assign section = agendas | where: "section", "logistics" | sort: "sequence" %}
+                                          {% for item in section %}
+                                          
+                                                <details>
+                                                      <summary>{{ item.title }}</summary>
+                                                      {{ item.content | markdownify }}
+                                                </details>
+                                          
+                                          {% endfor %}
+                                          
+                                    </div>
+                                    
+                              </div>
+                              
+                        </section>
+                        
+                        <section id="event--section--{{ topicCollection }}" class="event--section">
+                              
+                              <div class="grid-row">
+                              
+                                    <div class="grid-column-one-third">
+                                          <h2 class="topic--section-title">
+                                                Agenda
+                                          </h2>
+                                    </div>
+                                    
+                                    <div class="grid-column-two-thirds">
+                                    
+                                          {% assign section = agendas | where: "section", "agenda" | sort: "sequence" %}
+                                          {% for item in section %}
+                                          
+                                                <details>
+                                                      <summary>{{ item.title }}</summary>
+                                                      {{ item.content | markdownify }}
+                                                </details>
+                                          
+                                          {% endfor %}
+                                          
+                                    </div>
+                                    
+                              </div>
+                              
+                        </section>
+                        
+                        <section id="event--section--{{ topicCollection }}" class="event--section">
+                              
+                              <div class="grid-row">
+                              
+                                    <div class="grid-column-one-third">
+                                          <h2 class="topic--section-title">
+                                                Plenary sessions
+                                          </h2>
+                                    </div>
+                                    
+                                    <div class="grid-column-two-thirds">
+                                    
+                                          {% assign section = agendas | where: "section", "plenary" %}
+                                          {% for item in section %}
+                                          
+                                                <details>
+                                                      <summary>{{ item.title }}</summary>
+                                                      {{ item.content | markdownify }}
+                                                </details>
+                                          
+                                          {% endfor %}
+                                          
+                                    </div>
+                                    
+                              </div>
+                              
+                        </section>
+                        
+                        <section id="event--section--{{ topicCollection }}" class="event--section">
+                              
+                              <div class="grid-row">
+                              
+                                    <div class="grid-column-one-third">
+                                          <h2 class="topic--section-title">
+                                                Workshops
+                                          </h2>
+                                    </div>
+                                    
+                                    <div class="grid-column-two-thirds">
+                                    
+                                          {% assign section = agendas | where: "section", "workshop" %}
+                                          {% for item in section %}
+                                          
+                                                <details>
+                                                      <summary>{{ item.title }}</summary>
+                                                      {{ item.content | markdownify }}
+                                                </details>
+                                          
+                                          {% endfor %}
+                                          
+                                    </div>
+                                    
+                              </div>
+                              
+                        </section>
+                        
+                        <section id="event--section--{{ topicCollection }}" class="event--section">
+                              
+                              <div class="grid-row">
+                              
+                                    <div class="grid-column-one-third">
+                                          <h2 class="topic--section-title">
+                                                Speakers
+                                          </h2>
+                                    </div>
+                                    
+                                    <div class="grid-column-two-thirds">
+                                    
+                                          {% assign section = agendas | where: "section", "speaker" %}
+                                          {% for item in section %}
+                                          
+                                                <details>
+                                                      <summary>{{ item.title }}</summary>
+                                                      {{ item.content | markdownify }}
+                                                </details>
+                                          
+                                          {% endfor %}
+                                          
+                                    </div>
+                                    
+                              </div>
+                              
+                        </section>
+                        
+                        <section id="event--section--{{ topicCollection }}" class="event--section">
+                              
+                              <div class="grid-row">
+                              
+                                    <div class="grid-column-one-third">
+                                          <h2 class="topic--section-title">
+                                                During the event
+                                          </h2>
+                                    </div>
+                                    
+                                    <div class="grid-column-two-thirds">
+                                    
+                                          {% assign section = agendas | where: "section", "during" %}
+                                          {% for item in section %}
+                                          
+                                                <details>
+                                                      <summary>{{ item.title }}</summary>
+                                                      {{ item.content | markdownify }}
+                                                </details>
+                                          
+                                          {% endfor %}
+                                          
+                                    </div>
+                                    
+                              </div>
+                              
+                        </section>
+                        
+                        <section id="event--section--{{ topicCollection }}" class="event--section">
+                              
+                              <div class="grid-row">
+                              
+                                    <div class="grid-column-one-third">
+                                          <h2 class="topic--section-title">
+                                                After the event
+                                          </h2>
+                                    </div>
+                                    
+                                    <div class="grid-column-two-thirds">
+                                    
+                                          {% assign section = agendas | where: "section", "after" %}
+                                          {% for item in section %}
+                                          
+                                                <details>
+                                                      <summary>{{ item.title }}</summary>
+                                                      {{ item.content | markdownify }}
+                                                </details>
+                                          
+                                          {% endfor %}
+                                          
+                                    </div>
+                                    
+                              </div>
+                              
+                        </section>
+                        
+                        <section id="event--section--{{ topicCollection }}" class="event--section">
+                              
+                              <div class="grid-row">
+                              
+                                    <div class="grid-column-one-third">
+                                          <h2 class="topic--section-title">
+                                                With thanks
+                                          </h2>
+                                    </div>
+                                    
+                                    <div class="grid-column-two-thirds">
+                                    
+                                          {% assign section = agendas | where: "section", "thanks" %}
+                                          {% for item in section %}
+                                          
+                                                <details>
+                                                      <summary>{{ item.title }}</summary>
+                                                      {{ item.content | markdownify }}
+                                                </details>
+                                          
+                                          {% endfor %}
+                                          
+                                    </div>
+                                    
+                              </div>
+                              
+                        </section>
+                  
+                  </div>
+                        
+            </section>
+            
+      </div>
+      
+</main>
+
+</div>
+
+{% include components/footer.html %}
+

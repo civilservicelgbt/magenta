@@ -127,3 +127,47 @@
     border-bottom: none;
   }
 }
+
+.event--banner {
+	display: block;
+	padding: spacing(6) 0;
+	margin-bottom: spacing(6);
+	background: url("/assets/images/conference-icons.svg"), color("magenta");
+	background-size: 200px;
+	background-position: center;
+	background-clip: border-box;
+	
+	h1.event--heading {
+		color: color("white");
+		@include font($size: 96, $weight: bold);
+		@include media-query($from:tablet) {
+			margin: spacing(10) 0 spacing(3);
+		}
+		padding-top: spacing(7);
+	}
+	p.event--date {
+		color: color("yellow");
+		@include font($size: 48, $weight: bold);
+		text-align: right;
+	}
+}
+
+section.event--section {
+	margin-bottom: spacing(10);
+	
+	@include media-query($from: tablet) {
+		details:first-of-type {
+			border-top: 5px solid color("light-gray");
+		}	
+		
+		div.event-paragraph {
+			border-top: 5px solid color("light-gray");
+			padding: spacing(5) 0;
+		}
+	}
+}
+
+.event--section-title {
+	padding-top: spacing(4);
+	border-top: 5px solid color("magenta");
+}

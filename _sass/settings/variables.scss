@@ -198,6 +198,20 @@ $typography-scale: (
 			line-height: 1.1
 		)
 	),
+  96: (
+        null: (
+            font-size: 36px,
+            line-height: 42px
+        ),
+        tablet: (
+            font-size: 88px,
+            line-height: 88px
+        ),
+        print: (
+            font-size: 60pt,
+            line-height: 1.1
+        )
+    ),
 	80: (
         null: (
             font-size: 43px,
