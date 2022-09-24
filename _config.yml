@@ -265,6 +265,11 @@ collections:
     defaults:
       values:
         layout: page
+  agendas:
+    defaults:
+      values:
+        layout: agenda
+        
 
 ##################
 # Build settings #
