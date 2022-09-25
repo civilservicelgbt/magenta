@@ -28,11 +28,21 @@ meta-info: false
       </header>
                   
       <div class="width-container">
+            
+            <div class="grid-row">
+            
+                  <div class="grid-column-two-thirds">
+                        {{ content }}
+                  </div>
+            
+            </div>
 
             <section class="section--{{ page.layout }}">
                   
                   <div id="page--content">
-                                                            
+
+                        {% assign section = agendas | where: "section", "welcome" | sort: "sequence" %}
+                        {% if section != empty %}                 
                         <section id="event--section--{{ topicCollection }}" class="event--section">
                               
                               <div class="grid-row">
@@ -43,7 +53,6 @@ meta-info: false
                                     
                                     <div class="grid-column-two-thirds">
 
-                                          {% assign section = agendas | where: "section", "welcome" | sort: "sequence" %}
                                           {% for item in section %}
                                           
                                                 <details>
@@ -58,7 +67,10 @@ meta-info: false
                               </div>
                               
                         </section>
+                        {% endif %}
                         
+                        {% assign section = agendas | where: "section", "before" | sort: "sequence" %}
+                        {% if section != empty %}                 
                         <section id="event--section--{{ topicCollection }}" class="event--section">
                               
                               <div class="grid-row">
@@ -71,7 +83,6 @@ meta-info: false
                                     
                                     <div class="grid-column-two-thirds">
                                     
-                                          {% assign section = agendas | where: "section", "before" | sort: "sequence" %}
                                           {% for item in section %}
                                           
                                                 <details>
@@ -86,7 +97,10 @@ meta-info: false
                               </div>
                               
                         </section>
+                        {% endif %}
                         
+                        {% assign section = agendas | where: "section", "logistics" | sort: "sequence" %}
+                        {% if section != empty %}                 
                         <section id="event--section--{{ topicCollection }}" class="event--section">
                               
                               <div class="grid-row">
@@ -105,7 +119,6 @@ meta-info: false
                                     
                                     <div class="grid-column-two-thirds">
                                     
-                                          {% assign section = agendas | where: "section", "logistics" | sort: "sequence" %}
                                           {% for item in section %}
                                           
                                                 <details>
@@ -120,7 +133,10 @@ meta-info: false
                               </div>
                               
                         </section>
+                        {% endif %}
                         
+                        {% assign section = agendas | where: "section", "agenda" | sort: "sequence" %}
+                        {% if section != empty %}                 
                         <section id="event--section--{{ topicCollection }}" class="event--section">
                               
                               <div class="grid-row">
@@ -133,7 +149,6 @@ meta-info: false
                                     
                                     <div class="grid-column-two-thirds">
                                     
-                                          {% assign section = agendas | where: "section", "agenda" | sort: "sequence" %}
                                           {% for item in section %}
                                           
                                                 <details>
@@ -148,7 +163,10 @@ meta-info: false
                               </div>
                               
                         </section>
+                        {% endif %}
                         
+                        {% assign section = agendas | where: "section", "plenary" %}
+                        {% if section != empty %}                 
                         <section id="event--section--{{ topicCollection }}" class="event--section">
                               
                               <div class="grid-row">
@@ -161,7 +179,6 @@ meta-info: false
                                     
                                     <div class="grid-column-two-thirds">
                                     
-                                          {% assign section = agendas | where: "section", "plenary" %}
                                           {% for item in section %}
                                           
                                                 <details>
@@ -176,7 +193,10 @@ meta-info: false
                               </div>
                               
                         </section>
+                        {% endif %}
                         
+                        {% assign section = agendas | where: "section", "workshop" %}
+                        {% if section != empty %}                 
                         <section id="event--section--{{ topicCollection }}" class="event--section">
                               
                               <div class="grid-row">
@@ -189,7 +209,6 @@ meta-info: false
                                     
                                     <div class="grid-column-two-thirds">
                                     
-                                          {% assign section = agendas | where: "section", "workshop" %}
                                           {% for item in section %}
                                           
                                                 <details>
@@ -204,7 +223,10 @@ meta-info: false
                               </div>
                               
                         </section>
+                        {% endif %}
                         
+                        {% assign section = agendas | where: "section", "speaker" %}
+                        {% if section != empty %}                 
                         <section id="event--section--{{ topicCollection }}" class="event--section">
                               
                               <div class="grid-row">
@@ -217,7 +239,6 @@ meta-info: false
                                     
                                     <div class="grid-column-two-thirds">
                                     
-                                          {% assign section = agendas | where: "section", "speaker" %}
                                           {% for item in section %}
                                           
                                                 <details>
@@ -232,7 +253,10 @@ meta-info: false
                               </div>
                               
                         </section>
+                        {% endif %}
                         
+                        {% assign section = agendas | where: "section", "during" %}
+                        {% if section != empty %}                 
                         <section id="event--section--{{ topicCollection }}" class="event--section">
                               
                               <div class="grid-row">
@@ -245,7 +269,6 @@ meta-info: false
                                     
                                     <div class="grid-column-two-thirds">
                                     
-                                          {% assign section = agendas | where: "section", "during" %}
                                           {% for item in section %}
                                           
                                                 <details>
@@ -260,7 +283,10 @@ meta-info: false
                               </div>
                               
                         </section>
+                        {% endif %}
                         
+                        {% assign section = agendas | where: "section", "after" %}
+                        {% if section != empty %}                 
                         <section id="event--section--{{ topicCollection }}" class="event--section">
                               
                               <div class="grid-row">
@@ -273,7 +299,6 @@ meta-info: false
                                     
                                     <div class="grid-column-two-thirds">
                                     
-                                          {% assign section = agendas | where: "section", "after" %}
                                           {% for item in section %}
                                           
                                                 <details>
@@ -288,7 +313,10 @@ meta-info: false
                               </div>
                               
                         </section>
+                        {% endif %}
                         
+                        {% assign section = agendas | where: "section", "thanks" %}
+                        {% if section != empty %}                 
                         <section id="event--section--{{ topicCollection }}" class="event--section">
                               
                               <div class="grid-row">
@@ -301,7 +329,6 @@ meta-info: false
                                     
                                     <div class="grid-column-two-thirds">
                                     
-                                          {% assign section = agendas | where: "section", "thanks" %}
                                           {% for item in section %}
                                           
                                                 <details>
@@ -316,6 +343,7 @@ meta-info: false
                               </div>
                               
                         </section>
+                        {% endif %}
                   
                   </div>
                         
