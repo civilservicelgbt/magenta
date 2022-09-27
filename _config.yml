@@ -162,12 +162,6 @@ theme-colour: "#e6007e"
 # Google settings
 google-site-verification: "RA-YBjxyRYVSuSFAYLKkufs6gjme6kMcihoB2KgKrTA"
 
-##############
-# Newsletter #
-##############
-# Mailchimp
-unsubscribe-form: "https://us17.admin.mailchimp.com/lists/designer/?id=118945"
-
 ###############
 # Collections #
 ###############
@@ -201,13 +195,13 @@ collections:
         layout: publication
   consultations:
     output: true
-    permalink: /consultation/:title/
+    permalink: /consultation/:year/:month/:day/:title/
     defaults:
       values:
         layout: consultation
   events:
     output: true
-    permalink: /event/:title/
+    permalink: /event/:name/
     defaults:
       values:
         layout: event
@@ -265,15 +259,17 @@ collections:
     defaults:
       values:
         layout: page
-  agendas:
+  conference:
+    output: true
+    permalink: /agenda/:title/
     defaults:
       values:
         layout: agenda
-        
 
 ##################
 # Build settings #
 ##################
+remote_theme: civilservicelgbt/magenta
 permalink: pretty
 markdown: kramdown
 highlighter: rouge
