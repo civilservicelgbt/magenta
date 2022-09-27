@@ -12,7 +12,7 @@ meta-info: false
       {% assign background = "magenta" %}
 {% endif %}
 
-{% assign agendas = site.agendas | where_exp: "event", "event.event == page.category" %}
+{% assign agendas = site.conferences | where_exp: "event", "event.event == page.category" %}
 
 <main class="main-wrapper main-wrapper--auto-spacing main-wrapper--no-top-padding" id="main-content" role="main">
       
