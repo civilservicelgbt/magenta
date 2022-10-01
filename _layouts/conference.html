@@ -165,7 +165,7 @@ meta-info: false
                         </section>
                         {% endif %}
                         
-                        {% assign section = agendas | where: "section", "plenary" %}
+                        {% assign section = agendas | where: "section", "session" %}
                         {% if section != empty %}                 
                         <section id="event--section--{{ topicCollection }}" class="event--section">
                               
@@ -173,37 +173,7 @@ meta-info: false
                               
                                     <div class="grid-column-one-third">
                                           <h2 class="topic--section-title">
-                                                Plenary sessions
-                                          </h2>
-                                    </div>
-                                    
-                                    <div class="grid-column-two-thirds">
-                                    
-                                          {% for item in section %}
-                                          
-                                                <details>
-                                                      <summary>{{ item.title }}</summary>
-                                                      {{ item.content | markdownify }}
-                                                </details>
-                                          
-                                          {% endfor %}
-                                          
-                                    </div>
-                                    
-                              </div>
-                              
-                        </section>
-                        {% endif %}
-                        
-                        {% assign section = agendas | where: "section", "workshop" %}
-                        {% if section != empty %}                 
-                        <section id="event--section--{{ topicCollection }}" class="event--section">
-                              
-                              <div class="grid-row">
-                              
-                                    <div class="grid-column-one-third">
-                                          <h2 class="topic--section-title">
-                                                Workshops
+                                                Sessions
                                           </h2>
                                     </div>
                                     
