@@ -9,18 +9,111 @@
 	p:last-child {
 		margin-bottom: 0;
 	}
-
-	background: color("cyan");
-
-	* {
-		color: color("white");
-
-		&:link,
-		&:visited, {
+	
+	&.background-cyan {
+		background: color("cyan--accessible");
+		
+		* {
 			color: color("white");
+		
+			&:link,
+			&:visited, {
+				color: color("white");
+			}
+			&:focus {
+				@include focused-text;
+			}
 		}
-		&:focus {
-			@include focused-text;
+	}
+	&.background-magenta {
+		background: color("magenta--accessible");
+		
+		* {
+			color: color("white");
+		
+			&:link,
+			&:visited, {
+				color: color("white");
+			}
+			&:focus {
+				@include focused-text;
+			}
+		}
+	}
+	&.background-purple {
+		background: color("purple");
+		
+		* {
+			color: color("white");
+		
+			&:link,
+			&:visited, {
+				color: color("white");
+			}
+			&:focus {
+				@include focused-text;
+			}
+		}
+		
+	}
+	&.background-yellow {
+		background: color("yellow");
+		
+		* {
+			color: color("black");
+		
+			&:link,
+			&:visited, {
+				color: color("black");
+			}
+			&:focus {
+				@include focused-text;
+			}
+		}
+	}
+	&.background-green {
+		background: color("green");
+		
+		* {
+			color: color("white");
+		
+			&:link,
+			&:visited, {
+				color: color("white");
+			}
+			&:focus {
+				@include focused-text;
+			}
+		}
+	}
+	&.background-red {
+		background: color("red");
+		
+		* {
+			color: color("white");
+		
+			&:link,
+			&:visited, {
+				color: color("white");
+			}
+			&:focus {
+				@include focused-text;
+			}
+		}
+	}
+	&.background-black {
+		background: color("black");
+		
+		* {
+			color: color("white");
+		
+			&:link,
+			&:visited, {
+				color: color("white");
+			}
+			&:focus {
+				@include focused-text;
+			}
 		}
 	}
 
