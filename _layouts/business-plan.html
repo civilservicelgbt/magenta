@@ -12,15 +12,6 @@ layout: default
 
 		<div class="grid-row">
 
-		<ul id="markdown-toc">
-			{% for obj in page.objectives %}
-			<li><a href="{{ obj.objective | slugify | prepend: '#' }}">{{ obj.objective }}</a></li>
-			{% endfor %}
-		</ul>
-
-
-		<div id="markdown-content">
-
 			{{ content }}
 
 			<div class="button-group button-group--clearfix">
@@ -120,8 +111,6 @@ layout: default
 			</details>
 
 			{% endfor %}
-
-		</div>
 
 		</div>
 
