@@ -2,13 +2,7 @@
   <h2 class="networks--network-list--item--network">{{ network.department }}</h2>
   <p>{{ network.network }}</p>
 
-  {% if network.email != '' %}
+  {% if network.email %}
   <a href="mailto:{{ network.email }}" title="email {{ network.network }} at {{ network.email }}">Email this network</a>
-  {% endif %}
-  {% if network.website != '' %}
-  <a href="{{ network.website }}" title="Open {{ network.network }}s website" rel="external noreferrer nofollow">Network website</a>
-  {% endif %}
-  {% if network.twitter != '' %}
-  <a href="mailto:{{ network.twitter }}" title="Open {{ network.network }}s Twitter">Twitter</a>
   {% endif %}
 </li>
