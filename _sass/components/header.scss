@@ -3,7 +3,7 @@
 @function _equilateral-height($base) {
   $square-root-of-three: 1.732;
 
-  @return calc($base / 2) * $square-root-of-three;
+  @return ($base * 0.5) * $square-root-of-three;
 }
 
 /// Arrow mixin
@@ -17,7 +17,7 @@
   border-style: solid;
   border-color: transparent; // 1
 
-  $perpendicular: calc($base / 2);
+  $perpendicular: $base * 0.5;
 
   @if ($height == null) {
 	$height: _equilateral-height($base);
