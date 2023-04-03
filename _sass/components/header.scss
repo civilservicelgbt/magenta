@@ -299,7 +299,7 @@
 	border-bottom: none;
 
 	@include media-query($until: tablet) {
-		margin-bottom: calc($gutter / 2) !important;
+		margin-bottom: $gutter * 0.5 !important;
 	}
 }
 
