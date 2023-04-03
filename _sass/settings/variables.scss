@@ -488,7 +488,7 @@ $input-padding:                     5px;
 $touch-target-size: 44px;
 $checkboxes-size: 40px;
 $small-checkboxes-size: 24px;
-$checkboxes--input-offset: calc(($touch-target-size - $checkboxes-size) / 2);
+$checkboxes--input-offset: ($touch-target-size - $checkboxes-size) * 0.5;
 
 
 // =========================================================
