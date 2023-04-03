@@ -136,7 +136,7 @@
 
 .checkboxes--small {
 
-$checkboxes--input-offset: calc(($touch-target-size - $small-checkboxes-size) / 2);
+$checkboxes--input-offset: ($touch-target-size - $small-checkboxes-size) * 0.5;
 $label-offset: $touch-target-size - $checkboxes--input-offset;
 
 .checkboxes--item {
