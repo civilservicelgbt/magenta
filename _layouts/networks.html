@@ -14,12 +14,7 @@ layout: default
 
 <div id="networks-list" class="grid-row">
   
-    {% assign deptnetworks = site.data.networks | where: "type", "Departmental" %}
-    {% assign networkscount = 0 %}
-    {% for network in deptnetworks %}
-    {% assign networkscount = networkscount | plus: 1 %}
-    {% endfor %}
-    {% assign networkscount = networkscount | divided_by: 2 %}
+    {% assign deptnetworks = site.data.networks %}
     
   <div class="grid-column-two-thirds">
     <ul class="list--no-styles networks--network-list">
