@@ -15,7 +15,7 @@ $grid-widths: (
 $gutter: 30px !default;
 
 /// Width of half the gutter between grid columns
-$gutter-half: calc($gutter / 2);
+$gutter-half: $gutter * 0.5;
 
 $breakpoints: (
     mobile:  320px,
