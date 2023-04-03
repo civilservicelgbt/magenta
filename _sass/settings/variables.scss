@@ -15,7 +15,7 @@ $grid-widths: (
 $gutter: 30px !default;
 
 /// Width of half the gutter between grid columns
-$gutter-half: $gutter / 2;
+$gutter-half: calc($gutter / 2);
 
 $breakpoints: (
     mobile:  320px,
@@ -488,7 +488,7 @@ $input-padding:                     5px;
 $touch-target-size: 44px;
 $checkboxes-size: 40px;
 $small-checkboxes-size: 24px;
-$checkboxes--input-offset: ($touch-target-size - $checkboxes-size) / 2;
+$checkboxes--input-offset: calc(($touch-target-size - $checkboxes-size) / 2);
 
 
 // =========================================================
@@ -501,7 +501,7 @@ $radios-label-padding-left-right: spacing(3);
 // When the default focus width is used on a curved edge it looks visually smaller.
 // So for the circular radios we bump the default to make it look visually consistent.
 $radios-focus-width: $focus-width + 1px;
-$radios--input-offset: ($touch-target-size - $radios-size) / 2;
+$radios--input-offset: calc(($touch-target-size - $radios-size) / 2);
 
 // =========================================================
 // Breadcrumbs
