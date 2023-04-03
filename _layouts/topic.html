@@ -41,14 +41,14 @@ meta-info: false
                 <p>You can subscribe to this group by sending an email to:
                 <br><code>{{ group.email | replace: "@", "+subscribe@" }}</code></p>
                 
-                <a href="mailto:{{ group.email | replace: "@", "+subscribe@" }}?subject=SUBSCRIBE&body=Send%20this%20email%20to%20subscribe%20to%20the%20North%20West%20group.%0D%0A%0D%0AYou%20will%20receive%20a%20reply%20asking%20you%20to%20confirm%20your%20subscription.%0D%0A%0D%0AReply%20with%20a%20blank%20email%20to%20confirm%20your%20subscription.%0D%0A%0D%0AIf%20you%20change%20your%20mind%2C%20you%20can%20unsubscribe%20at%20any%20time%20by%20emailing%20northwest%2Bunsubscribe%40groups.civilservice.lgbt" class="button" title="Subscribe to the {{ group.name }} Group (Opens a new email in a new window)" target="_blank">Subscribe to the {{ group.name }} group</a>
+                <a href="mailto:{{ group.email | replace: "@", "+subscribe@" }}?subject=SUBSCRIBE&body=Send%20this%20email%20to%20subscribe%20to%20the%20group.%0D%0A%0D%0AYou%20will%20receive%20a%20reply%20asking%20you%20to%20confirm%20your%20subscription.%0D%0A%0D%0AReply%20with%20a%20blank%20email%20to%20confirm%20your%20subscription." class="button" title="Subscribe to the {{ group.name }} Group (Opens a new email in a new window)" target="_blank">Subscribe to the {{ group.name }} group</a>
               
                 
                 <h4>Unsubscribe from the {{ group.name }} group</h4>
                 <p>If you want to stop receiving emails from this group send an email from the same email as you registered with to:
                 <br><code>{{ group.email | replace: "@", "+unsubscribe@" }}</code>.</p>
                 
-                <a href="mailto:{{ group.email | replace: "@", "+unsubscribe@" }}?subject=UNSUBSCRIBE&body=Send%20this%20email%20to%20unsubscribe%20from%20the%20North%20West%20group.%0D%0A%0D%0AYou%20must%20send%20the%20email%20from%20the%20same%20email%20address%20you%20signed%20up%20with%20in%20order%20for%20this%20to%20work." class="button" title="Unsubscribe from the {{ group.name }} Group (Opens a new email in a new window)" target="_blank">Unsubscribe from the {{ group.name }} group</a>
+                <a href="mailto:{{ group.email | replace: "@", "+unsubscribe@" }}?subject=UNSUBSCRIBE&body=Send%20this%20email%20to%20unsubscribe%20from%20the%20group.%0D%0A%0D%0AYou%20must%20send%20the%20email%20from%20the%20same%20email%20address%20you%20signed%20up%20with%20in%20order%20for%20this%20to%20work." class="button" title="Unsubscribe from the {{ group.name }} Group (Opens a new email in a new window)" target="_blank">Unsubscribe from the {{ group.name }} group</a>
               </details>
               
             </div>
