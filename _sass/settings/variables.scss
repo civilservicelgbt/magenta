@@ -501,7 +501,7 @@ $radios-label-padding-left-right: spacing(3);
 // When the default focus width is used on a curved edge it looks visually smaller.
 // So for the circular radios we bump the default to make it look visually consistent.
 $radios-focus-width: $focus-width + 1px;
-$radios--input-offset: calc(($touch-target-size - $radios-size) / 2);
+$radios--input-offset: ($touch-target-size - $radios-size) * 0.5;
 
 // =========================================================
 // Breadcrumbs
