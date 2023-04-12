@@ -9,7 +9,7 @@
 	margin-right: 0;
 	margin-left: 0;
 	@include responsive-margin(6, "bottom", $adjustment: $button-shadow-size); // s2
-	padding: (spacing(2) - $border-width-form-element) spacing(2) (spacing(2) - $border-width-form-element - calc($button-shadow-size / 2)); // s1
+	padding: (spacing(2) - $border-width-form-element) spacing(2) (spacing(2) - $border-width-form-element - ($button-shadow-size * 0.5)); // s1
 	border: $border-width-form-element solid transparent;
 	border-radius: 0;
 	color: $button-text-color;
@@ -290,7 +290,7 @@ button[disabled] {
 	margin-right: 0;
 	margin-left: 0;
 	@include responsive-margin(6, "bottom", $adjustment: $button-shadow-size); // s2
-	padding: (spacing(2) - $border-width-form-element) spacing(2) (spacing(2) - $border-width-form-element - calc($button-shadow-size / 2)); // s1
+	padding: (spacing(2) - $border-width-form-element) spacing(2) (spacing(2) - $border-width-form-element - ($button-shadow-size * 0.5)); // s1
 	border: $border-width-form-element solid transparent;
 	border-radius: 0;
 	color: $button-text-color;
