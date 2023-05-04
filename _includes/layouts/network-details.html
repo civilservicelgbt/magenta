@@ -2,7 +2,7 @@
   <h2 class="networks--network-list--item--network">{{ network.department }}</h2>
   <p>{{ network.network }}</p>
 
-  {% if network.email %}
+  {% if network.email and network.email != '' %}
   <a href="mailto:{{ network.email }}" title="email {{ network.network }} at {{ network.email }}">Email this network</a>
   {% endif %}
 </li>
