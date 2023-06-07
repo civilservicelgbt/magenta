@@ -58,6 +58,20 @@ details > summary {
 			color: color("black");
 		}
 	}
+	
+	span.vote-header,
+	span.vote-detail {
+		display: block;
+	}
+	
+	span.vote-detail {
+		@include font($size: 19, $line-height: 24);
+	}
+	
+	span.vote-highlight {
+		color: color("magenta--accessible");
+		@include font($size: 19, $line-height: 24, $weight: bold);
+	}
 
 }
 

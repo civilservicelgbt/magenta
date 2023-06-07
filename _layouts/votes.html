@@ -1,0 +1,98 @@
+---
+layout: default
+meta-info: false
+---
+
+<article class="article--{{ page.layout }}">
+
+	<div class="grid-row">
+		{% include layouts/header.html %}
+	</div>
+
+	<div class="grid-row">
+		<div class="grid-column-two-thirds">
+			
+			<div class="page--content">
+			
+			{{ content }}
+			
+			<h2>Full election results breakdown</h2>
+			
+			<p>The votes received from each department and agency are listed below. The rank order of candidates for each department and agency vote can be viewed by selecting 'Show more'.</p>
+			
+			{% for item in site.data.votes2023 %}
+				
+			<details>
+			
+				<summary>
+					<span class="vote-header">{{ item.Department }}</span>
+					{% if item.Voted == false %}
+					
+					{% else %}
+					<span class="vote-detail">Voted for <span class="vote-highlight">{{ item.Winner }}</span></span>
+					{% endif %}
+				</summary>
+			
+				<table>
+				
+					<thead>
+						<th>
+							Candidate
+						</th>
+						<th>
+							Rank
+						</th>
+					</thead>
+					
+					<tr>
+						<td>
+							Eamon Evans
+						</td>
+						<td>
+							{{ item.Eamon_Evans }}
+						</td>
+					</tr>
+						<td>
+							Ross Starkie
+						</td>
+						<td>
+							{{ item.Ross_Starkie }}
+						</td>
+					</tr>
+						<td>
+							Nic Turner
+						</td>
+						<td>
+							{{ item.Nic_Turner }}
+						</td>
+					</tr>
+						<td>
+							Saorsa-Amatheia Tweedale and Jefferson Welsby
+						</td>
+						<td>
+							{{ item.Saorsa_Amatheia_Tweedale_Jefferson_Welsby }}
+						</td>
+					</tr>
+						<td>
+							Re-open Nominations
+						</td>
+						<td>
+							{{ item.Re_Open_Nominations }}
+						</td>
+					</tr>
+					</tr>
+				
+				</table>
+			
+			</details>	
+				
+			{% endfor %}
+			
+			</table>
+			
+			</div>
+
+		</div>
+	</div>
+
+</article>
