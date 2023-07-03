@@ -21,16 +21,27 @@ meta-info: false
 			<p>The votes received from each department and agency are listed below. The rank order of candidates for each department and agency vote can be viewed by selecting 'Show more'.</p>
 			
 			{% for item in site.data.votes2023 %}
+			
+			{% if item.Voted == "false" or item.Voted == false %}
+			
+			<details>
 				
+				<summary>
+					<span class="vote-header">{{ item.Department }}</span>
+					<span class="vote-detail">This network did not submit a valid vote</span>
+				</summary>
+				
+				This network either did not submit a vote, or did not submit a vote before the voting deadline.
+				
+			</details>
+
+			{% else %}
+
 			<details>
 			
 				<summary>
 					<span class="vote-header">{{ item.Department }}</span>
-					{% if item.Voted == false %}
-					
-					{% else %}
 					<span class="vote-detail">Voted for <span class="vote-highlight">{{ item.Winner }}</span></span>
-					{% endif %}
 				</summary>
 			
 				<table>
@@ -85,7 +96,9 @@ meta-info: false
 				</table>
 			
 			</details>	
-				
+			
+			{% endif %}
+
 			{% endfor %}
 			
 			</table>
