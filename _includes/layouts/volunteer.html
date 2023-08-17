@@ -1,4 +1,4 @@
-{% assign volunteers = site.team | where_exp: "volunteer", "volunteer.role == volunteerType and (volunteer.archive != true or volunteer.archive != 'true')" %}
+{% assign volunteers = site.team | where_exp: "volunteer", "volunteer.role == volunteerType and volunteer.archive != true or volunteer.role == volunteerType and volunteer.archive != 'true'" %}
 
 {% if volunteerType == "project team" %}
 	{% assign volunteers = volunteers | sort: "project" %}
