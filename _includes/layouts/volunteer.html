@@ -1,4 +1,5 @@
-{% assign volunteers = site.team | where_exp: "volunteer", "volunteer.role == volunteerType and volunteer.archive != true or volunteer.archive != 'true'" %}
+{% assign volunteers = site.team | where_exp: "volunteer", "volunteer.role == volunteerType" %}
+{% if volunteer.archive != true or volunteer.archive != 'true' %}
 {% if volunteerType == "project team" %}
 	{% assign volunteers = volunteers | sort: "project" %}
 {% else volunteerType == "local organiser" %}
@@ -30,3 +31,4 @@
 	</a>
 </div>
 {% endfor %}
+{% endif %}
