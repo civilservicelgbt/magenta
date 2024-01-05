@@ -13,6 +13,7 @@ _data/
 _tools/
 _archives/
 _consultations/
+_conference/
 _contact/
 _events/
 _past-events/
@@ -26,6 +27,7 @@ _topics/
 _pages/
 _rules/
 _team/
+assets/images/uploads
 store/
 CNAME
 feed.xml
