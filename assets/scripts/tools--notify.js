@@ -132,7 +132,7 @@
 		console.groupEnd()
 
 		emailMessageContent += "---\n"
-		emailMessageContent += "If you no longer want to receive our email alerts, please email us at [updates@alerts.civilservice.lgbt](mailto:updates@alerts.civilservice.lgbt) or just reply to this email."
+		emailMessageContent += "If you no longer want to receive our email alerts, please [email us to unsubscribe](mailto:updates@alerts.civilservice.lgbt?subject=UNSUBSCRIBE)."
 
 		inputTemplateName.value = emailTemplateName;
 		inputSubject.value = emailSubject;
